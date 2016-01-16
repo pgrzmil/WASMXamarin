@@ -90,10 +90,6 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="PerformanceTestController.cs" />
-    <Compile Include="PerformanceTestController.designer.cs">
-      <DependentUpon>PerformanceTestController.cs</DependentUpon>
-    </Compile>
     <Compile Include="ViewControllers\InterfaceTestController.cs" />
     <Compile Include="ViewControllers\InterfaceTestController.designer.cs">
       <DependentUpon>InterfaceTestController.cs</DependentUpon>
