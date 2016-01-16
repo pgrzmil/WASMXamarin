@@ -90,6 +90,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="TableViewSource.cs" />
     <Compile Include="ViewControllers\InterfaceTestController.cs" />
     <Compile Include="ViewControllers\InterfaceTestController.designer.cs">
       <DependentUpon>InterfaceTestController.cs</DependentUpon>

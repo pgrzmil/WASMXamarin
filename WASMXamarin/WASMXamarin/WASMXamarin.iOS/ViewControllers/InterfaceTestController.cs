@@ -1,11 +1,18 @@
+using CoreAnimation;
+using CoreGraphics;
+using Foundation;
 using System;
 
 using UIKit;
 
 namespace WASMXamarin.iOS.ViewControllers
 {
-    public partial class InterfaceTestController : UITableViewController
+    public partial class InterfaceTestController : UIViewController
     {
+        public int frameCount { get; set; }
+        public CADisplayLink displayLink { get; set; }
+        public double startTime { get; set; }
+
         public InterfaceTestController(IntPtr handle) : base(handle)
         {
         }
@@ -13,15 +20,44 @@ namespace WASMXamarin.iOS.ViewControllers
         public override void DidReceiveMemoryWarning()
         {
             base.DidReceiveMemoryWarning();
-
-            // Release any cached data, images, etc that aren't in use.
         }
 
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-
-            // Perform any additional setup after loading the view, typically from a nib.
+            Title = "Test interfejsu";
+            string[] tableItems = new string[] { "Vegetables", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Tubers", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs" };
+            tableView.Source = new TableSource(tableItems);
+            startFpsCounter();
         }
+
+        void startFpsCounter()
+        {
+            displayLink = CADisplayLink.Create(updateFpsCounter);
+            startTime = CAAnimation.CurrentMediaTime();
+            displayLink.AddToRunLoop(NSRunLoop.Current, NSRunLoopMode.Common);
+        }
+
+        void stopFpsCounter()
+        {
+            displayLink.Invalidate();
+            displayLink = null;
+        }
+
+        void updateFpsCounter()
+        {
+            frameCount++;
+            double now = CAAnimation.CurrentMediaTime();
+            double elapsed = now - startTime;
+
+            if (elapsed >= 1.0)
+            {
+                double frameRate = this.frameCount / elapsed;
+                fpsLabel.Text = string.Format("{0} fps", Math.Round(frameRate));
+                frameCount = 0;
+                startTime = now;
+            }
+        }
+
     }
 }

@@ -14,8 +14,24 @@ namespace WASMXamarin.iOS.ViewControllers
 	[Register ("InterfaceTestController")]
 	partial class InterfaceTestController
 	{
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel fpsLabel { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UITableView tableView { get; set; }
+
 		void ReleaseDesignerOutlets ()
 		{
+			if (fpsLabel != null) {
+				fpsLabel.Dispose ();
+				fpsLabel = null;
+			}
+			if (tableView != null) {
+				tableView.Dispose ();
+				tableView = null;
+			}
 		}
 	}
 }
