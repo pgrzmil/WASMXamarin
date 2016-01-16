@@ -90,11 +90,32 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="PerformanceTestController.cs" />
+    <Compile Include="PerformanceTestController.designer.cs">
+      <DependentUpon>PerformanceTestController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\InterfaceTestController.cs" />
+    <Compile Include="ViewControllers\InterfaceTestController.designer.cs">
+      <DependentUpon>InterfaceTestController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\NetworkTestController.cs" />
+    <Compile Include="ViewControllers\NetworkTestController.designer.cs">
+      <DependentUpon>NetworkTestController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\PerformanceTestController.cs" />
+    <Compile Include="ViewControllers\PerformanceTestController.designer.cs">
+      <DependentUpon>PerformanceTestController.cs</DependentUpon>
+    </Compile>
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
+    <Compile Include="ViewControllers\MainViewController.cs" />
+    <Compile Include="ViewControllers\MainViewController.designer.cs">
+      <DependentUpon>MainViewController.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <ITunesArtwork Include="iTunesArtwork" />
-    <ITunesArtwork Include="iTunesArtwork@2x" />
+    <ITunesArtwork Include="Resources\iTunesArtwork" />
+    <ITunesArtwork Include="Resources\iTunesArtwork%402x" />
+    <InterfaceDefinition Include="MainInterface.storyboard" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
