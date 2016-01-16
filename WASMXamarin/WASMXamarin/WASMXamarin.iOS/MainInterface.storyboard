@@ -177,7 +177,69 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" customColorSpace="calibratedWhite" colorSpace="calibratedRGB" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="00:00" lineBreakMode="tailTruncation" minimumFontSize="10" id="683" translatesAutoresizingMaskIntoConstraints="NO" hidden="YES">
+                                <rect key="frame" x="480" y="86" width="100" height="27.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <constraints>
+                                    <constraint id="698" firstItem="683" firstAttribute="width" constant="100"/>
+                                </constraints>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="684" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="419" y="84.5" width="47" height="30"/>
+                                <state key="normal" title="START">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" colorSpace="calibratedRGB" red="0.13725490196078433" green="0.83137254901960789" blue="0.20784313725490197" alpha="1"/>
+                                </state>
+                                <connections/>
+                                <constraints>
+                                    <constraint id="699" firstItem="684" firstAttribute="width" constant="47"/>
+                                </constraints>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="685" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Adres" horizontalContentHuggingPriority="369">
+                                <rect key="frame" x="20" y="84" width="391" height="31"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <color key="textColor" colorSpace="calibratedRGB" red="0" green="0" blue="0" alpha="1"/>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                <constraints>
+                                    <constraint id="686" firstItem="685" firstAttribute="height" constant="31"/>
+                                </constraints>
+                            </textField>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="687" animating="YES" hidden="YES">
+                                <rect key="frame" x="432.5" y="89.5" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="700" translatesAutoresizingMaskIntoConstraints="NO" clipsSubviews="YES">
+                                <rect key="frame" x="20" y="123" width="560" height="457"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint id="688" firstItem="685" firstAttribute="leading" secondItem="128" secondAttribute="leading" constant="20"/>
+                            <constraint id="689" firstItem="685" firstAttribute="top" secondItem="124" secondAttribute="bottom" constant="20"/>
+                            <constraint id="690" firstItem="687" firstAttribute="centerX" secondItem="684" secondAttribute="centerX"/>
+                            <constraint id="691" firstItem="687" firstAttribute="centerY" secondItem="684" secondAttribute="centerY"/>
+                            <constraint id="692" firstItem="684" firstAttribute="leading" secondItem="685" secondAttribute="trailing" constant="8"/>
+                            <constraint id="693" firstItem="687" firstAttribute="top" secondItem="684" secondAttribute="top" constant="5"/>
+                            <constraint id="694" firstItem="684" firstAttribute="centerY" secondItem="685" secondAttribute="centerY"/>
+                            <constraint id="695" firstItem="683" firstAttribute="leading" secondItem="684" secondAttribute="trailing" constant="14"/>
+                            <constraint id="696" firstItem="684" firstAttribute="centerY" secondItem="683" secondAttribute="centerY"/>
+                            <constraint id="697" firstItem="128" firstAttribute="trailing" secondItem="683" secondAttribute="trailing" constant="20"/>
+                            <constraint id="701" firstItem="700" firstAttribute="leading" secondItem="128" secondAttribute="leading" constant="20"/>
+                            <constraint id="702" firstItem="128" firstAttribute="trailing" secondItem="700" secondAttribute="trailing" constant="20"/>
+                            <constraint id="703" firstItem="700" firstAttribute="top" secondItem="685" secondAttribute="bottom" constant="8"/>
+                            <constraint id="704" firstItem="128" firstAttribute="bottom" secondItem="700" secondAttribute="bottom" constant="20"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="AdressField" destination="685" id="name-outlet-685"/>
+                        <outlet property="ActivityIndicator" destination="687" id="name-outlet-687"/>
+                        <outlet property="StartButton" destination="684" id="name-outlet-684"/>
+                        <outlet property="TimeLabel" destination="683" id="name-outlet-683"/>
+                        <outlet property="Picture" destination="700" id="name-outlet-700"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="129" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
