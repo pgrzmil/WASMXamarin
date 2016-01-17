@@ -16,37 +16,21 @@ namespace WASMXamarin.iOS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIActivityIndicatorView activity { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel label { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIImageView picture { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UISwitch toggle { get; set; }
+		UIView playerView { get; set; }
 
 		void ReleaseDesignerOutlets ()
 		{
-			if (activity != null) {
-				activity.Dispose ();
-				activity = null;
-			}
 			if (label != null) {
 				label.Dispose ();
 				label = null;
 			}
-			if (picture != null) {
-				picture.Dispose ();
-				picture = null;
-			}
-			if (toggle != null) {
-				toggle.Dispose ();
-				toggle = null;
+			if (playerView != null) {
+				playerView.Dispose ();
+				playerView = null;
 			}
 		}
 	}

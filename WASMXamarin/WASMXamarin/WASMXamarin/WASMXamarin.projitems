@@ -16,4 +16,7 @@
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)GettingStarted.Xamarin" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)video.mp4" />
+  </ItemGroup>
 </Project>

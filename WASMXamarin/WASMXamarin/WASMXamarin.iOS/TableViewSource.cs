@@ -31,7 +31,7 @@ namespace WASMXamarin.iOS
             {
                 cell = new InterfaceTestCell(CellIdentifier);
             }
-            (cell as InterfaceTestCell).UpdateCell(item, UIImage.FromFile("Default-Portrait@2x.png"), true);
+            (cell as InterfaceTestCell).UpdateCell(item);
             return cell;
         }
     }
