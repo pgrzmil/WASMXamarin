@@ -108,6 +108,9 @@
                                     <color key="titleColor" red="0.13725490196078433" green="0.83137254901960789" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="startCalculation:" destination="44" eventType="touchUpInside" id="eKv-kQ-bJh"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Dokładność" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="585">
                                 <rect key="frame" x="20" y="79" width="80" height="31"/>
@@ -155,11 +158,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="DigitsTextfield" destination="585" id="name-outlet-585"/>
-                        <outlet property="ResultView" destination="635" id="name-outlet-635"/>
-                        <outlet property="StartButton" destination="584" id="name-outlet-584"/>
-                        <outlet property="TimeLabel" destination="595" id="name-outlet-595"/>
-                        <outlet property="activityIndicator" destination="643" id="name-outlet-643"/>
+                        <outlet property="activityIndicator" destination="643" id="Q3V-zY-32c"/>
+                        <outlet property="digitsField" destination="585" id="3Ju-fQ-tz1"/>
+                        <outlet property="resultView" destination="635" id="SuM-G0-s1h"/>
+                        <outlet property="startButton" destination="584" id="am8-FU-k0X"/>
+                        <outlet property="timeLabel" destination="595" id="2dJ-qW-WGe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="46" userLabel="First Responder" sceneMemberID="firstResponder"/>
