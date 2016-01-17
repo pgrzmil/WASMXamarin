@@ -7,22 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		151D1E861C4BD78800F19558 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 151D1E851C4BD78800F19558 /* MainInterface.storyboard */; };
+		151D1E891C4BD80300F19558 /* InterfaceTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 151D1E881C4BD80300F19558 /* InterfaceTestController.m */; };
+		151D1E8C1C4BD81400F19558 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 151D1E8B1C4BD81400F19558 /* MainViewController.m */; };
+		151D1E8F1C4BD82500F19558 /* NetworkTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 151D1E8E1C4BD82500F19558 /* NetworkTestController.m */; };
+		151D1E921C4BD83600F19558 /* PerformanceTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 151D1E911C4BD83600F19558 /* PerformanceTestController.m */; };
+		151D1E951C4BD85A00F19558 /* InterfaceTestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 151D1E941C4BD85A00F19558 /* InterfaceTestCell.m */; };
+		151D1E971C4BD87000F19558 /* InterfaceTestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 151D1E961C4BD87000F19558 /* InterfaceTestCell.xib */; };
 		157DE1A21C4BAF9500C55D52 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 157DE1A11C4BAF9500C55D52 /* main.m */; };
 		157DE1A51C4BAF9500C55D52 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 157DE1A41C4BAF9500C55D52 /* AppDelegate.m */; };
-		157DE1A81C4BAF9500C55D52 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 157DE1A71C4BAF9500C55D52 /* ViewController.m */; };
-		157DE1AB1C4BAF9500C55D52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 157DE1A91C4BAF9500C55D52 /* Main.storyboard */; };
 		157DE1AD1C4BAF9500C55D52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 157DE1AC1C4BAF9500C55D52 /* Assets.xcassets */; };
 		157DE1B01C4BAF9500C55D52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 157DE1AE1C4BAF9500C55D52 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		151D1E851C4BD78800F19558 /* MainInterface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		151D1E871C4BD80300F19558 /* InterfaceTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceTestController.h; sourceTree = "<group>"; };
+		151D1E881C4BD80300F19558 /* InterfaceTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterfaceTestController.m; sourceTree = "<group>"; };
+		151D1E8A1C4BD81400F19558 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		151D1E8B1C4BD81400F19558 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		151D1E8D1C4BD82500F19558 /* NetworkTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkTestController.h; sourceTree = "<group>"; };
+		151D1E8E1C4BD82500F19558 /* NetworkTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkTestController.m; sourceTree = "<group>"; };
+		151D1E901C4BD83600F19558 /* PerformanceTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerformanceTestController.h; sourceTree = "<group>"; };
+		151D1E911C4BD83600F19558 /* PerformanceTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerformanceTestController.m; sourceTree = "<group>"; };
+		151D1E931C4BD85A00F19558 /* InterfaceTestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceTestCell.h; sourceTree = "<group>"; };
+		151D1E941C4BD85A00F19558 /* InterfaceTestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterfaceTestCell.m; sourceTree = "<group>"; };
+		151D1E961C4BD87000F19558 /* InterfaceTestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InterfaceTestCell.xib; sourceTree = "<group>"; };
 		157DE19D1C4BAF9500C55D52 /* WASMiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WASMiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		157DE1A11C4BAF9500C55D52 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		157DE1A31C4BAF9500C55D52 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		157DE1A41C4BAF9500C55D52 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		157DE1A61C4BAF9500C55D52 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		157DE1A71C4BAF9500C55D52 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		157DE1AA1C4BAF9500C55D52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		157DE1AC1C4BAF9500C55D52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		157DE1AF1C4BAF9500C55D52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		157DE1B11C4BAF9500C55D52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -39,6 +53,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		151D1E981C4BDA8600F19558 /* PerformanceTest */ = {
+			isa = PBXGroup;
+			children = (
+				151D1E901C4BD83600F19558 /* PerformanceTestController.h */,
+				151D1E911C4BD83600F19558 /* PerformanceTestController.m */,
+			);
+			name = PerformanceTest;
+			sourceTree = "<group>";
+		};
+		151D1E991C4BDA9A00F19558 /* NetworkTest */ = {
+			isa = PBXGroup;
+			children = (
+				151D1E8D1C4BD82500F19558 /* NetworkTestController.h */,
+				151D1E8E1C4BD82500F19558 /* NetworkTestController.m */,
+			);
+			name = NetworkTest;
+			sourceTree = "<group>";
+		};
+		151D1E9A1C4BDAA700F19558 /* InterfaceTest */ = {
+			isa = PBXGroup;
+			children = (
+				151D1E871C4BD80300F19558 /* InterfaceTestController.h */,
+				151D1E881C4BD80300F19558 /* InterfaceTestController.m */,
+				151D1E931C4BD85A00F19558 /* InterfaceTestCell.h */,
+				151D1E941C4BD85A00F19558 /* InterfaceTestCell.m */,
+				151D1E961C4BD87000F19558 /* InterfaceTestCell.xib */,
+			);
+			name = InterfaceTest;
+			sourceTree = "<group>";
+		};
+		151D1E9B1C4BDAE000F19558 /* MainInterface */ = {
+			isa = PBXGroup;
+			children = (
+				151D1E8A1C4BD81400F19558 /* MainViewController.h */,
+				151D1E8B1C4BD81400F19558 /* MainViewController.m */,
+				151D1E851C4BD78800F19558 /* MainInterface.storyboard */,
+			);
+			name = MainInterface;
+			sourceTree = "<group>";
+		};
 		157DE1941C4BAF9500C55D52 = {
 			isa = PBXGroup;
 			children = (
@@ -60,13 +114,14 @@
 			children = (
 				157DE1A31C4BAF9500C55D52 /* AppDelegate.h */,
 				157DE1A41C4BAF9500C55D52 /* AppDelegate.m */,
-				157DE1A61C4BAF9500C55D52 /* ViewController.h */,
-				157DE1A71C4BAF9500C55D52 /* ViewController.m */,
-				157DE1A91C4BAF9500C55D52 /* Main.storyboard */,
 				157DE1AC1C4BAF9500C55D52 /* Assets.xcassets */,
 				157DE1AE1C4BAF9500C55D52 /* LaunchScreen.storyboard */,
 				157DE1B11C4BAF9500C55D52 /* Info.plist */,
 				157DE1A01C4BAF9500C55D52 /* Supporting Files */,
+				151D1E9B1C4BDAE000F19558 /* MainInterface */,
+				151D1E9A1C4BDAA700F19558 /* InterfaceTest */,
+				151D1E991C4BDA9A00F19558 /* NetworkTest */,
+				151D1E981C4BDA8600F19558 /* PerformanceTest */,
 			);
 			path = WASMiOS;
 			sourceTree = "<group>";
@@ -138,8 +193,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				157DE1B01C4BAF9500C55D52 /* LaunchScreen.storyboard in Resources */,
+				151D1E861C4BD78800F19558 /* MainInterface.storyboard in Resources */,
 				157DE1AD1C4BAF9500C55D52 /* Assets.xcassets in Resources */,
-				157DE1AB1C4BAF9500C55D52 /* Main.storyboard in Resources */,
+				151D1E971C4BD87000F19558 /* InterfaceTestCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,23 +206,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				157DE1A81C4BAF9500C55D52 /* ViewController.m in Sources */,
+				151D1E921C4BD83600F19558 /* PerformanceTestController.m in Sources */,
+				151D1E951C4BD85A00F19558 /* InterfaceTestCell.m in Sources */,
 				157DE1A51C4BAF9500C55D52 /* AppDelegate.m in Sources */,
 				157DE1A21C4BAF9500C55D52 /* main.m in Sources */,
+				151D1E891C4BD80300F19558 /* InterfaceTestController.m in Sources */,
+				151D1E8F1C4BD82500F19558 /* NetworkTestController.m in Sources */,
+				151D1E8C1C4BD81400F19558 /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		157DE1A91C4BAF9500C55D52 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				157DE1AA1C4BAF9500C55D52 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		157DE1AE1C4BAF9500C55D52 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -299,6 +351,7 @@
 				157DE1B61C4BAF9500C55D52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
