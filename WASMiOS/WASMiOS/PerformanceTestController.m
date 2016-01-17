@@ -36,6 +36,7 @@
     self.activityIndicator.hidden = NO;
     self.timeLabel.hidden = NO;
     self.startButton.hidden = YES;
+    self.digitsField.userInteractionEnabled = NO;
     
     self.timer = [NSTimer scheduledTimerWithTimeInterval:0.001
                                      target:self
@@ -50,6 +51,7 @@
             self.resultView.text = pi;
             self.activityIndicator.hidden = YES;
             self.startButton.hidden = NO;
+            self.digitsField.userInteractionEnabled = YES;
             [self.timer invalidate];
         });
     });

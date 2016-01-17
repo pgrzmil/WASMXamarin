@@ -200,6 +200,9 @@
                                     <color key="titleColor" red="0.13725490196078433" green="0.83137254901960789" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="startDownloading:" destination="127" eventType="touchUpInside" id="5Sx-b1-LgT"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Adres" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="685">
                                 <rect key="frame" x="20" y="84" width="391" height="31"/>
@@ -237,11 +240,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="ActivityIndicator" destination="687" id="name-outlet-687"/>
-                        <outlet property="AdressField" destination="685" id="name-outlet-685"/>
-                        <outlet property="Picture" destination="700" id="name-outlet-700"/>
-                        <outlet property="StartButton" destination="684" id="name-outlet-684"/>
-                        <outlet property="TimeLabel" destination="683" id="name-outlet-683"/>
+                        <outlet property="ResultPicture" destination="700" id="8kA-3m-Z0R"/>
+                        <outlet property="activityIndicator" destination="687" id="hVG-Sh-cfA"/>
+                        <outlet property="addressField" destination="685" id="cxV-82-R6B"/>
+                        <outlet property="startButton" destination="684" id="24B-pK-qSt"/>
+                        <outlet property="timeLabel" destination="683" id="Pqj-22-sGP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="129" userLabel="First Responder" sceneMemberID="firstResponder"/>
