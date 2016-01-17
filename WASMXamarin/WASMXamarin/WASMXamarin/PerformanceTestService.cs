@@ -10,7 +10,7 @@ namespace WASMXamarin
     {
         public static string CalculatePi(int digits)
         {
-            string result = "";
+            StringBuilder result = new StringBuilder();
             digits++;
 
             uint[] x = new uint[digits * 3 + 2];
@@ -35,13 +35,13 @@ namespace WASMXamarin
                     carry = q * num;
                 }
                 if (i < digits - 1)
-                    result += (x[x.Length - 1] / 10).ToString();
+                    result.Append((x[x.Length - 1] / 10).ToString());
                 r[x.Length - 1] = x[x.Length - 1] % 10; ;
                 for (int j = 0; j < x.Length; j++)
                     x[j] = r[j] * 10;
             }
 
-            return result.Insert(1, ".");
+            return result.ToString().Insert(1, ".");
         }     
     }
 }
