@@ -23,17 +23,15 @@ namespace WASMXamarin.iOS
 
         public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
         {
-            UITableViewCell cell = tableView.DequeueReusableCell(CellIdentifier);
+            tableView.RegisterNibForCellReuse(UINib.FromName("InterfaceTestCell", NSBundle.MainBundle), CellIdentifier);
+            UITableViewCell cell = tableView.DequeueReusableCell(CellIdentifier, indexPath);
             string item = TableItems[indexPath.Row];
 
-            //---- if there are no cells to reuse, create a new one
             if (cell == null)
             {
-                cell = new UITableViewCell(UITableViewCellStyle.Default, CellIdentifier);
+                cell = new InterfaceTestCell(CellIdentifier);
             }
-
-            cell.TextLabel.Text = item;
-
+            (cell as InterfaceTestCell).UpdateCell(item, UIImage.FromFile("Default-Portrait@2x.png"), true);
             return cell;
         }
     }

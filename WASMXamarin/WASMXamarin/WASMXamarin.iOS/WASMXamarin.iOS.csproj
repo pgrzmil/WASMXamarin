@@ -88,6 +88,10 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="InterfaceTestCell.cs" />
+    <Compile Include="InterfaceTestCell.designer.cs">
+      <DependentUpon>InterfaceTestCell.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="TableViewSource.cs" />
@@ -113,6 +117,7 @@
     <ITunesArtwork Include="Resources\iTunesArtwork" />
     <ITunesArtwork Include="Resources\iTunesArtwork%402x" />
     <InterfaceDefinition Include="MainInterface.storyboard" />
+    <InterfaceDefinition Include="InterfaceTestCell.xib" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
