@@ -13,7 +13,7 @@
 		151D1E8F1C4BD82500F19558 /* NetworkTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 151D1E8E1C4BD82500F19558 /* NetworkTestController.m */; };
 		151D1E921C4BD83600F19558 /* PerformanceTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 151D1E911C4BD83600F19558 /* PerformanceTestController.m */; };
 		151D1E951C4BD85A00F19558 /* InterfaceTestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 151D1E941C4BD85A00F19558 /* InterfaceTestCell.m */; };
-		151D1E971C4BD87000F19558 /* InterfaceTestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 151D1E961C4BD87000F19558 /* InterfaceTestCell.xib */; };
+		151D1E9F1C4BF5F600F19558 /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 151D1E9E1C4BF5F600F19558 /* video.mp4 */; };
 		157DE1A21C4BAF9500C55D52 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 157DE1A11C4BAF9500C55D52 /* main.m */; };
 		157DE1A51C4BAF9500C55D52 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 157DE1A41C4BAF9500C55D52 /* AppDelegate.m */; };
 		157DE1AD1C4BAF9500C55D52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 157DE1AC1C4BAF9500C55D52 /* Assets.xcassets */; };
@@ -32,7 +32,7 @@
 		151D1E911C4BD83600F19558 /* PerformanceTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerformanceTestController.m; sourceTree = "<group>"; };
 		151D1E931C4BD85A00F19558 /* InterfaceTestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceTestCell.h; sourceTree = "<group>"; };
 		151D1E941C4BD85A00F19558 /* InterfaceTestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterfaceTestCell.m; sourceTree = "<group>"; };
-		151D1E961C4BD87000F19558 /* InterfaceTestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InterfaceTestCell.xib; sourceTree = "<group>"; };
+		151D1E9E1C4BF5F600F19558 /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
 		157DE19D1C4BAF9500C55D52 /* WASMiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WASMiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		157DE1A11C4BAF9500C55D52 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		157DE1A31C4BAF9500C55D52 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -74,11 +74,10 @@
 		151D1E9A1C4BDAA700F19558 /* InterfaceTest */ = {
 			isa = PBXGroup;
 			children = (
-				151D1E871C4BD80300F19558 /* InterfaceTestController.h */,
-				151D1E881C4BD80300F19558 /* InterfaceTestController.m */,
 				151D1E931C4BD85A00F19558 /* InterfaceTestCell.h */,
 				151D1E941C4BD85A00F19558 /* InterfaceTestCell.m */,
-				151D1E961C4BD87000F19558 /* InterfaceTestCell.xib */,
+				151D1E871C4BD80300F19558 /* InterfaceTestController.h */,
+				151D1E881C4BD80300F19558 /* InterfaceTestController.m */,
 			);
 			name = InterfaceTest;
 			sourceTree = "<group>";
@@ -112,6 +111,7 @@
 		157DE19F1C4BAF9500C55D52 /* WASMiOS */ = {
 			isa = PBXGroup;
 			children = (
+				151D1E9E1C4BF5F600F19558 /* video.mp4 */,
 				157DE1A31C4BAF9500C55D52 /* AppDelegate.h */,
 				157DE1A41C4BAF9500C55D52 /* AppDelegate.m */,
 				157DE1AC1C4BAF9500C55D52 /* Assets.xcassets */,
@@ -193,9 +193,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				157DE1B01C4BAF9500C55D52 /* LaunchScreen.storyboard in Resources */,
+				151D1E9F1C4BF5F600F19558 /* video.mp4 in Resources */,
 				151D1E861C4BD78800F19558 /* MainInterface.storyboard in Resources */,
 				157DE1AD1C4BAF9500C55D52 /* Assets.xcassets in Resources */,
-				151D1E971C4BD87000F19558 /* InterfaceTestCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

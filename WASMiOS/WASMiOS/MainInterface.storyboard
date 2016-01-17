@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -274,15 +275,55 @@
                                 <rect key="frame" x="0.0" y="101" width="600" height="499"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="44" id="1013">
-                                        <rect key="frame" x="0.0" y="22" width="600" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TableCell" rowHeight="250" id="YsS-0a-YJY" customClass="InterfaceTestCell">
+                                        <rect key="frame" x="0.0" y="22" width="600" height="250"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1013" id="MiP-UQ-QM4">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YsS-0a-YJY" id="6j2-8F-elh">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="249.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMg-eO-xtx">
+                                                    <rect key="frame" x="8" y="8" width="584" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pge-DY-wrv">
+                                                    <rect key="frame" x="8" y="36" width="584" height="208"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-76" translatesAutoresizingMaskIntoConstraints="NO" id="PuY-ej-i3A">
+                                                    <rect key="frame" x="562" y="211.5" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="59A-lG-w2r"/>
+                                                        <constraint firstAttribute="height" constant="20" id="OJq-Rj-dZ2"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.071143336594104767" green="0.82556742429733276" blue="0.48668563365936279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Pge-DY-wrv" secondAttribute="bottom" constant="5" id="5YU-ow-Gy1"/>
+                                                <constraint firstItem="hMg-eO-xtx" firstAttribute="leading" secondItem="6j2-8F-elh" secondAttribute="leadingMargin" id="8F8-uY-wMf"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="PuY-ej-i3A" secondAttribute="bottom" constant="10" id="9Tk-jY-PCN"/>
+                                                <constraint firstItem="hMg-eO-xtx" firstAttribute="trailing" secondItem="6j2-8F-elh" secondAttribute="trailingMargin" id="QJv-Me-Hov"/>
+                                                <constraint firstItem="Pge-DY-wrv" firstAttribute="top" secondItem="hMg-eO-xtx" secondAttribute="bottom" constant="8" id="Rei-bi-0Mu"/>
+                                                <constraint firstAttribute="trailing" secondItem="Pge-DY-wrv" secondAttribute="trailing" constant="8" id="YQM-MO-RDz"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="PuY-ej-i3A" secondAttribute="trailing" constant="10" id="a7B-dK-zSR"/>
+                                                <constraint firstItem="Pge-DY-wrv" firstAttribute="leading" secondItem="6j2-8F-elh" secondAttribute="leading" constant="8" id="oKT-lX-vfH"/>
+                                                <constraint firstItem="hMg-eO-xtx" firstAttribute="top" secondItem="6j2-8F-elh" secondAttribute="topMargin" id="wMM-Vh-NUa"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="icon" destination="PuY-ej-i3A" id="0XI-G1-3Gd"/>
+                                            <outlet property="label" destination="hMg-eO-xtx" id="pPG-7b-uA9"/>
+                                            <outlet property="playerView" destination="Pge-DY-wrv" id="DPD-qw-Ait"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="729" id="PZq-he-VSd"/>
+                                    <outlet property="delegate" destination="729" id="eSO-OL-y7F"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
@@ -296,8 +337,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="fpsLabel" destination="998" id="name-outlet-998"/>
-                        <outlet property="tableView" destination="1012" id="name-outlet-1012"/>
+                        <outlet property="fpsLabel" destination="998" id="qt7-PE-ryv"/>
+                        <outlet property="tableView" destination="1012" id="BKS-Do-42Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="731" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -305,4 +346,7 @@
             <point key="canvasLocation" x="668" y="352"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Icon-76" width="38" height="38"/>
+    </resources>
 </document>

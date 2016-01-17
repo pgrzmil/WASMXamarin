@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface InterfaceTestCell : UITableViewCell
-
+-(void)updateCell:(NSString*)labelText;
 @end
