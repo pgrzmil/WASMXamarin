@@ -1,3 +1,4 @@
+using CoreFoundation;
 using Foundation;
 using System;
 using System.Diagnostics;
@@ -22,7 +23,6 @@ namespace WASMXamarin.iOS.ViewControllers
             base.ViewDidLoad();
             Title = "Test obs³ugi sieci";
             StartButton.TouchUpInside += StartDownloading;
-            NetworkDownloadService.Instance.DownloadCompleted += Instance_DownloadCompleted;
             //http://i2.kym-cdn.com/photos/images/original/000/581/296/c09.jpg
             AdressField.Text = "http://cdn.superbwallpapers.com/wallpapers/meme/doge-pattern-27481-2880x1800.jpg";
         }
@@ -45,30 +45,19 @@ namespace WASMXamarin.iOS.ViewControllers
                 return isWorking;
             });
 
-            NetworkDownloadService.Instance.DownloadImage(AdressField.Text);
-        }
-
-        private void Instance_DownloadCompleted(byte[] bytes)
-        {
-            if (bytes == null)
-                new UIAlertView("B³¹d", "Pobieranie nie powiod³o siê.", null, "OK", null).Show();
-
-            try
+            var url = NSUrl.FromString(AdressField.Text);
+            DispatchQueue.DefaultGlobalQueue.DispatchAsync(() =>
             {
-                var image = new UIImage(NSData.FromArray(bytes));
-                Picture.Image = image;
-            }
-            catch (Exception)
-            {
-                new UIAlertView("B³¹d", "Pobieranie nie powiod³o siê.", null, "OK", null).Show();
-            }
-            finally
-            {
-                ActivityIndicator.Hidden = true;
-                StartButton.Hidden = false;
-                AdressField.UserInteractionEnabled = true;
-                isWorking = false;
-            }
+                var data = NSData.FromUrl(url);
+                DispatchQueue.MainQueue.DispatchAsync(() =>
+                {
+                    Picture.Image = UIImage.LoadFromData(data);
+                    ActivityIndicator.Hidden = true;
+                    StartButton.Hidden = false;
+                    AdressField.UserInteractionEnabled = true;
+                    isWorking = false;
+                });
+            });
         }
     }
 }

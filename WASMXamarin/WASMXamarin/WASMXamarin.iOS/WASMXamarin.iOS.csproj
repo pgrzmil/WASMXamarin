@@ -50,7 +50,7 @@
     <CodesignKey>iPhone Developer: pawel.grzmil@hotmail.com (Y559YXPTGL)</CodesignKey>
     <MtouchDebug>True</MtouchDebug>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignProvision>2b4f933d-08b8-4ef0-bd1b-15002e281fb0</CodesignProvision>
+    <CodesignProvision>2c03531e-f2fa-4d45-9d2a-a73f1073decc</CodesignProvision>
     <CodesignResourceRules />
     <CodesignExtraArgs />
     <MtouchSdkVersion>9.2</MtouchSdkVersion>

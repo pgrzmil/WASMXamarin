@@ -8,7 +8,7 @@ namespace WASMXamarin.iOS
 {
     public class TableSource : UITableViewSource
     {
-        string[] TableItems;
+        string[] TableItems {get; set;}
         string CellIdentifier = "TableCell";
 
         public TableSource(string[] items)
