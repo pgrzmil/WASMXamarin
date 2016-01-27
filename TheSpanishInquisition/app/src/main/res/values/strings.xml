@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">The Spanish Inquisition</string>
+    <string name="action_settings">Settings</string>
+    <string name="performance">Wydajność</string>
+    <string name="gps">GPS</string>
+    <string name="layout">Layout</string>
+</resources>
