@@ -11,7 +11,8 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Xamarin.Shared", "XamarinRe
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		XamarinResearch\Xamarin.Shared\WASMXamarin.projitems*{4a5ccc66-be09-4896-9cde-b9fc663b908d}*SharedItemsImports = 13
+		XamarinResearch\Xamarin.Shared\Xamarin.Shared.projitems*{abbd90d8-4fc0-4c5f-a5bb-613c20fd236e}*SharedItemsImports = 4
+		XamarinResearch\Xamarin.Shared\Xamarin.Shared.projitems*{4a5ccc66-be09-4896-9cde-b9fc663b908d}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU

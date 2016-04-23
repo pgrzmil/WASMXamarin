@@ -22,7 +22,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>Xamarin.iOS</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.yourcompany.WASMXamarin</string>
+	<string>com.pgrzmil.Xamarin-iOS</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>CFBundleIconFiles</key>

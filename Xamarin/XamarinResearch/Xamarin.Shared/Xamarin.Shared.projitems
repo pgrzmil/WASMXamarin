@@ -6,7 +6,7 @@
     <SharedGUID>4a5ccc66-be09-4896-9cde-b9fc663b908d</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>WASMXamarin</Import_RootNamespace>
+    <Import_RootNamespace>Xamarin.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
