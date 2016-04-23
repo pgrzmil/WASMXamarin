@@ -2,11 +2,8 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/WASMXamarin/WASMXamarin/WASMXamarin.iOS/obj
-/WASMXamarin/WASMXamarin/WASMXamarin.Droid/bin/Debug
-/WASMXamarin/WASMXamarin/WASMXamarin.Droid/obj/Debug
-/WASMXamarin/WASMXamarin/WASMXamarin.iOS/bin/iPhoneSimulator/Debug
-/WASMXamarin/WASMXamarin/WASMXamarin.iOS/WASMXamarin.iOS.csproj.user
-/WASMXamarin/packages
-/WASMXamarin/WASMXamarin/WASMXamarin.Droid/obj/Release
-/WASMXamarin/WASMXamarin/WASMXamarin.iOS/bin/iPhone
+/Xamarin/packages
+/Xamarin/XamarinResearch/Xamarin.iOS/bin
+/Xamarin/XamarinResearch/Xamarin.iOS/obj
+/Xamarin/XamarinResearch/Xamarin.Droid/bin
+/Xamarin/XamarinResearch/Xamarin.Droid/obj
