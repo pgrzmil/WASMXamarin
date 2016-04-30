@@ -12,6 +12,7 @@ EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		XamarinResearch\Xamarin.Shared\Xamarin.Shared.projitems*{abbd90d8-4fc0-4c5f-a5bb-613c20fd236e}*SharedItemsImports = 4
+		XamarinResearch\Xamarin.Shared\Xamarin.Shared.projitems*{2363719e-478c-44b7-9d82-e2176156ddbd}*SharedItemsImports = 4
 		XamarinResearch\Xamarin.Shared\Xamarin.Shared.projitems*{4a5ccc66-be09-4896-9cde-b9fc663b908d}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

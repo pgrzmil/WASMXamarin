@@ -1,5 +1,4 @@
 using CoreAnimation;
-using CoreGraphics;
 using Foundation;
 using System;
 
@@ -25,26 +24,27 @@ namespace Xamarin.iOS.ViewControllers
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
+            Xamarin.Forms.Forms.Init();
             Title = "Test interfejsu";
             string[] tableItems = new string[] { "Vegetables", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Tubers", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Vegetables", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Tubers", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs", "Fruits", "Flower Buds", "Legumes", "Bulbs" };
             tableView.Source = new TableSource(tableItems);
             startFpsCounter();
         }
 
-        void startFpsCounter()
+        private void startFpsCounter()
         {
             displayLink = CADisplayLink.Create(updateFpsCounter);
             startTime = CAAnimation.CurrentMediaTime();
             displayLink.AddToRunLoop(NSRunLoop.Current, NSRunLoopMode.Common);
         }
 
-        void stopFpsCounter()
+        private void stopFpsCounter()
         {
             displayLink.Invalidate();
             displayLink = null;
         }
 
-        void updateFpsCounter()
+        private void updateFpsCounter()
         {
             frameCount++;
             double now = CAAnimation.CurrentMediaTime();
@@ -58,6 +58,5 @@ namespace Xamarin.iOS.ViewControllers
                 startTime = now;
             }
         }
-
     }
 }

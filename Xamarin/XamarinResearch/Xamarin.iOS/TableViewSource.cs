@@ -1,14 +1,12 @@
 ﻿using Foundation;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using UIKit;
 
 namespace Xamarin.iOS
 {
     public class TableSource : UITableViewSource
     {
-        string[] TableItems {get; set;}
+        private string[] TableItems { get; set; }
         string CellIdentifier = "TableCell";
 
         public TableSource(string[] items)

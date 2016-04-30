@@ -1,6 +1,5 @@
 using AVFoundation;
 using CoreAnimation;
-using CoreMedia;
 using Foundation;
 using System;
 
@@ -19,6 +18,7 @@ namespace Xamarin.iOS
         public InterfaceTestCell(IntPtr handle) : base(handle)
         {
         }
+
         public InterfaceTestCell(String cellId) : base(UITableViewCellStyle.Default, cellId)
         {
         }
@@ -36,13 +36,13 @@ namespace Xamarin.iOS
             label.BackgroundColor = UIColor.Clear;
             LayoutIfNeeded();
             _playerLayer = AVPlayerLayer.FromPlayer(_player);
-            
+
             _player.ExternalPlaybackVideoGravity = AVLayerVideoGravity.ResizeAspectFill;
         }
 
         public override void LayoutSubviews()
         {
-            base.LayoutSubviews();      
+            base.LayoutSubviews();
 
             image.Frame = new CoreGraphics.CGRect(Frame.Size.Width - 40, Frame.Size.Height - 40, 20, 20);
             image.ContentMode = UIViewContentMode.ScaleAspectFit;
@@ -54,7 +54,7 @@ namespace Xamarin.iOS
             rotationAnimation.Cumulative = true;
             rotationAnimation.RepeatCount = float.MaxValue;
             Add(image);
-            image.Layer.AddAnimation(rotationAnimation, "rotationAnimation");            
+            image.Layer.AddAnimation(rotationAnimation, "rotationAnimation");
         }
 
         public void UpdateCell(string labeltext)

@@ -2,7 +2,6 @@ using System;
 using System.Diagnostics;
 using System.Threading;
 using UIKit;
-using Xamarin;
 using Xamarin.Forms;
 
 namespace Xamarin.iOS.ViewControllers
@@ -21,6 +20,8 @@ namespace Xamarin.iOS.ViewControllers
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
+            Xamarin.Forms.Forms.Init();
+
             StartButton.TouchUpInside += StartCalculation;
             DigitsTextfield.Text = "10000";
             Title = "Test wydajnoœci obliczeñ";
@@ -47,16 +48,16 @@ namespace Xamarin.iOS.ViewControllers
 
             ThreadPool.QueueUserWorkItem(new WaitCallback((x) =>
             {
-                //var pi = PerformanceTestService.CalculatePi(digits);
-                //Device.BeginInvokeOnMainThread(() =>
-                //{
-                //    ResultView.Text = pi;
-                //    isCalculating = false;
-                //    activityIndicator.Hidden = true;
-                //    StartButton.Hidden = false;
-                //    DigitsTextfield.UserInteractionEnabled = true;
-                //    stopwatch.Stop();
-                //});
+                var pi = PerformanceTestService.CalculatePi(digits);
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    ResultView.Text = pi;
+                    isCalculating = false;
+                    activityIndicator.Hidden = true;
+                    StartButton.Hidden = false;
+                    DigitsTextfield.UserInteractionEnabled = true;
+                    stopwatch.Stop();
+                });
             }));
         }
     }

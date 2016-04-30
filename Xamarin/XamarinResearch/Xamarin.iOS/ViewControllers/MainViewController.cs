@@ -20,10 +20,8 @@ namespace Xamarin.iOS
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-
+            Xamarin.Forms.Forms.Init();
             // Perform any additional setup after loading the view, typically from a nib.
         }
-
-
     }
 }

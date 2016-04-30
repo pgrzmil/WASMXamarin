@@ -21,6 +21,7 @@ namespace Xamarin.iOS.ViewControllers
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
+            Xamarin.Forms.Forms.Init();
             Title = "Test obs³ugi sieci";
             StartButton.TouchUpInside += StartDownloading;
             //http://i2.kym-cdn.com/photos/images/original/000/581/296/c09.jpg
@@ -38,7 +39,7 @@ namespace Xamarin.iOS.ViewControllers
             TimeLabel.Hidden = false;
             StartButton.Hidden = true;
             AdressField.UserInteractionEnabled = false;
-            
+
             Device.StartTimer(TimeSpan.FromMilliseconds(1), () =>
             {
                 TimeLabel.Text = String.Format("{0}:{1}:{2}", stopwatch.Elapsed.Minutes, stopwatch.Elapsed.Seconds, stopwatch.Elapsed.Milliseconds);
