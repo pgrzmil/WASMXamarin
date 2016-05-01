@@ -1,6 +1,0 @@
-Binding for:
-com.github.brianPlummer:tinydancer:0.0.9
-
-Dependencies:
-
-tinydancer-0.0.9.aar,    Path=C:\Users\konra\.gradle\caches\modules-2\files-2.1\com.github.brianPlummer\tinydancer\0.0.9\c272233a6486b75890fe1dd0d1f96a39565206c8\tinydancer-0.0.9.aar
