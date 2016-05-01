@@ -12,14 +12,14 @@ namespace Xamarin.Views
 {
     public partial class PerformanceTestPage : ContentPage
     {
+        Stopwatch stopwatch;
+
         public PerformanceTestPage()
         {
             InitializeComponent();
             Title = "Test obliczeń".ToUpper();
             PerformanceTestService.Instance.PiCalculationCompleted += Instance_CalculationCompleted;
         }
-
-        Stopwatch stopwatch;
 
         private void StartCalculation(object sender, EventArgs e)
         {

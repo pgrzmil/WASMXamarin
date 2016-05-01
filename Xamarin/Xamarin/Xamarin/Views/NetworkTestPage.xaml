@@ -1,6 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Xamarin.Views.NetworkTestPage">
-  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+             x:Class="Xamarin.Views.NetworkTestPage"
+             Padding="10">
+
+  <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="8" Orientation="Vertical">
+    <Label Text="Test pozwala na sprawdzenie wydajności obsługi połączeń sieciowych poprzez pobranie z internetu obrazka o duzym rozmiarze." FontSize="13" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Entry x:Name="AdressField" Placeholder="Adress" />
+    <Button x:Name="StartButton" Text="START" FontSize="20" IsVisible="True" Clicked="StartDownloading" VerticalOptions="Center" HorizontalOptions="Center" />
+    <ActivityIndicator x:Name="ActivityIndicator" IsVisible="False" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Label x:Name="TimeLabel" />
+    <Image x:Name="DownloadedImage" />
+  </StackLayout>
 </ContentPage>

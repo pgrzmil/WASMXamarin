@@ -52,7 +52,7 @@ namespace Xamarin
                     x[j] = r[j] * 10;
             }
 
-            PiCalculationCompleted?.Invoke(result.ToString().Insert(1, "."));
+            PiCalculationCompleted?.Invoke(result.Insert(1, ".").ToString());
         }
     }
 }
