@@ -13,6 +13,7 @@ namespace Xamarin.Views
         public FileAccessPage()
         {
             InitializeComponent();
+            Title = "Test dostępu do pliku".ToUpper();
         }
     }
 }

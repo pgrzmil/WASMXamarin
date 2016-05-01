@@ -13,6 +13,7 @@ namespace Xamarin.Views
         public NetworkTestPage()
         {
             InitializeComponent();
+            Title = "Test obsługi sieci".ToUpper();
         }
     }
 }

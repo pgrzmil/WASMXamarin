@@ -13,6 +13,7 @@ namespace Xamarin.Views
         public GpsTestPage()
         {
             InitializeComponent();
+            Title = "Test pozycji GPS".ToUpper();
         }
     }
 }

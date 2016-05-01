@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net;
 using System.Text;
+using Xamarin.Forms;
 
 namespace Xamarin
 {
@@ -17,20 +19,19 @@ namespace Xamarin
 
         public static NetworkDownloadService Instance { get { return instance; } }
 
-        // public event ImageDownloadEventHandler DownloadCompleted;
+        public event ImageDownloadEventHandler DownloadCompleted;
 
-        public void DownloadImage(string url)
+        public async void DownloadImage(string url)
         {
-            //TODO:
-            //var webClient = new WebClient();
-            //webClient.DownloadDataCompleted += (s, e) =>
-            //{
-            //    if (DownloadCompleted != null)
-            //    {
-            //        DownloadCompleted(e.Result);
-            //    }
-            //};
-            //webClient.DownloadDataAsync(new Uri(url));
+            var request = WebRequest.Create(url);
+            var response = await request.GetResponseAsync();
+            byte[] bytes = new byte[response.ContentLength];
+            await response.GetResponseStream().ReadAsync(bytes, 0, Convert.ToInt32(response.ContentLength));
+            //ImageSource.FromStream(() => new MemoryStream(bytes));
+            if (DownloadCompleted != null)
+            {
+                DownloadCompleted(bytes);
+            }
         }
     }
 }

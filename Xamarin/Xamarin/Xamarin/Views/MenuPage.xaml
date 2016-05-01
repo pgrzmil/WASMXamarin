@@ -1,6 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Xamarin.Views.MenuPage">
-  <Label Text="MENU" VerticalOptions="Center" HorizontalOptions="Center" />
+             x:Class="Xamarin.Views.MenuPage"
+             Padding="20">
+  <StackLayout VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand"
+                     Orientation="Vertical"
+                     Spacing="15">
+    <Button Text="Test obliczeń" HorizontalOptions="Fill" Clicked="NavigateToPerformanceTest" />
+    <Button Text="Test obsługi sieci" HorizontalOptions="Fill" Clicked="NavigateToNetworkTest" />
+    <Button Text="Test dostępu do pliku" HorizontalOptions="Fill" Clicked="NavigateToFileAccessTest" />
+    <Button Text="Test pozycji GPS" HorizontalOptions="Fill" Clicked="NavigateToGpsTest" />
+  </StackLayout>
 </ContentPage>

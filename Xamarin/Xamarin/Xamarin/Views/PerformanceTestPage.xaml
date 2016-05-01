@@ -1,6 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Xamarin.Views.PerformanceTestPage">
-  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+             xmlns:conv="clr-namespace:Xamarin.Helpers;assembly=Xamarin"
+             x:Class="Xamarin.Views.PerformanceTestPage"
+             Padding="10,5">
+
+  <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="8" Orientation="Vertical">
+    <Label Text="Test pozwala na sprawdzenie wydajności obliczeniowej aplikacji poprzez obliczenie liczby π do zadanego miejsca po przecinku." FontSize="13" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Entry x:Name="DigitsEntry" Placeholder="Miejsca po przecinku" Keyboard="Numeric" Text="10000" />
+    <Button x:Name="StartButton" Text="START" FontSize="20" IsVisible="True" Clicked="StartCalculation" VerticalOptions="Center" HorizontalOptions="Center" />
+    <ActivityIndicator x:Name="ActivityIndicator" IsVisible="False" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Label x:Name="TimeLabel" />
+    <ScrollView>
+      <Label x:Name="ResultView" FontSize="11" />
+    </ScrollView>
+  </StackLayout>
 </ContentPage>

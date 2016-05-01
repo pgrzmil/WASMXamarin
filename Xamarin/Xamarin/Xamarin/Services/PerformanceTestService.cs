@@ -1,14 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
 using System.Numerics;
+using System.Text;
 
 namespace Xamarin
 {
-    class PerformanceTestService
+    public delegate void CalculationFinishedEventHandler(string result);
+
+    internal class PerformanceTestService
     {
-        public static string CalculatePi(int digits)
+        public event CalculationFinishedEventHandler PiCalculationCompleted;
+
+        private static readonly PerformanceTestService instance = new PerformanceTestService();
+
+        private PerformanceTestService()
+        { }
+
+        public static PerformanceTestService Instance { get { return instance; } }
+
+        public void CalculatePi(int digits)
         {
             StringBuilder result = new StringBuilder();
             digits++;
@@ -41,7 +52,7 @@ namespace Xamarin
                     x[j] = r[j] * 10;
             }
 
-            return result.ToString().Insert(1, ".");
-        }     
+            PiCalculationCompleted?.Invoke(result.ToString().Insert(1, "."));
+        }
     }
 }

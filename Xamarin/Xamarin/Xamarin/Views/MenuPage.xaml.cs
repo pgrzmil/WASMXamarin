@@ -13,6 +13,27 @@ namespace Xamarin.Views
         public MenuPage()
         {
             InitializeComponent();
+            Title = "MENU";
+        }
+
+        private void NavigateToPerformanceTest(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new PerformanceTestPage());
+        }
+
+        private void NavigateToFileAccessTest(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new FileAccessPage());
+        }
+
+        private void NavigateToGpsTest(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new GpsTestPage());
+        }
+
+        private void NavigateToNetworkTest(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new NetworkTestPage());
         }
     }
 }
