@@ -88,6 +88,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="FileAccessTestService.cs" />
     <Compile Include="LocationTestService.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />

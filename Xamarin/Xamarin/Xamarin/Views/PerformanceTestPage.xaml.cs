@@ -42,7 +42,7 @@ namespace Xamarin.Views
                 ResultView.Text = result;
                 RefreshUI(false);
 
-                TimeLabel.Text = String.Format("Czas wykonania: {0}:{1}:{2}", stopwatch.Elapsed.Minutes, stopwatch.Elapsed.Seconds, stopwatch.Elapsed.Milliseconds);
+                TimeLabel.Text = String.Format("Czas wykonania: {0} s", Math.Round(stopwatch.Elapsed.TotalSeconds, 4));
             });
         }
 

@@ -37,6 +37,7 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\FileAccessTestService.cs" />
     <Compile Include="Services\ILocationTestService.cs" />
     <Compile Include="Services\NetworkTestService.cs" />
     <Compile Include="Services\PerformanceTestService.cs" />

@@ -46,7 +46,7 @@ namespace Xamarin.Views
             {
                 RefreshUI(false);
                 PositionLabel.Text = string.Format("Długość: {0}\nSzerokość: {1}", Math.Round(longitude, 4), Math.Round(latitude, 4));
-                TimeLabel.Text = string.Format("Czas wykonania: {0}:{1}:{2}", stopwatch.Elapsed.Minutes, stopwatch.Elapsed.Seconds, stopwatch.Elapsed.Milliseconds);
+                TimeLabel.Text = string.Format("Czas wykonania: {0} s", Math.Round(stopwatch.Elapsed.TotalSeconds, 4));
             });
         }
 

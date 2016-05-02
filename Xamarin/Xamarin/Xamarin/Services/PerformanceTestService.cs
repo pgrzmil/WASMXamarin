@@ -19,7 +19,7 @@ namespace Xamarin
 
         public static PerformanceTestService Instance { get { return instance; } }
 
-        public void CalculatePi(int digits)
+        public string CalculatePi(int digits)
         {
             StringBuilder result = new StringBuilder();
             digits++;
@@ -52,7 +52,9 @@ namespace Xamarin
                     x[j] = r[j] * 10;
             }
 
-            PiCalculationCompleted?.Invoke(result.Insert(1, ".").ToString());
+            var pi = result.Insert(1, ".").ToString();
+            PiCalculationCompleted?.Invoke(pi);
+            return pi;
         }
     }
 }
