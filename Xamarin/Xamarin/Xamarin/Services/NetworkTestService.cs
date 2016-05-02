@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Text;
 using Xamarin.Forms;
 
-namespace Xamarin
+namespace Xamarin.Services
 {
     public delegate void ImageDownloadEventHandler(byte[] bytes);
 

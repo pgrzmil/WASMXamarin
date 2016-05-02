@@ -4,7 +4,7 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 
-namespace Xamarin
+namespace Xamarin.Services
 {
     public delegate void CalculationFinishedEventHandler(string result);
 
