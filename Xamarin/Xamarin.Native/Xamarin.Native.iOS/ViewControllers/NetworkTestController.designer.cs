@@ -20,11 +20,11 @@ namespace Xamarin.Native.iOS.ViewControllers
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UITextField AdressField { get; set; }
+		UITextField AddressField { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIImageView Picture { get; set; }
+		UIImageView DownloadedImage { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -34,19 +34,23 @@ namespace Xamarin.Native.iOS.ViewControllers
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel TimeLabel { get; set; }
 
+		[Action ("StartButton_TouchUpInside:")]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		partial void StartDownloading (UIButton sender);
+
 		void ReleaseDesignerOutlets ()
 		{
 			if (ActivityIndicator != null) {
 				ActivityIndicator.Dispose ();
 				ActivityIndicator = null;
 			}
-			if (AdressField != null) {
-				AdressField.Dispose ();
-				AdressField = null;
+			if (AddressField != null) {
+				AddressField.Dispose ();
+				AddressField = null;
 			}
-			if (Picture != null) {
-				Picture.Dispose ();
-				Picture = null;
+			if (DownloadedImage != null) {
+				DownloadedImage.Dispose ();
+				DownloadedImage = null;
 			}
 			if (StartButton != null) {
 				StartButton.Dispose ();

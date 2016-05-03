@@ -48,8 +48,13 @@ namespace Xamarin.Native.iOS.ViewControllers
         public override void ViewDidDisappear(bool animated)
         {
             base.ViewDidDisappear(animated);
-        }
+		}
 
+
+		partial void StartDownloading (UIButton sender)
+		{
+			
+		}
         #endregion
     }
 }

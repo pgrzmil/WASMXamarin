@@ -50,6 +50,16 @@ namespace Xamarin.Native.iOS.ViewControllers
             base.ViewDidDisappear(animated);
         }
 
+
+		partial void StartReadingFile (UIButton sender)
+		{
+			
+		}
+
+		partial void StartWritingFile (UIButton sender)
+		{
+			
+		}
         #endregion
     }
 }

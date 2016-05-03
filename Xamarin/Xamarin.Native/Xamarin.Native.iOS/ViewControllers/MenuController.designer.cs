@@ -14,16 +14,8 @@ namespace Xamarin.Native.iOS.ViewControllers
 	[Register ("MenuController")]
 	partial class MenuController
 	{
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton PerformanceTestButton { get; set; }
-
 		void ReleaseDesignerOutlets ()
 		{
-			if (PerformanceTestButton != null) {
-				PerformanceTestButton.Dispose ();
-				PerformanceTestButton = null;
-			}
 		}
 	}
 }

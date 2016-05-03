@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F28b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
         <scene sceneID="4">
             <objects>
                 <navigationController definesPresentationContext="YES" id="5" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8">
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                         <rect key="frame" x="0.0" y="20" width="880" height="44"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     </navigationBar>
                     <connections>
                         <segue destination="7" kind="relationship" relationship="rootViewController" id="6"/>
@@ -19,9 +21,10 @@
             </objects>
             <point key="canvasLocation" x="-704" y="73"/>
         </scene>
+        <!--MENU-->
         <scene sceneID="10">
             <objects>
-                <viewController id="7" sceneMemberID="viewController" customClass="MenuController">
+                <viewController id="7" customClass="MenuController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2"/>
                         <viewControllerLayoutGuide type="bottom" id="3"/>
@@ -29,18 +32,66 @@
                     <view key="view" contentMode="scaleToFill" id="12">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57">
+                                <rect key="frame" x="254.5" y="79" width="91" height="30"/>
+                                <state key="normal" title="Test obliczeń">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="19" kind="show" id="146"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="58">
+                                <rect key="frame" x="241" y="121" width="118" height="30"/>
+                                <state key="normal" title="Test obsługi sieci">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="33" kind="show" id="186"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59">
+                                <rect key="frame" x="226" y="163" width="148" height="30"/>
+                                <state key="normal" title="Test dostępu do pliku">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="26" kind="show" id="240"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60">
+                                <rect key="frame" x="242.5" y="205" width="115" height="30"/>
+                                <state key="normal" title="Test pozycji GPS">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="40" kind="show" id="280"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <subviews/>
+                        <constraints>
+                            <constraint firstItem="57" firstAttribute="centerX" secondItem="12" secondAttribute="centerX" id="61"/>
+                            <constraint firstItem="57" firstAttribute="top" secondItem="2" secondAttribute="bottom" constant="15" id="62"/>
+                            <constraint firstItem="58" firstAttribute="centerX" secondItem="12" secondAttribute="centerX" id="63"/>
+                            <constraint firstItem="59" firstAttribute="centerX" secondItem="12" secondAttribute="centerX" id="64"/>
+                            <constraint firstItem="60" firstAttribute="centerX" secondItem="12" secondAttribute="centerX" id="65"/>
+                            <constraint firstItem="58" firstAttribute="top" secondItem="57" secondAttribute="bottom" constant="12" id="66"/>
+                            <constraint firstItem="59" firstAttribute="top" secondItem="58" secondAttribute="bottom" constant="12" id="67"/>
+                            <constraint firstItem="60" firstAttribute="top" secondItem="59" secondAttribute="bottom" constant="12" id="68"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="11"/>
+                    <navigationItem key="navigationItem" title="MENU" id="11"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="13" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="43" y="74"/>
         </scene>
+        <!--Performance Test Controller-->
         <scene sceneID="18">
             <objects>
-                <viewController id="19" sceneMemberID="viewController" customClass="PerformanceTestController">
+                <viewController id="19" customClass="PerformanceTestController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="16"/>
                         <viewControllerLayoutGuide type="bottom" id="17"/>
@@ -48,16 +99,84 @@
                     <view key="view" contentMode="scaleToFill" id="20">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Test pozwala na sprawdzenie wydajności obliczeniowej aplikacji poprzez obliczenie liczby π do zadanego miejsca po przecinku." lineBreakMode="wordWrap" numberOfLines="0" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="282">
+                                <rect key="frame" x="20" y="74" width="560" height="31.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10000" borderStyle="roundedRect" placeholder="Miejsca po przecinku" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="283">
+                                <rect key="frame" x="20" y="114" width="160" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="311"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="317">
+                                <rect key="frame" x="271" y="152.5" width="58" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="START">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="StartButton_TouchUpInside:" destination="19" eventType="touchUpInside" id="338"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="285">
+                                <rect key="frame" x="290" y="159.5" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="287">
+                                <rect key="frame" x="20" y="197" width="0.0" height="0.0"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="286">
+                                <rect key="frame" x="10" y="205" width="580" height="395"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="282" secondAttribute="trailing" constant="20" id="305"/>
+                            <constraint firstItem="282" firstAttribute="leading" secondItem="20" secondAttribute="leading" constant="20" id="306"/>
+                            <constraint firstItem="282" firstAttribute="top" secondItem="16" secondAttribute="bottom" constant="10" id="307"/>
+                            <constraint firstItem="283" firstAttribute="top" secondItem="282" secondAttribute="bottom" constant="9" id="308"/>
+                            <constraint firstItem="283" firstAttribute="leading" secondItem="20" secondAttribute="leading" constant="20" id="309"/>
+                            <constraint firstItem="317" firstAttribute="top" secondItem="283" secondAttribute="bottom" constant="8" id="318"/>
+                            <constraint firstItem="317" firstAttribute="centerX" secondItem="20" secondAttribute="centerX" id="319"/>
+                            <constraint firstItem="317" firstAttribute="centerY" secondItem="285" secondAttribute="centerY" id="320"/>
+                            <constraint firstItem="285" firstAttribute="centerX" secondItem="317" secondAttribute="centerX" id="321"/>
+                            <constraint firstItem="287" firstAttribute="top" secondItem="317" secondAttribute="bottom" constant="10" id="322"/>
+                            <constraint firstItem="287" firstAttribute="leading" secondItem="20" secondAttribute="leading" constant="20" id="323"/>
+                            <constraint firstItem="286" firstAttribute="top" secondItem="287" secondAttribute="bottom" constant="8" id="324"/>
+                            <constraint firstItem="286" firstAttribute="leading" secondItem="20" secondAttribute="leading" constant="10" id="325"/>
+                            <constraint firstAttribute="trailing" secondItem="286" secondAttribute="trailing" constant="10" id="326"/>
+                            <constraint firstItem="17" firstAttribute="top" secondItem="286" secondAttribute="bottom" id="327"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ActivityIndicator" destination="285" id="name-outlet-285"/>
+                        <outlet property="DigitsEntry" destination="283" id="name-outlet-283"/>
+                        <outlet property="ResultView" destination="286" id="name-outlet-286"/>
+                        <outlet property="StartButton" destination="317" id="name-outlet-317"/>
+                        <outlet property="TimeLabel" destination="287" id="name-outlet-287"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="21" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="844" y="-793"/>
         </scene>
+        <!--File Access Test Controller-->
         <scene sceneID="25">
             <objects>
-                <viewController id="26" sceneMemberID="viewController" customClass="FileAccessTestController">
+                <viewController id="26" customClass="FileAccessTestController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="23"/>
                         <viewControllerLayoutGuide type="bottom" id="24"/>
@@ -65,16 +184,87 @@
                     <view key="view" contentMode="scaleToFill" id="27">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="294">
+                                <rect key="frame" x="20" y="72" width="560" height="62.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <string key="text">Test pozwala na sprawdzenie szybkości obsługi operacji pilkowych. Sprawdzona zostanie szybkość odczytu i zapisu pliku do pamięci wewnętrznej urzadzenia. Zapisywane i odczytywany będzie wynik obliczenia π do 10000 miejsc po przecinku. Czas obliczenia nie jest wliczany do czasu wykonania testu.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="295">
+                                <rect key="frame" x="20" y="144.5" width="76" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Odczytaj">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="ReadButton_TouchUpInside:" destination="26" eventType="touchUpInside" id="341"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="296">
+                                <rect key="frame" x="523" y="144.5" width="57" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Zapisz">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="WriteButton_TouchUpInside:" destination="26" eventType="touchUpInside" id="342"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="298">
+                                <rect key="frame" x="20" y="187.5" width="0.0" height="0.0"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="299">
+                                <rect key="frame" x="10" y="195.5" width="580" height="396.5"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="297">
+                                <rect key="frame" x="290" y="152" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="24" firstAttribute="top" secondItem="299" secondAttribute="bottom" constant="8" id="13Y-Xx-Ass"/>
+                            <constraint firstAttribute="trailing" secondItem="299" secondAttribute="trailing" constant="10" id="1wg-PL-l7U"/>
+                            <constraint firstItem="294" firstAttribute="leading" secondItem="27" secondAttribute="leadingMargin" id="8uS-Ci-jWA"/>
+                            <constraint firstItem="295" firstAttribute="leading" secondItem="27" secondAttribute="leadingMargin" id="A9v-Qu-6RZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="294" secondAttribute="trailing" id="L6S-fa-Sct"/>
+                            <constraint firstItem="295" firstAttribute="top" secondItem="294" secondAttribute="bottom" constant="10" id="OP9-Go-fuM"/>
+                            <constraint firstItem="298" firstAttribute="top" secondItem="295" secondAttribute="bottom" constant="8" id="Q0a-d9-sj6"/>
+                            <constraint firstItem="299" firstAttribute="top" secondItem="298" secondAttribute="bottom" constant="8" id="R3D-Qb-SIL"/>
+                            <constraint firstItem="299" firstAttribute="leading" secondItem="27" secondAttribute="leading" constant="10" id="Wij-8U-Opn"/>
+                            <constraint firstItem="294" firstAttribute="top" secondItem="23" secondAttribute="bottom" constant="8" id="YsA-Yf-hSQ"/>
+                            <constraint firstItem="298" firstAttribute="leading" secondItem="27" secondAttribute="leadingMargin" id="a28-7E-k2r"/>
+                            <constraint firstItem="297" firstAttribute="centerX" secondItem="27" secondAttribute="centerX" id="eY3-iN-sQf"/>
+                            <constraint firstItem="296" firstAttribute="top" secondItem="294" secondAttribute="bottom" constant="10" id="kDI-8K-T36"/>
+                            <constraint firstItem="297" firstAttribute="centerY" secondItem="295" secondAttribute="centerY" id="qoI-WI-CX7"/>
+                            <constraint firstItem="296" firstAttribute="trailing" secondItem="27" secondAttribute="trailingMargin" id="sRK-ya-BHU"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ActivityIndicator" destination="297" id="name-outlet-297"/>
+                        <outlet property="ReadButton" destination="295" id="name-outlet-295"/>
+                        <outlet property="ResultView" destination="299" id="name-outlet-299"/>
+                        <outlet property="TimeLabel" destination="298" id="name-outlet-298"/>
+                        <outlet property="WriteButton" destination="296" id="name-outlet-296"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="28" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="849" y="-56"/>
+            <point key="canvasLocation" x="843" y="527"/>
         </scene>
+        <!--Network Test Controller-->
         <scene sceneID="32">
             <objects>
-                <viewController id="33" sceneMemberID="viewController" customClass="NetworkTestController">
+                <viewController id="33" customClass="NetworkTestController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="30"/>
                         <viewControllerLayoutGuide type="bottom" id="31"/>
@@ -82,16 +272,81 @@
                     <view key="view" contentMode="scaleToFill" id="34">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Test pozwala na sprawdzenie wydajności obsługi połączeń sieciowych poprzez pobranie z internetu obrazka o duzym rozmiarze." textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="289">
+                                <rect key="frame" x="20" y="72" width="560" height="31.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="292">
+                                <rect key="frame" x="20" y="196.5" width="0.0" height="0.0"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="293">
+                                <rect key="frame" x="20" y="204.5" width="560" height="387.5"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HBz-lL-GmE">
+                                <rect key="frame" x="271" y="151.5" width="58" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="START">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="StartButton_TouchUpInside:" destination="33" eventType="touchUpInside" id="339"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DpC-8D-Ed9">
+                                <rect key="frame" x="290" y="159" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="288">
+                                <rect key="frame" x="20" y="111.5" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HBz-lL-GmE" firstAttribute="top" secondItem="288" secondAttribute="bottom" constant="10" id="0Qu-Ln-RkO"/>
+                            <constraint firstItem="293" firstAttribute="trailing" secondItem="34" secondAttribute="trailingMargin" id="1CC-9p-PBA"/>
+                            <constraint firstItem="288" firstAttribute="top" secondItem="289" secondAttribute="bottom" constant="8" id="47y-yg-P6e"/>
+                            <constraint firstItem="HBz-lL-GmE" firstAttribute="centerX" secondItem="34" secondAttribute="centerX" id="7cC-ev-Aar"/>
+                            <constraint firstItem="31" firstAttribute="top" secondItem="293" secondAttribute="bottom" constant="8" id="Bxi-Pl-jDU"/>
+                            <constraint firstItem="293" firstAttribute="leading" secondItem="34" secondAttribute="leadingMargin" id="Fgk-4V-DRY"/>
+                            <constraint firstItem="293" firstAttribute="top" secondItem="292" secondAttribute="bottom" constant="8" id="Fot-82-NNT"/>
+                            <constraint firstItem="DpC-8D-Ed9" firstAttribute="centerX" secondItem="HBz-lL-GmE" secondAttribute="centerX" id="N5h-Nd-2vv"/>
+                            <constraint firstItem="DpC-8D-Ed9" firstAttribute="centerX" secondItem="HBz-lL-GmE" secondAttribute="centerX" id="QFB-h7-tvn"/>
+                            <constraint firstItem="DpC-8D-Ed9" firstAttribute="centerY" secondItem="HBz-lL-GmE" secondAttribute="centerY" id="axW-N6-5fR"/>
+                            <constraint firstItem="289" firstAttribute="leading" secondItem="34" secondAttribute="leadingMargin" id="iRV-DD-y8P"/>
+                            <constraint firstItem="HBz-lL-GmE" firstAttribute="centerY" secondItem="DpC-8D-Ed9" secondAttribute="centerY" id="oSC-Dc-1zq"/>
+                            <constraint firstItem="289" firstAttribute="top" secondItem="30" secondAttribute="bottom" constant="8" id="p39-a8-JlA"/>
+                            <constraint firstItem="292" firstAttribute="top" secondItem="HBz-lL-GmE" secondAttribute="bottom" constant="10" id="p3j-gu-gD2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="289" secondAttribute="trailing" id="smE-wx-sEG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="288" secondAttribute="trailing" id="uQy-iG-wEf"/>
+                            <constraint firstItem="292" firstAttribute="leading" secondItem="34" secondAttribute="leadingMargin" id="yeg-Ck-Rnl"/>
+                            <constraint firstItem="288" firstAttribute="leading" secondItem="34" secondAttribute="leadingMargin" id="zQk-lC-Tzg"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ActivityIndicator" destination="DpC-8D-Ed9" id="name-outlet-DpC-8D-Ed9"/>
+                        <outlet property="AddressField" destination="288" id="name-outlet-288"/>
+                        <outlet property="DownloadedImage" destination="293" id="name-outlet-293"/>
+                        <outlet property="StartButton" destination="HBz-lL-GmE" id="name-outlet-HBz-lL-GmE"/>
+                        <outlet property="TimeLabel" destination="292" id="name-outlet-292"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="35" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="851" y="655"/>
+            <point key="canvasLocation" x="843" y="-130"/>
         </scene>
+        <!--Location Test Controller-->
         <scene sceneID="39">
             <objects>
-                <viewController id="40" sceneMemberID="viewController" customClass="LocationTestController">
+                <viewController id="40" customClass="LocationTestController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="37"/>
                         <viewControllerLayoutGuide type="bottom" id="38"/>
@@ -99,12 +354,71 @@
                     <view key="view" contentMode="scaleToFill" id="41">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="302">
+                                <rect key="frame" x="20" y="157" width="560" height="0.0"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Test pozwala na sprawdzenie szybkości obsługi urządzeń wewnętrznych telefonu poprzez pobranie z GPS pozycji." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="300">
+                                <rect key="frame" x="20" y="72" width="560" height="31.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BS8-C9-zcX">
+                                <rect key="frame" x="271" y="112" width="58" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="START">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="StartButton_TouchUpInside:" destination="40" eventType="touchUpInside" id="340"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="34K-EV-wcf">
+                                <rect key="frame" x="290" y="120" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="303">
+                                <rect key="frame" x="20" y="165" width="552" height="0.0"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BS8-C9-zcX" firstAttribute="top" secondItem="300" secondAttribute="bottom" constant="8.5" id="0xF-RZ-9vv"/>
+                            <constraint firstItem="303" firstAttribute="leading" secondItem="41" secondAttribute="leadingMargin" id="3t2-im-fnK"/>
+                            <constraint firstItem="302" firstAttribute="leading" secondItem="41" secondAttribute="leadingMargin" id="5eQ-te-AzT"/>
+                            <constraint firstItem="300" firstAttribute="leading" secondItem="41" secondAttribute="leadingMargin" id="Ceq-eu-wsl"/>
+                            <constraint firstItem="303" firstAttribute="top" secondItem="302" secondAttribute="bottom" constant="8" id="G9P-Eg-NqU"/>
+                            <constraint firstItem="302" firstAttribute="top" secondItem="BS8-C9-zcX" secondAttribute="bottom" constant="10" id="P8Z-5C-jS3"/>
+                            <constraint firstItem="BS8-C9-zcX" firstAttribute="centerY" secondItem="34K-EV-wcf" secondAttribute="centerY" id="RQY-bt-DFt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="302" secondAttribute="trailing" id="VVs-5W-JWI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="300" secondAttribute="trailing" id="hce-HJ-UvY"/>
+                            <constraint firstItem="34K-EV-wcf" firstAttribute="centerX" secondItem="BS8-C9-zcX" secondAttribute="centerX" id="iy1-Mp-gvs"/>
+                            <constraint firstItem="300" firstAttribute="top" secondItem="37" secondAttribute="bottom" constant="8" id="lju-TP-Fxw"/>
+                            <constraint firstItem="34K-EV-wcf" firstAttribute="centerY" secondItem="BS8-C9-zcX" secondAttribute="centerY" id="nL6-Om-3bi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="303" secondAttribute="trailing" constant="8" id="rIw-IL-Jey"/>
+                            <constraint firstItem="BS8-C9-zcX" firstAttribute="centerX" secondItem="41" secondAttribute="centerX" id="vLN-Nn-j9R"/>
+                            <constraint firstItem="34K-EV-wcf" firstAttribute="centerX" secondItem="BS8-C9-zcX" secondAttribute="centerX" id="woS-Qd-vTi"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ActivityIndicator" destination="34K-EV-wcf" id="name-outlet-34K-EV-wcf"/>
+                        <outlet property="PositionLabel" destination="303" id="name-outlet-303"/>
+                        <outlet property="StartButton" destination="BS8-C9-zcX" id="name-outlet-BS8-C9-zcX"/>
+                        <outlet property="TimeLabel" destination="302" id="name-outlet-302"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="42" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="220" y="806"/>
+            <point key="canvasLocation" x="844" y="1192"/>
         </scene>
     </scenes>
 </document>

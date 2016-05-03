@@ -50,6 +50,11 @@ namespace Xamarin.Native.iOS.ViewControllers
             base.ViewDidDisappear(animated);
         }
 
+
+		partial void StartPositioning (UIButton sender)
+		{
+			
+		}
         #endregion
     }
 }
