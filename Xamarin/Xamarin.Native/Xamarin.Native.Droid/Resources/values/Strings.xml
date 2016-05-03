@@ -1,5 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="hello">Hello World, Click Me!</string>
-	<string name="app_name">Xamarin.Native.Droid</string>
+  <string name="menuPerformance">Test obliczeń</string>
+  <string name="menuNetwork">Test obsługi sieci</string>
+  <string name="menuFileAccess">Test dostępu do pliku</string>
+  <string name="menuLocation">Test pozycji GPS</string>
+  <string name="menu">MENU</string>
+  <string name="app_name">Xamarin.Native.Droid</string>
+  <string name="descPerformance">Test pozwala na sprawdzenie wydajności obliczeniowej aplikacji poprzez obliczenie liczby π do zadanego miejsca po przecinku.</string>
+  <string name="descNetwork">Test pozwala na sprawdzenie wydajności obsługi połączeń sieciowych poprzez pobranie z internetu obrazka o duzym rozmiarze.</string>
+  <string name="descLocation">Test pozwala na sprawdzenie szybkości obsługi urządzeń wewnętrznych telefonu poprzez pobranie z GPS pozycji.</string>
+  <string name="descFileAccess">Test pozwala na sprawdzenie szybkości obsługi operacji pilkowych. Sprawdzona zostanie szybkość odczytu i zapisu pliku do pamięci wewnętrznej urzadzenia. Zapisywane i odczytywany będzie wynik obliczenia π do 10000 miejsc po przecinku. Czas obliczenia nie jest wliczany do czasu wykonania testu.</string>
+  <string name="startButton">START</string>
+  <string name="readButton">Odczytaj</string>
+  <string name="writeButton">zapisz</string>
 </resources>
