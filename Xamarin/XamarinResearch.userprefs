@@ -1,8 +1,10 @@
-﻿<Properties StartupItem="Xamarin\Xamarin.Droid\Xamarin.Droid.csproj">
+﻿<Properties StartupItem="Xamarin.Forms\Xamarin.Droid\Xamarin.Forms.Droid.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.LGH815f6442a0d" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Xamarin\Xamarin.iOS\Info.plist">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Xamarin.Forms\Xamarin.Droid\MainActivity.cs">
     <Files>
-      <File FileName="Xamarin\Xamarin.iOS\Info.plist" Line="47" Column="16" />
+      <File FileName="Xamarin.Forms\Xamarin.Droid\Properties\AndroidManifest.xml" Line="12" Column="11" />
+      <File FileName="Xamarin.Forms\Xamarin.Droid\Properties\AssemblyInfo.cs" Line="1" Column="1" />
+      <File FileName="Xamarin.Forms\Xamarin.Droid\MainActivity.cs" Line="6" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
