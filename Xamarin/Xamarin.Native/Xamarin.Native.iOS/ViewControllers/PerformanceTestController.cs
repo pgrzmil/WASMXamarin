@@ -1,60 +1,65 @@
-
-using System;
-using System.Drawing;
-
+using CoreFoundation;
 using Foundation;
+using System;
+using System.Diagnostics;
+using System.Drawing;
+using System.Threading.Tasks;
 using UIKit;
+using Xamarin.Services;
 
 namespace Xamarin.Native.iOS.ViewControllers
 {
     public partial class PerformanceTestController : UIViewController
     {
+        Stopwatch stopwatch;
+
         public PerformanceTestController(IntPtr handle) : base(handle)
         {
         }
 
         public override void DidReceiveMemoryWarning()
         {
-            // Releases the view if it doesn't have a superview.
             base.DidReceiveMemoryWarning();
-
-            // Release any cached data, images, etc that aren't in use.
         }
-
-        #region View lifecycle
 
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-
-            // Perform any additional setup after loading the view, typically from a nib.
+            PerformanceTestService.Instance.PiCalculationCompleted += Instance_CalculationCompleted;
         }
 
-        public override void ViewWillAppear(bool animated)
+        partial void StartCalculation(UIButton sender)
         {
-            base.ViewWillAppear(animated);
+            stopwatch = new Stopwatch();
+            RefreshUI(true);
+
+            var digits = Convert.ToInt32(DigitsEntry.Text);
+            Task.Run(() =>
+            {
+                stopwatch.Start();
+                PerformanceTestService.Instance.CalculatePi(digits);
+            });
         }
 
-        public override void ViewDidAppear(bool animated)
+        private void Instance_CalculationCompleted(string result)
         {
-            base.ViewDidAppear(animated);
+            stopwatch.Stop();
+
+            DispatchQueue.MainQueue.DispatchAsync(() =>
+            {
+                ResultView.Text = result;
+                RefreshUI(false);
+
+                TimeLabel.Text = String.Format("Czas wykonania: {0} s", Math.Round(stopwatch.Elapsed.TotalSeconds, 4));
+            });
         }
 
-        public override void ViewWillDisappear(bool animated)
+        private void RefreshUI(bool isCalculating)
         {
-            base.ViewWillDisappear(animated);
+            StartButton.Hidden = isCalculating;
+            DigitsEntry.Enabled = isCalculating;
+            ActivityIndicator.Hidden = !isCalculating;
+            ActivityIndicator.StartAnimating();
         }
-
-        public override void ViewDidDisappear(bool animated)
-        {
-            base.ViewDidDisappear(animated);
-        }
-
-
-		partial void StartCalculation (UIButton sender)
-		{
-			
-		}
-        #endregion
     }
 }

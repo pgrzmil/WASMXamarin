@@ -1,65 +1,78 @@
-
-using System;
-using System.Drawing;
-
 using Foundation;
+using System;
+using System.Diagnostics;
+using System.Drawing;
+using System.Threading.Tasks;
 using UIKit;
+using Xamarin.Services;
 
 namespace Xamarin.Native.iOS.ViewControllers
 {
     public partial class FileAccessTestController : UIViewController
     {
+        Stopwatch stopwatch;
+        FileAccessTestService fileAccessService;
+        string fileName = "testFile.txt";
+        int digits = 10000;
+        string contentToWrite;
+
         public FileAccessTestController(IntPtr handle) : base(handle)
         {
         }
 
         public override void DidReceiveMemoryWarning()
         {
-            // Releases the view if it doesn't have a superview.
             base.DidReceiveMemoryWarning();
-
-            // Release any cached data, images, etc that aren't in use.
         }
-
-        #region View lifecycle
 
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-
-            // Perform any additional setup after loading the view, typically from a nib.
+            fileAccessService = new FileAccessTestService();
         }
 
-        public override void ViewWillAppear(bool animated)
+        partial void StartReadingFile(UIButton sender)
         {
-            base.ViewWillAppear(animated);
+            stopwatch = new Stopwatch();
+            RefreshUI(true);
+
+            stopwatch.Start();
+
+            var fileContents = fileAccessService.ReadFromFile(fileName);
+            ResultView.Text = fileContents;
+
+            stopwatch.Stop();
+            RefreshUI(false);
+            TimeLabel.Text = string.Format("Czas wykonania: {0} ms", Math.Round(stopwatch.Elapsed.TotalMilliseconds, 4));
         }
 
-        public override void ViewDidAppear(bool animated)
+        partial void StartWritingFile(UIButton sender)
         {
-            base.ViewDidAppear(animated);
+            stopwatch = new Stopwatch();
+            RefreshUI(true);
+            ResultView.Text = String.Empty;
+
+            if (contentToWrite == null)
+            {
+                contentToWrite = Task.Run(() => PerformanceTestService.Instance.CalculatePi(digits)).Result;
+            }
+
+            stopwatch.Start();
+
+            fileAccessService.WriteToFile(fileName, contentToWrite);
+
+            stopwatch.Stop();
+
+            RefreshUI(false);
+            TimeLabel.Text = string.Format("Czas wykonania: {0} ms", Math.Round(stopwatch.Elapsed.TotalMilliseconds, 4));
         }
 
-        public override void ViewWillDisappear(bool animated)
+        private void RefreshUI(bool isDownloading)
         {
-            base.ViewWillDisappear(animated);
+            ReadButton.Hidden = isDownloading;
+            WriteButton.Hidden = isDownloading;
+            ActivityIndicator.Hidden = !isDownloading;
+            ActivityIndicator.StartAnimating();
         }
-
-        public override void ViewDidDisappear(bool animated)
-        {
-            base.ViewDidDisappear(animated);
-        }
-
-
-		partial void StartReadingFile (UIButton sender)
-		{
-			
-		}
-
-		partial void StartWritingFile (UIButton sender)
-		{
-			
-		}
-        #endregion
     }
 }

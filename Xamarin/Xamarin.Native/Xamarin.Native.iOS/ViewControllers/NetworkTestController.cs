@@ -1,60 +1,59 @@
-
-using System;
-using System.Drawing;
-
+using CoreFoundation;
 using Foundation;
+using System;
+using System.Diagnostics;
+using System.Drawing;
 using UIKit;
+using Xamarin.Services;
 
 namespace Xamarin.Native.iOS.ViewControllers
 {
     public partial class NetworkTestController : UIViewController
     {
+        Stopwatch stopwatch;
+
         public NetworkTestController(IntPtr handle) : base(handle)
         {
         }
 
         public override void DidReceiveMemoryWarning()
         {
-            // Releases the view if it doesn't have a superview.
             base.DidReceiveMemoryWarning();
-
-            // Release any cached data, images, etc that aren't in use.
         }
-
-        #region View lifecycle
 
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-
-            // Perform any additional setup after loading the view, typically from a nib.
+            AddressField.Text = "http://cdn.superbwallpapers.com/wallpapers/meme/doge-pattern-27481-2880x1800.jpg";
+            NetworkDownloadService.Instance.ImageDownloadCompleted += Instance_DownloadCompleted;
         }
 
-        public override void ViewWillAppear(bool animated)
+        partial void StartDownloading(UIButton sender)
         {
-            base.ViewWillAppear(animated);
+            stopwatch = new Stopwatch();
+            RefreshUI(true);
+
+            stopwatch.Start();
+            NetworkDownloadService.Instance.DownloadImage(AddressField.Text);
         }
 
-        public override void ViewDidAppear(bool animated)
+        private void Instance_DownloadCompleted(NSData data)
         {
-            base.ViewDidAppear(animated);
+            stopwatch.Stop();
+            DispatchQueue.MainQueue.DispatchAsync(() =>
+            {
+                DownloadedImage.Image = UIImage.LoadFromData(data);
+                RefreshUI(false);
+                TimeLabel.Text = String.Format("Czas wykonania: {0} s", Math.Round(stopwatch.Elapsed.TotalSeconds, 4));
+            });
         }
 
-        public override void ViewWillDisappear(bool animated)
+        private void RefreshUI(bool isDownloading)
         {
-            base.ViewWillDisappear(animated);
+            StartButton.Hidden = isDownloading;
+            AddressField.Enabled = isDownloading;
+            ActivityIndicator.Hidden = !isDownloading;
+            ActivityIndicator.StartAnimating();
         }
-
-        public override void ViewDidDisappear(bool animated)
-        {
-            base.ViewDidDisappear(animated);
-		}
-
-
-		partial void StartDownloading (UIButton sender)
-		{
-			
-		}
-        #endregion
     }
 }

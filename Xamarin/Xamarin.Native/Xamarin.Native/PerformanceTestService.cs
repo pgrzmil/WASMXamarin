@@ -8,7 +8,7 @@ namespace Xamarin.Services
 {
     public delegate void CalculationFinishedEventHandler(string result);
 
-    internal class PerformanceTestService
+    public class PerformanceTestService
     {
         public event CalculationFinishedEventHandler PiCalculationCompleted;
 

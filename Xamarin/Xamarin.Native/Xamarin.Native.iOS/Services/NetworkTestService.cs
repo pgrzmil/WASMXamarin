@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CoreFoundation;
+using Foundation;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
@@ -6,7 +8,7 @@ using System.Text;
 
 namespace Xamarin.Services
 {
-    public delegate void ImageDownloadEventHandler(byte[] bytes);
+    public delegate void ImageDownloadEventHandler(NSData data);
 
     internal class NetworkDownloadService
     {
@@ -19,12 +21,14 @@ namespace Xamarin.Services
 
         public static NetworkDownloadService Instance { get { return instance; } }
 
-        public async void DownloadImage(string url)
+        public void DownloadImage(string urlString)
         {
-            //var client = new HttpClient();
-            //var response = await client.GetByteArrayAsync(url);
-
-            //ImageDownloadCompleted?.Invoke(response);
+            DispatchQueue.DefaultGlobalQueue.DispatchAsync(() =>
+            {
+                var url = NSUrl.FromString(urlString);
+                var response = NSData.FromUrl(url);
+                ImageDownloadCompleted?.Invoke(response);
+            });
         }
     }
 }

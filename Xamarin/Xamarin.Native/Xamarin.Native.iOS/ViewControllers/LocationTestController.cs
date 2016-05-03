@@ -1,60 +1,66 @@
-
-using System;
-using System.Drawing;
-
+using CoreFoundation;
 using Foundation;
+using System;
+using System.Diagnostics;
+using System.Drawing;
 using UIKit;
+using Xamarin.iOS;
 
 namespace Xamarin.Native.iOS.ViewControllers
 {
     public partial class LocationTestController : UIViewController
     {
+        Stopwatch stopwatch;
+        LocationTestService locationService;
+
         public LocationTestController(IntPtr handle) : base(handle)
         {
         }
 
         public override void DidReceiveMemoryWarning()
         {
-            // Releases the view if it doesn't have a superview.
             base.DidReceiveMemoryWarning();
-
-            // Release any cached data, images, etc that aren't in use.
         }
-
-        #region View lifecycle
 
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-
-            // Perform any additional setup after loading the view, typically from a nib.
+            locationService = new LocationTestService();
+            locationService.LocationChanged += LocationService_LocationChanged;
         }
 
-        public override void ViewWillAppear(bool animated)
+        partial void StartPositioning(UIButton sender)
         {
-            base.ViewWillAppear(animated);
+            stopwatch = new Stopwatch();
+            RefreshUI(true);
+
+            stopwatch.Start();
+            try
+            {
+                locationService.GetLocation();
+            }
+            catch (LocationUnavailableException)
+            {
+                // UIAlertView. DisplayAlert("B³¹d", "Lokalizacja niedostêpna", null);
+            }
         }
 
-        public override void ViewDidAppear(bool animated)
+        private void LocationService_LocationChanged(double latitude, double longitude)
         {
-            base.ViewDidAppear(animated);
+            stopwatch.Stop();
+            DispatchQueue.MainQueue.DispatchAsync(() =>
+            {
+                RefreshUI(false);
+                PositionLabel.Text = string.Format("D³ugoœæ: {0}\nSzerokoœæ: {1}", Math.Round(longitude, 4), Math.Round(latitude, 4));
+                TimeLabel.Text = string.Format("Czas wykonania: {0} s", Math.Round(stopwatch.Elapsed.TotalSeconds, 4));
+            });
         }
 
-        public override void ViewWillDisappear(bool animated)
+        private void RefreshUI(bool isDownloading)
         {
-            base.ViewWillDisappear(animated);
+            StartButton.Hidden = isDownloading;
+            ActivityIndicator.Hidden = !isDownloading;
+            ActivityIndicator.StartAnimating();
         }
-
-        public override void ViewDidDisappear(bool animated)
-        {
-            base.ViewDidDisappear(animated);
-        }
-
-
-		partial void StartPositioning (UIButton sender)
-		{
-			
-		}
-        #endregion
     }
 }

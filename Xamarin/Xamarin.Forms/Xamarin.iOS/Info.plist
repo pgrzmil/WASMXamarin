@@ -48,10 +48,13 @@
 	<key>CFBundleShortVersionString</key>
 	<string></string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Pozwol</string>
-	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Lokalizacja jest wymagana do przeprowadzenia testu</string>
 	<key>UIMainStoryboardFile</key>
 	<string>LaunchScreen</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key> 
+		<true/>
+	</dict>
 </dict>
 </plist>

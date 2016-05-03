@@ -19,7 +19,7 @@ namespace Xamarin.Views
         {
             InitializeComponent();
             Title = "Test obsługi sieci".ToUpper();
-            AdressField.Text = "http://cdn.superbwallpapers.com/wallpapers/meme/doge-pattern-27481-2880x1800.jpg";
+            AddressField.Text = "http://cdn.superbwallpapers.com/wallpapers/meme/doge-pattern-27481-2880x1800.jpg";
             NetworkDownloadService.Instance.ImageDownloadCompleted += Instance_DownloadCompleted;
         }
 
@@ -29,7 +29,7 @@ namespace Xamarin.Views
             RefreshUI(true);
 
             stopwatch.Start();
-            NetworkDownloadService.Instance.DownloadImage(AdressField.Text);
+            NetworkDownloadService.Instance.DownloadImage(AddressField.Text);
         }
 
         private void Instance_DownloadCompleted(byte[] bytes)
@@ -46,7 +46,7 @@ namespace Xamarin.Views
         private void RefreshUI(bool isDownloading)
         {
             StartButton.IsVisible = !isDownloading;
-            AdressField.IsEnabled = !isDownloading;
+            AddressField.IsEnabled = !isDownloading;
             ActivityIndicator.IsVisible = isDownloading;
             ActivityIndicator.IsRunning = isDownloading;
         }

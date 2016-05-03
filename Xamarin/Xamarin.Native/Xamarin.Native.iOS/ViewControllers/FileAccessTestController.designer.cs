@@ -36,7 +36,7 @@ namespace Xamarin.Native.iOS.ViewControllers
 
 		[Action ("ReadButton_TouchUpInside:")]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		partial void ReadButton_TouchUpInside (UIButton sender);
+		partial void StartReadingFile(UIButton sender);
 
 		[Action ("WriteButton_TouchUpInside:")]
 		[GeneratedCode ("iOS Designer", "1.0")]
