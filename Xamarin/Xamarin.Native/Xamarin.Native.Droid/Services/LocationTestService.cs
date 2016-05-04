@@ -1,5 +1,7 @@
-﻿using Plugin.Geolocator;
-using Plugin.Geolocator.Abstractions;
+﻿using Android.Content;
+using Android.Locations;
+using Android.OS;
+using Android.Runtime;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,37 +14,49 @@ namespace Xamarin.iOS
 {
     public delegate void LocationChangedEventHandler(double latitude, double longitude);
 
-    public class LocationUnavailableException : Exception { }
-
-    public class LocationTestService
+    public class LocationTestService : Java.Lang.Object, ILocationListener
     {
         public event LocationChangedEventHandler LocationChanged;
 
-        IGeolocator locator;
+        LocationManager _locationManager;
+
+        string _locationProvider;
 
         public LocationTestService()
         {
-            locator = CrossGeolocator.Current;
-            locator.DesiredAccuracy = 10;
-            locator.PositionError += Locator_PositionError;
-        }
+            _locationManager = (LocationManager)Android.App.Application.Context.GetSystemService(Context.LocationService);
+            Criteria criteriaForLocationService = new Criteria { Accuracy = Accuracy.Fine };
+            IList<string> acceptableLocationProviders = _locationManager.GetProviders(criteriaForLocationService, true);
 
-        public async void GetLocation()
-        {
-            try
+            if (acceptableLocationProviders.Any())
             {
-                var position = await locator.GetPositionAsync();
-                LocationChanged?.Invoke(position.Latitude, position.Longitude);
-            }
-            catch (Exception)
-            {
-                throw new LocationUnavailableException();
+                _locationProvider = acceptableLocationProviders.First();
             }
         }
 
-        private void Locator_PositionError(object sender, PositionErrorEventArgs e)
+        public void GetLocation()
         {
-            throw new LocationUnavailableException();
+            _locationManager.RequestLocationUpdates(_locationProvider, 5, 10, this);
+        }
+
+        public void OnLocationChanged(Location location)
+        {
+            if (location != null)
+            {
+                LocationChanged?.Invoke(location.Latitude, location.Longitude);
+            }
+        }
+
+        public void OnProviderDisabled(string provider)
+        {
+        }
+
+        public void OnProviderEnabled(string provider)
+        {
+        }
+
+        public void OnStatusChanged(string provider, Availability status, Bundle extras)
+        {
         }
     }
 }

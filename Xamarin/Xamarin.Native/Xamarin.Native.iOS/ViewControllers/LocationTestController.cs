@@ -41,7 +41,12 @@ namespace Xamarin.Native.iOS.ViewControllers
             }
             catch (LocationUnavailableException)
             {
-                // UIAlertView. DisplayAlert("B³¹d", "Lokalizacja niedostêpna", null);
+                DispatchQueue.MainQueue.DispatchAsync(() =>
+                {
+                    UIAlertView alert = new UIAlertView() { Title = "B³¹d", Message = "Lokalizacja niedostêpna" };
+                    alert.AddButton("OK");
+                    alert.Show();
+                });
             }
         }
 
@@ -56,10 +61,10 @@ namespace Xamarin.Native.iOS.ViewControllers
             });
         }
 
-        private void RefreshUI(bool isDownloading)
+        private void RefreshUI(bool isPositioning)
         {
-            StartButton.Hidden = isDownloading;
-            ActivityIndicator.Hidden = !isDownloading;
+            StartButton.Hidden = isPositioning;
+            ActivityIndicator.Hidden = !isPositioning;
             ActivityIndicator.StartAnimating();
         }
     }

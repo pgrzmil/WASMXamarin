@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace Xamarin.Services
 {
-    public class FileAccessTestService
+    public class FileAccessTestService : Java.Lang.Object
     {
         public void WriteToFile(string filename, string text)
         {
             var documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             var filePath = Path.Combine(documentsPath, filename);
+            File.Delete(filePath);
             File.WriteAllText(filePath, text);
         }
 

@@ -1,6 +1,6 @@
-﻿<Properties StartupItem="Xamarin.Native/Xamarin.Native.iOS/Xamarin.Native.iOS.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.LGH815f6442a0d" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Xamarin.Forms\Xamarin.Droid\MainActivity.cs">
+﻿<Properties StartupItem="Xamarin.Forms\Xamarin.Droid\Xamarin.Forms.Droid.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.AVD_GalaxyNexus_ToolsForApacheCordova" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Xamarin.Forms\Xamarin.Droid\Properties\AndroidManifest.xml">
     <Files>
       <File FileName="Xamarin.Forms\Xamarin.Droid\Properties\AndroidManifest.xml" Line="1" Column="1" />
       <File FileName="Xamarin.Forms\Xamarin.Droid\Properties\AssemblyInfo.cs" Line="1" Column="1" />

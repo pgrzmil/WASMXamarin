@@ -13,6 +13,7 @@ namespace Xamarin.Services
         {
             var documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             var filePath = Path.Combine(documentsPath, filename);
+            File.Delete(filePath);
             File.WriteAllText(filePath, text);
         }
 

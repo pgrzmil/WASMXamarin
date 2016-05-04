@@ -29,14 +29,7 @@ namespace Xamarin.Views
             RefreshUI(true);
 
             stopwatch.Start();
-            try
-            {
-                locationService.GetLocation();
-            }
-            catch (LocationUnavailableException)
-            {
-                DisplayAlert("Błąd", "Lokalizacja niedostępna", null);
-            }
+            locationService.GetLocation();
         }
 
         private void LocationService_LocationChanged(double latitude, double longitude)

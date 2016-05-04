@@ -16,14 +16,15 @@ namespace Xamarin.Services
         {
             var documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             var filePath = Path.Combine(documentsPath, filename);
-            System.IO.File.WriteAllText(filePath, text);
+            File.Delete(filePath);
+            File.WriteAllText(filePath, text);
         }
 
         public string ReadFromFile(string filename)
         {
             var documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             var filePath = Path.Combine(documentsPath, filename);
-            return System.IO.File.ReadAllText(filePath);
+            return File.ReadAllText(filePath);
         }
     }
 }

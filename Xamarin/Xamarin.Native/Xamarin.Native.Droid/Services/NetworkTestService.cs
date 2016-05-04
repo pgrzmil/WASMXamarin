@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Android.Graphics;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
@@ -7,9 +8,9 @@ using System.Text;
 
 namespace Xamarin.Services
 {
-    public delegate void ImageDownloadEventHandler(byte[] bytes);
+    public delegate void ImageDownloadEventHandler(Bitmap image);
 
-    internal class NetworkDownloadService
+    internal class NetworkDownloadService : Java.Lang.Object
     {
         public event ImageDownloadEventHandler ImageDownloadCompleted;
 
@@ -20,12 +21,20 @@ namespace Xamarin.Services
 
         public static NetworkDownloadService Instance { get { return instance; } }
 
-        public async void DownloadImage(string url)
+        public void DownloadImage(string url)
         {
-            var client = new HttpClient();
-            var response = await client.GetByteArrayAsync(url);
+            Bitmap imageBitmap = null;
 
-            ImageDownloadCompleted?.Invoke(response);
+            using (var webClient = new WebClient())
+            {
+                var imageBytes = webClient.DownloadData(url);
+                if (imageBytes != null && imageBytes.Length > 0)
+                {
+                    imageBitmap = BitmapFactory.DecodeByteArray(imageBytes, 0, imageBytes.Length);
+                }
+            }
+
+            ImageDownloadCompleted?.Invoke(imageBitmap);
         }
     }
 }

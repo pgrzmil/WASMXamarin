@@ -14,6 +14,4 @@ namespace Xamarin.Services
 
         void GetLocation();
     }
-
-    public class LocationUnavailableException : Exception { }
 }

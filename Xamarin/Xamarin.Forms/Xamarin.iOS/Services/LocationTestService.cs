@@ -23,25 +23,12 @@ namespace Xamarin.iOS
         {
             locator = CrossGeolocator.Current;
             locator.DesiredAccuracy = 10;
-            locator.PositionError += Locator_PositionError;
         }
 
         public async void GetLocation()
         {
-            try
-            {
-                var position = await locator.GetPositionAsync();
-                LocationChanged?.Invoke(position.Latitude, position.Longitude);
-            }
-            catch (Exception)
-            {
-                throw new LocationUnavailableException();
-            }
-        }
-
-        private void Locator_PositionError(object sender, PositionErrorEventArgs e)
-        {
-            throw new LocationUnavailableException();
+            var position = await locator.GetPositionAsync();
+            LocationChanged?.Invoke(position.Latitude, position.Longitude);
         }
     }
 }

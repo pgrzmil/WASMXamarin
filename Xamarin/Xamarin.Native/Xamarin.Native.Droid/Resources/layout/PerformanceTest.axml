@@ -26,11 +26,6 @@
         android:id="@+id/StartButton"
         android:paddingTop="10dp"
         android:paddingBottom="10dp" />
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ActivitiIndicator"
-        android:visibility="invisible" />
     <TextView
         android:text=""
         android:textAppearance="?android:attr/textAppearanceMedium"
