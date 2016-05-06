@@ -44,7 +44,7 @@ namespace Xamarin.Native.Droid.Activities
         private void StartDownloading(object sender, EventArgs e)
         {
             stopwatch = new Stopwatch();
-            RefreshUI(true);
+            progressDialog = ProgressDialog.Show(this, "Pobieranie...", "");
 
             stopwatch.Start();
             Task.Run(() => NetworkDownloadService.Instance.DownloadImage(AddressField.Text));
@@ -56,25 +56,9 @@ namespace Xamarin.Native.Droid.Activities
             RunOnUiThread(() =>
             {
                 DownloadedImage.SetImageBitmap(image);
-                RefreshUI(false);
                 TimeLabel.Text = String.Format("Czas wykonania: {0} s", Math.Round(stopwatch.Elapsed.TotalSeconds, 4));
-            });
-        }
-
-        private void RefreshUI(bool isDownloading)
-        {
-            AddressField.Enabled = !isDownloading;
-
-            if (isDownloading)
-            {
-                startButton.Visibility = ViewStates.Invisible;
-                progressDialog = ProgressDialog.Show(this, "Pobieranie...", "");
-            }
-            else
-            {
-                startButton.Visibility = ViewStates.Visible;
                 progressDialog.Dismiss();
-            }
+            });
         }
     }
 }

@@ -5,23 +5,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context=".NetworkTestActivity">
+    tools:context="com.pgrzmil.nativedroid.LocationTestActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="10dp"
-        android:text="@string/descNetwork"
+        android:text="@string/descLocation"
         android:textAppearance="?android:attr/textAppearanceSmall" />
-
-    <EditText
-        android:id="@+id/addressField"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/addressHint"
-        android:inputType="textUri"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp" />
 
     <Button
         android:id="@+id/startButton"
@@ -30,7 +21,7 @@
         android:paddingBottom="10dp"
         android:paddingTop="10dp"
         android:text="@string/startButton"
-        android:onClick="startDownloading"/>
+        android:onClick="startPositioning"/>
 
     <TextView
         android:id="@+id/timeLabel"
@@ -39,8 +30,10 @@
         android:text=""
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <ImageView
-        android:id="@+id/downloadedImage"
+    <TextView
+        android:id="@+id/positionLabel"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 </LinearLayout>

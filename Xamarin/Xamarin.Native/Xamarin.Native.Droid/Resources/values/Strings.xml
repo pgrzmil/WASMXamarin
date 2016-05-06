@@ -12,5 +12,7 @@
   <string name="descFileAccess">Test pozwala na sprawdzenie szybkości obsługi operacji pilkowych. Sprawdzona zostanie szybkość odczytu i zapisu pliku do pamięci wewnętrznej urzadzenia. Zapisywane i odczytywany będzie wynik obliczenia π do 10000 miejsc po przecinku. Czas obliczenia nie jest wliczany do czasu wykonania testu.</string>
   <string name="startButton">START</string>
   <string name="readButton">Odczytaj</string>
-  <string name="writeButton">zapisz</string>
+  <string name="writeButton">Zapisz</string>
+  <string name="digitsHint">Miejsca po przecinku</string>
+  <string name="addressHint">Adres</string>
 </resources>

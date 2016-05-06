@@ -32,10 +32,10 @@ namespace Xamarin.Native.Droid.Activities
 
             PerformanceTestService.Instance.PiCalculationCompleted += Instance_CalculationCompleted;
 
-            digitsEntry = FindViewById<EditText>(Resource.Id.DigitsEntry);
-            ResultView = FindViewById<TextView>(Resource.Id.ResultView);
-            TimeLabel = FindViewById<TextView>(Resource.Id.TimeLabel);
-            startButton = FindViewById<Button>(Resource.Id.StartButton);
+            digitsEntry = FindViewById<EditText>(Resource.Id.digitsEntry);
+            ResultView = FindViewById<TextView>(Resource.Id.resultView);
+            TimeLabel = FindViewById<TextView>(Resource.Id.timeLabel);
+            startButton = FindViewById<Button>(Resource.Id.startButton);
 
             startButton.Click += StartCalculation;
         }
@@ -43,7 +43,7 @@ namespace Xamarin.Native.Droid.Activities
         private void StartCalculation(object sender, EventArgs e)
         {
             stopwatch = new Stopwatch();
-            RefreshUI(true);
+            progressDialog = ProgressDialog.Show(this, "Przetwarzanie...", "");
 
             var digits = Convert.ToInt32(digitsEntry.Text);
             Task.Run(() =>
@@ -59,25 +59,9 @@ namespace Xamarin.Native.Droid.Activities
             RunOnUiThread(() =>
             {
                 ResultView.Text = result;
-                RefreshUI(false);
                 TimeLabel.Text = String.Format("Czas wykonania: {0} s", Math.Round(stopwatch.Elapsed.TotalSeconds, 4));
-            });
-        }
-
-        private void RefreshUI(bool isCalculating)
-        {
-            digitsEntry.Enabled = !isCalculating;
-
-            if (isCalculating)
-            {
-                startButton.Visibility = ViewStates.Invisible;
-                progressDialog = ProgressDialog.Show(this, "Przetwarzanie...", "");
-            }
-            else
-            {
-                startButton.Visibility = ViewStates.Visible;
                 progressDialog.Dismiss();
-            }
+            });
         }
     }
 }

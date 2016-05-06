@@ -48,7 +48,8 @@ namespace Xamarin.Native.Droid.Activities
         private async void StartWriting(object sender, EventArgs e)
         {
             stopwatch = new Stopwatch();
-            RefreshUI(true);
+            progressDialog = ProgressDialog.Show(this, "Przetwarzanie...", "");
+
             ResultView.Text = String.Empty;
 
             if (contentToWrite == null)
@@ -62,14 +63,14 @@ namespace Xamarin.Native.Droid.Activities
 
             stopwatch.Stop();
 
-            RefreshUI(false);
+            progressDialog.Dismiss();
             TimeLabel.Text = string.Format("Czas wykonania: {0} ms", Math.Round(stopwatch.Elapsed.TotalMilliseconds, 4));
         }
 
         private async void StartReading(object sender, EventArgs e)
         {
             stopwatch = new Stopwatch();
-            RefreshUI(true);
+            progressDialog = ProgressDialog.Show(this, "Przetwarzanie...", "");
 
             stopwatch.Start();
 
@@ -78,7 +79,7 @@ namespace Xamarin.Native.Droid.Activities
 
             stopwatch.Stop();
 
-            RefreshUI(false);
+            progressDialog.Dismiss();
             TimeLabel.Text = string.Format("Czas wykonania: {0} ms", Math.Round(stopwatch.Elapsed.TotalMilliseconds, 4));
         }
 

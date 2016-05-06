@@ -14,16 +14,16 @@
         android:inputType="numberDecimal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/DigitsEntry"
+        android:id="@+id/digitsEntry"
         android:paddingBottom="10dp"
         android:paddingTop="10dp"
         android:text="10000"
-        android:hint="Miejsca po przecinku" />
+        android:hint="@string/digitsHint" />
     <Button
         android:text="@string/startButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/StartButton"
+        android:id="@+id/startButton"
         android:paddingTop="10dp"
         android:paddingBottom="10dp" />
     <TextView
@@ -31,10 +31,10 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/TimeLabel" />
+        android:id="@+id/timeLabel" />
     <TextView
         android:text=""
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/ResultView" />
+        android:id="@+id/resultView" />
 </LinearLayout>

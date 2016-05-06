@@ -1,51 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp">
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context="com.pgrzmil.nativedroid.FileAccessTestActivity">
+
     <TextView
-        android:text="@string/descFileAccess"
-        android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="10dp" />
+        android:paddingBottom="10dp"
+        android:text="@string/descFileAccess"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:columnCount="2">
+
         <Button
+            android:id="@+id/readButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
             android:text="@string/readButton"
-            android:id="@+id/ReadButton"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="fill_horizontal"
-            android:layout_columnWeight="1" />
+            android:onClick="startReading"/>
+
         <Button
-            android:text="@string/writeButton"
-            android:id="@+id/WriteButton"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
+            android:id="@+id/writeButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_columnWeight="1" />
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/writeButton"
+            android:onClick="startWriting"/>
     </GridLayout>
+
     <TextView
-        android:text=""
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/timeLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/TimeLabel" />
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
-            android:text=""
+            android:id="@+id/resultView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/ResultView" />
+            android:text="" />
     </ScrollView>
 </LinearLayout>

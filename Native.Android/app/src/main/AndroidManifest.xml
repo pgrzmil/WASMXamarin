@@ -1,28 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.konra.thespanishinquisition">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.pgrzmil.nativedroid">
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.LOCATION_HARDWARE" />
 
     <application
-        android:debuggable="true"
         android:allowBackup="true"
+        android:debuggable="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".MenuActivity"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DownloadActivity" />
-        <activity android:name=".PerformanceActivity" />
-        <activity android:name=".LayoutActivity"></activity>
+        <activity android:name=".NetworkTestActivity" />
+        <activity android:name=".PerformanceTestActivity" />
+        <activity android:name=".FileAccessTestActivity" />
+        <activity android:name=".LocationTestActivity" />
     </application>
 
-    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

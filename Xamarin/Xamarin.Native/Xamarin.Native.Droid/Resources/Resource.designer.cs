@@ -60,47 +60,53 @@ namespace Xamarin.Native.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050002
-			public const int ActivitiIndicator = 2131034114;
+			// aapt resource value: 0x7f05000a
+			public const int AddressField = 2131034122;
 			
 			// aapt resource value: 0x7f05000b
-			public const int AddressField = 2131034123;
+			public const int DownloadedImage = 2131034123;
 			
-			// aapt resource value: 0x7f05000d
-			public const int DigitsEntry = 2131034125;
-			
-			// aapt resource value: 0x7f05000c
-			public const int DownloadedImage = 2131034124;
-			
-			// aapt resource value: 0x7f050006
-			public const int PositionLabel = 2131034118;
+			// aapt resource value: 0x7f050005
+			public const int PositionLabel = 2131034117;
 			
 			// aapt resource value: 0x7f050000
 			public const int ReadButton = 2131034112;
 			
-			// aapt resource value: 0x7f050004
-			public const int ResultView = 2131034116;
-			
-			// aapt resource value: 0x7f050005
-			public const int StartButton = 2131034117;
-			
 			// aapt resource value: 0x7f050003
-			public const int TimeLabel = 2131034115;
+			public const int ResultView = 2131034115;
+			
+			// aapt resource value: 0x7f050004
+			public const int StartButton = 2131034116;
+			
+			// aapt resource value: 0x7f050002
+			public const int TimeLabel = 2131034114;
 			
 			// aapt resource value: 0x7f050001
 			public const int WriteButton = 2131034113;
 			
-			// aapt resource value: 0x7f050009
-			public const int fileAccessButton = 2131034121;
-			
-			// aapt resource value: 0x7f05000a
-			public const int locationButton = 2131034122;
+			// aapt resource value: 0x7f05000c
+			public const int digitsEntry = 2131034124;
 			
 			// aapt resource value: 0x7f050008
-			public const int networkButton = 2131034120;
+			public const int fileAccessButton = 2131034120;
+			
+			// aapt resource value: 0x7f050009
+			public const int locationButton = 2131034121;
 			
 			// aapt resource value: 0x7f050007
-			public const int performanceButton = 2131034119;
+			public const int networkButton = 2131034119;
+			
+			// aapt resource value: 0x7f050006
+			public const int performanceButton = 2131034118;
+			
+			// aapt resource value: 0x7f05000f
+			public const int resultView = 2131034127;
+			
+			// aapt resource value: 0x7f05000d
+			public const int startButton = 2131034125;
+			
+			// aapt resource value: 0x7f05000e
+			public const int timeLabel = 2131034126;
 			
 			static Id()
 			{
@@ -143,6 +149,9 @@ namespace Xamarin.Native.Droid
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f04000e
+			public const int addressHint = 2130968590;
+			
 			// aapt resource value: 0x7f040005
 			public const int app_name = 2130968581;
 			
@@ -157,6 +166,9 @@ namespace Xamarin.Native.Droid
 			
 			// aapt resource value: 0x7f040006
 			public const int descPerformance = 2130968582;
+			
+			// aapt resource value: 0x7f04000d
+			public const int digitsHint = 2130968589;
 			
 			// aapt resource value: 0x7f040004
 			public const int menu = 2130968580;

@@ -4,40 +4,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp">
-  <TextView
-      android:text="@string/descNetwork"
-      android:textAppearance="?android:attr/textAppearanceSmall"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:paddingBottom="10dp" />
-  <EditText
-      android:inputType="textUri"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/AddressField"
-      android:paddingBottom="10dp"
-      android:paddingTop="10dp"
-      android:hint="Adres" />
-  <Button
-      android:text="@string/startButton"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/StartButton"
-      android:paddingTop="10dp"
-      android:paddingBottom="10dp" />
-  <Spinner
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/ActivitiIndicator"
-      android:visibility="invisible" />
-  <TextView
-      android:text=""
-      android:textAppearance="?android:attr/textAppearanceMedium"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/TimeLabel" />
-  <ImageView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/DownloadedImage" />
+    <TextView
+        android:text="@string/descNetwork"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp" />
+    <EditText
+        android:inputType="textUri"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/AddressField"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:hint="@string/addressHint" />
+    <Button
+        android:text="@string/startButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/StartButton"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp" />
+    <TextView
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/TimeLabel" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/DownloadedImage" />
 </LinearLayout>

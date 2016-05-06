@@ -18,25 +18,24 @@ namespace Xamarin.iOS
     {
         public event LocationChangedEventHandler LocationChanged;
 
-        LocationManager _locationManager;
-
-        string _locationProvider;
+        LocationManager locationManager;
+        string locationProvider;
 
         public LocationTestService()
         {
-            _locationManager = (LocationManager)Android.App.Application.Context.GetSystemService(Context.LocationService);
+            locationManager = (LocationManager)Android.App.Application.Context.GetSystemService(Context.LocationService);
             Criteria criteriaForLocationService = new Criteria { Accuracy = Accuracy.Fine };
-            IList<string> acceptableLocationProviders = _locationManager.GetProviders(criteriaForLocationService, true);
+            IList<string> acceptableLocationProviders = locationManager.GetProviders(criteriaForLocationService, true);
 
             if (acceptableLocationProviders.Any())
             {
-                _locationProvider = acceptableLocationProviders.First();
+                locationProvider = acceptableLocationProviders.First();
             }
         }
 
         public void GetLocation()
         {
-            _locationManager.RequestLocationUpdates(_locationProvider, 5, 10, this);
+            locationManager.RequestLocationUpdates(locationProvider, 5, 10, this);
         }
 
         public void OnLocationChanged(Location location)

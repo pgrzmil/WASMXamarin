@@ -1,41 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.konra.thespanishinquisition.MainActivity"
-    tools:showIn="@layout/activity_main">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    tools:context="com.pgrzmil.nativedroid.MenuActivity"
+    tools:showIn="@layout/activity_main"
+    android:padding="10dp">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <Button
+        android:id="@+id/performanceButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="false"
-        android:layout_alignParentStart="false">
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Wydajność obliczeniowa"
-            android:id="@+id/performanceBtn" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Pobieranie pliku"
-            android:id="@+id/downloadBtn" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/layout"
-            android:id="@+id/layoutBtn" />
-
-    </LinearLayout>
-</RelativeLayout>
+        android:text="@string/menuPerformance"
+        android:onClick="openPerformanceTestActivity"/>
+    <Button
+        android:id="@+id/networkButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/menuNetwork"
+        android:onClick="openNetworkTestActivity"/>
+    <Button
+        android:id="@+id/fileAccessButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/menuFileAccess"
+        android:onClick="openFileAccessTestActivity"/>
+    <Button
+        android:id="@+id/locationButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/menuLocation"
+        android:onClick="openLocationTestActivity"/>
+</LinearLayout>
