@@ -1,4 +1,4 @@
-﻿<Properties StartupItem="Xamarin.Native\Xamarin.Native.Droid\Xamarin.Native.Droid.csproj">
+﻿<Properties StartupItem="Xamarin.Forms\Xamarin.Droid\Xamarin.Forms.Droid.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.LGH815f6442a0d" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Xamarin.Forms\Xamarin.Droid\Properties\AssemblyInfo.cs">
     <Files>

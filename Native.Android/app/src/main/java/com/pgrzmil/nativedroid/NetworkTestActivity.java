@@ -15,6 +15,7 @@ import com.pgrzmil.services.NetworkTestService;
 
 public class NetworkTestActivity extends AppCompatActivity implements NetworkTestListener {
     Stopwatch stopwatch;
+    NetworkTestService networkService;
     Button startButton;
     EditText addressField;
     TextView timeLabel;
@@ -35,7 +36,8 @@ public class NetworkTestActivity extends AppCompatActivity implements NetworkTes
         addressField.setText("http://cdn.superbwallpapers.com/wallpapers/meme/doge-pattern-27481-2880x1800.jpg");
 
         stopwatch = new Stopwatch();
-        NetworkTestService.getInstance().addListener(this);
+        networkService = new NetworkTestService();
+        networkService.addListener(this);
     }
 
     public void startDownloading(View view) {
@@ -45,7 +47,7 @@ public class NetworkTestActivity extends AppCompatActivity implements NetworkTes
         new Thread(new Runnable() {
             @Override
             public void run() {
-                NetworkTestService.getInstance().downloadImage(addressField.getText().toString());
+                networkService.downloadImage(addressField.getText().toString());
             }
         }).start();
     }

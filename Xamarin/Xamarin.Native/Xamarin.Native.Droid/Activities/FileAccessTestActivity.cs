@@ -12,7 +12,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Services;
-using Math = System.Math;
 
 namespace Xamarin.Native.Droid.Activities
 {

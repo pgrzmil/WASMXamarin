@@ -6,67 +6,64 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
-using Xamarin.Services;
+using Xamarin.Forms.Helpers;
+using Xamarin.Forms.Services;
 
 namespace Xamarin.Views
 {
     public partial class FileAccessPage : ContentPage
     {
-        Stopwatch stopwatch;
-        IFileAccessTestService fileAccessService;
         string fileName = "testFile.txt";
         int digits = 10000;
+        Stopwatch stopwatch;
+        FileAccessTestService fileAccessService;
         string contentToWrite;
 
         public FileAccessPage()
         {
             InitializeComponent();
-            Title = "Test dostępu do pliku".ToUpper();
-            fileAccessService = DependencyService.Get<IFileAccessTestService>();
+            Title = "Test dostępu do pliku";
+            fileAccessService = new FileAccessTestService();
         }
 
-        private void StartReadingFile(object sender, EventArgs e)
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+            RefreshUI(true);
+            contentToWrite = await Task.Run(() => PerformanceTestService.Instance.CalculatePi(digits));
+            RefreshUI(false);
+        }
+
+        private void StartReading(object sender, EventArgs e)
         {
             stopwatch = new Stopwatch();
-            RefreshUI(true);
-
             stopwatch.Start();
 
             var fileContents = fileAccessService.ReadFromFile(fileName);
-            ResultView.Text = fileContents;
+            resultView.Text = fileContents;
 
             stopwatch.Stop();
-            RefreshUI(false);
-            TimeLabel.Text = string.Format("Czas wykonania: {0} ms", Math.Round(stopwatch.Elapsed.TotalMilliseconds, 4));
+            timeLabel.Text = stopwatch.GetDurationInMilliseconds();
         }
 
-        private async void StartWritingFile(object sender, EventArgs e)
+        private void StartWriting(object sender, EventArgs e)
         {
             stopwatch = new Stopwatch();
-            RefreshUI(true);
-            ResultView.Text = String.Empty;
-
-            if (contentToWrite == null)
-            {
-                contentToWrite = await Task.Run(() => PerformanceTestService.Instance.CalculatePi(digits));
-            }
-
             stopwatch.Start();
+            resultView.Text = "";
 
             fileAccessService.WriteToFile(fileName, contentToWrite);
 
             stopwatch.Stop();
-
-            RefreshUI(false);
-            TimeLabel.Text = string.Format("Czas wykonania: {0} ms", Math.Round(stopwatch.Elapsed.TotalMilliseconds, 4));
+            timeLabel.Text = stopwatch.GetDurationInMilliseconds();
         }
 
-        private void RefreshUI(bool isDownloading)
+        private void RefreshUI(bool isCalculating)
         {
-            ReadButton.IsVisible = !isDownloading;
-            WriteButton.IsVisible = !isDownloading;
-            ActivityIndicator.IsVisible = isDownloading;
-            ActivityIndicator.IsRunning = isDownloading;
+            readButton.IsVisible = !isCalculating;
+            writeButton.IsVisible = !isCalculating;
+            activityIndicator.IsVisible = isCalculating;
+            activityIndicator.IsRunning = isCalculating;
         }
     }
 }

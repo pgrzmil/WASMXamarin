@@ -1,19 +1,16 @@
-﻿using CoreLocation;
-using Plugin.Geolocator;
+﻿using Plugin.Geolocator;
 using Plugin.Geolocator.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.iOS;
-using Xamarin.Services;
 
-[assembly: Xamarin.Forms.Dependency(typeof(LocationTestService))]
-
-namespace Xamarin.iOS
+namespace Xamarin.Forms.Services
 {
-    public class LocationTestService : ILocationTestService
+    public delegate void LocationChangedEventHandler(double latitude, double longitude);
+
+    public class LocationTestService
     {
         public event LocationChangedEventHandler LocationChanged;
 

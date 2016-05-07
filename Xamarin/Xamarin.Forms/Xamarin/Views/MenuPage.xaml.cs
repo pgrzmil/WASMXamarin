@@ -28,7 +28,7 @@ namespace Xamarin.Views
 
         private void NavigateToGpsTest(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new GpsTestPage());
+            Navigation.PushAsync(new LocationTestPage());
         }
 
         private void NavigateToNetworkTest(object sender, EventArgs e)

@@ -4,16 +4,16 @@
              x:Class="Xamarin.Views.FileAccessPage"
              Padding="10">
 
-  <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="8" Orientation="Vertical">
+  <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical">
     <Label Text="Test pozwala na sprawdzenie szybkości obsługi operacji pilkowych. Sprawdzona zostanie szybkość odczytu i zapisu pliku do pamięci wewnętrznej urzadzenia. Zapisywane i odczytywany będzie wynik obliczenia π do 10000 miejsc po przecinku. Czas obliczenia nie jest wliczany do czasu wykonania testu." FontSize="13" VerticalOptions="Center" HorizontalOptions="Center" />
-    <StackLayout Spacing="8" Orientation="Horizontal">
-      <Button x:Name="ReadButton" Text="Odczytaj" FontSize="20" IsVisible="True" Clicked="StartReadingFile" VerticalOptions="Center" HorizontalOptions="Center" />
-      <Button x:Name="WriteButton" Text="Zapisz" FontSize="20" IsVisible="True" Clicked="StartWritingFile" VerticalOptions="Center" HorizontalOptions="Center" />
-      <ActivityIndicator x:Name="ActivityIndicator" IsVisible="False" VerticalOptions="Center" HorizontalOptions="Center" />
+    <ActivityIndicator x:Name="activityIndicator" IsVisible="True" VerticalOptions="Center" HorizontalOptions="Center" />
+    <StackLayout Orientation="Horizontal">
+      <Button x:Name="readButton" Text="Odczytaj" Clicked="StartReading" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+      <Button x:Name="writeButton" Text="Zapisz" Clicked="StartWriting" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
     </StackLayout>
-    <Label x:Name="TimeLabel" />
-    <ScrollView>
-      <Label x:Name="ResultView" FontSize="11" />
+    <Label x:Name="timeLabel" />
+    <ScrollView IsClippedToBounds="True">
+      <Label x:Name="resultView" FontSize="11" />
     </ScrollView>
   </StackLayout>
 </ContentPage>

@@ -5,50 +5,53 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
-using Xamarin.Services;
+using Xamarin.Forms.Helpers;
+using Xamarin.Forms.Services;
 
 namespace Xamarin.Views
 {
     public partial class NetworkTestPage : ContentPage
     {
         Stopwatch stopwatch;
+        NetworkDownloadService networkService;
 
         public NetworkTestPage()
         {
             InitializeComponent();
-            Title = "Test obsługi sieci".ToUpper();
-            AddressField.Text = "http://cdn.superbwallpapers.com/wallpapers/meme/doge-pattern-27481-2880x1800.jpg";
-            NetworkDownloadService.Instance.ImageDownloadCompleted += Instance_DownloadCompleted;
+            Title = "Test obsługi sieci";
+
+            addressField.Text = "http://cdn.superbwallpapers.com/wallpapers/meme/doge-pattern-27481-2880x1800.jpg";
+            networkService = new NetworkDownloadService();
+            networkService.ImageDownloadCompleted += Instance_DownloadCompleted;
         }
 
         private void StartDownloading(object sender, EventArgs e)
         {
             stopwatch = new Stopwatch();
+            stopwatch.Start();
             RefreshUI(true);
 
-            stopwatch.Start();
-            NetworkDownloadService.Instance.DownloadImage(AddressField.Text);
+            networkService.DownloadImage(addressField.Text);
         }
 
-        private void Instance_DownloadCompleted(byte[] bytes)
+        private void Instance_DownloadCompleted(ImageSource image)
         {
             stopwatch.Stop();
             Device.BeginInvokeOnMainThread(() =>
             {
-                DownloadedImage.Source = ImageSource.FromStream(() => new MemoryStream(bytes));
+                downloadedImage.Source = image;
+                timeLabel.Text = stopwatch.GetDurationInSeconds();
                 RefreshUI(false);
-                TimeLabel.Text = String.Format("Czas wykonania: {0} s", Math.Round(stopwatch.Elapsed.TotalSeconds, 4));
             });
         }
 
         private void RefreshUI(bool isDownloading)
         {
-            StartButton.IsVisible = !isDownloading;
-            AddressField.IsEnabled = !isDownloading;
-            ActivityIndicator.IsVisible = isDownloading;
-            ActivityIndicator.IsRunning = isDownloading;
+            startButton.IsVisible = !isDownloading;
+            addressField.IsEnabled = !isDownloading;
+            activityIndicator.IsVisible = isDownloading;
+            activityIndicator.IsRunning = isDownloading;
         }
     }
 }

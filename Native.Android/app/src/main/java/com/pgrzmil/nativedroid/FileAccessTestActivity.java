@@ -46,7 +46,6 @@ public class FileAccessTestActivity extends AppCompatActivity implements Perform
     }
 
     public void startReading(View view) {
-        stopwatch = new Stopwatch();
         stopwatch.start();
         resultView.setText("");
 
@@ -58,7 +57,6 @@ public class FileAccessTestActivity extends AppCompatActivity implements Perform
     }
 
     public void startWriting(View view) {
-        stopwatch = new Stopwatch();
         stopwatch.start();
         resultView.setText("");
 

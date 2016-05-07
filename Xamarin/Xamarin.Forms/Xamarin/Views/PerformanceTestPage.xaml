@@ -6,12 +6,12 @@
 
   <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="8" Orientation="Vertical">
     <Label Text="Test pozwala na sprawdzenie wydajności obliczeniowej aplikacji poprzez obliczenie liczby π do zadanego miejsca po przecinku." FontSize="13" VerticalOptions="Center" HorizontalOptions="Center" />
-    <Entry x:Name="DigitsEntry" Placeholder="Miejsca po przecinku" Keyboard="Numeric" Text="10000" />
-    <Button x:Name="StartButton" Text="START" FontSize="20" IsVisible="True" Clicked="StartCalculation" VerticalOptions="Center" HorizontalOptions="Center" />
-    <ActivityIndicator x:Name="ActivityIndicator" IsVisible="False" VerticalOptions="Center" HorizontalOptions="Center" />
-    <Label x:Name="TimeLabel" />
+    <Entry x:Name="digitsEntry" Placeholder="Miejsca po przecinku" Keyboard="Numeric" Text="10000" />
+    <Button x:Name="startButton" Text="START" Clicked="StartCalculation" HorizontalOptions="FillAndExpand" />
+    <ActivityIndicator x:Name="activityIndicator" IsVisible="False" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Label x:Name="timeLabel" />
     <ScrollView>
-      <Label x:Name="ResultView" FontSize="11" />
+      <Label x:Name="resultView" FontSize="11" />
     </ScrollView>
   </StackLayout>
 </ContentPage>

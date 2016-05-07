@@ -14,14 +14,7 @@ namespace Xamarin.Services
 
     internal class NetworkDownloadService : Java.Lang.Object
     {
-        private static readonly NetworkDownloadService instance = new NetworkDownloadService();
-
         public event ImageDownloadEventHandler ImageDownloadCompleted;
-
-        public static NetworkDownloadService Instance { get { return instance; } }
-
-        private NetworkDownloadService()
-        { }
 
         public void DownloadImage(string urlString)
         {

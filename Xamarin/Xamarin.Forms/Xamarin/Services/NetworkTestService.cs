@@ -6,27 +6,21 @@ using System.Net.Http;
 using System.Text;
 using Xamarin.Forms;
 
-namespace Xamarin.Services
+namespace Xamarin.Forms.Services
 {
-    public delegate void ImageDownloadEventHandler(byte[] bytes);
+    public delegate void ImageDownloadEventHandler(ImageSource image);
 
     internal class NetworkDownloadService
     {
         public event ImageDownloadEventHandler ImageDownloadCompleted;
 
-        private static readonly NetworkDownloadService instance = new NetworkDownloadService();
-
-        private NetworkDownloadService()
-        { }
-
-        public static NetworkDownloadService Instance { get { return instance; } }
-
         public async void DownloadImage(string url)
         {
             var client = new HttpClient();
-            var response = await client.GetByteArrayAsync(url);
+            var bytes = await client.GetByteArrayAsync(url);
+            var image = ImageSource.FromStream(() => new MemoryStream(bytes));
 
-            ImageDownloadCompleted?.Invoke(response);
+            ImageDownloadCompleted?.Invoke(image);
         }
     }
 }

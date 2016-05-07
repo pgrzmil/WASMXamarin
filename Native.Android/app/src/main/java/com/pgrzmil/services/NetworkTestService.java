@@ -13,15 +13,7 @@ import java.util.List;
  * Created by pawel on 06.05.2016.
  */
 public class NetworkTestService {
-    private static NetworkTestService instance = new NetworkTestService();
     private List<NetworkTestListener> listeners = new ArrayList<>();
-
-    public static NetworkTestService getInstance() {
-        return instance;
-    }
-
-    private NetworkTestService() {
-    }
 
     public void addListener(NetworkTestListener toAdd) {
         listeners.add(toAdd);

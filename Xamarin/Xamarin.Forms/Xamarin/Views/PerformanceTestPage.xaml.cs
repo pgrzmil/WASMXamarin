@@ -7,7 +7,8 @@ using System.Threading;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
-using Xamarin.Services;
+using Xamarin.Forms.Helpers;
+using Xamarin.Forms.Services;
 
 namespace Xamarin.Views
 {
@@ -18,19 +19,19 @@ namespace Xamarin.Views
         public PerformanceTestPage()
         {
             InitializeComponent();
-            Title = "Test obliczeń".ToUpper();
+            Title = "Test obliczeń";
             PerformanceTestService.Instance.PiCalculationCompleted += Instance_CalculationCompleted;
         }
 
         private void StartCalculation(object sender, EventArgs e)
         {
             stopwatch = new Stopwatch();
+            stopwatch.Start();
             RefreshUI(true);
 
-            var digits = Convert.ToInt32(DigitsEntry.Text);
+            var digits = Convert.ToInt32(digitsEntry.Text);
             Task.Run(() =>
             {
-                stopwatch.Start();
                 PerformanceTestService.Instance.CalculatePi(digits);
             });
         }
@@ -40,19 +41,18 @@ namespace Xamarin.Views
             stopwatch.Stop();
             Device.BeginInvokeOnMainThread(() =>
             {
-                ResultView.Text = result;
+                resultView.Text = result;
+                timeLabel.Text = stopwatch.GetDurationInSeconds();
                 RefreshUI(false);
-
-                TimeLabel.Text = String.Format("Czas wykonania: {0} s", Math.Round(stopwatch.Elapsed.TotalSeconds, 4));
             });
         }
 
         private void RefreshUI(bool isCalculating)
         {
-            StartButton.IsVisible = !isCalculating;
-            DigitsEntry.IsEnabled = !isCalculating;
-            ActivityIndicator.IsVisible = isCalculating;
-            ActivityIndicator.IsRunning = isCalculating;
+            startButton.IsVisible = !isCalculating;
+            digitsEntry.IsEnabled = !isCalculating;
+            activityIndicator.IsVisible = isCalculating;
+            activityIndicator.IsRunning = isCalculating;
         }
     }
 }

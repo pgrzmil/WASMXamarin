@@ -1,0 +1,4 @@
+﻿<resources>
+  <string name="ApplicationName">Xamarin.Forms.Droid</string>
+  <string name="Hello">Hello</string>
+</resources>

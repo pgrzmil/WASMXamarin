@@ -6,48 +6,49 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
-using Xamarin.Services;
+using Xamarin.Forms.Helpers;
+using Xamarin.Forms.Services;
 
 namespace Xamarin.Views
 {
-    public partial class GpsTestPage : ContentPage
+    public partial class LocationTestPage : ContentPage
     {
         Stopwatch stopwatch;
-        ILocationTestService locationService;
+        LocationTestService locationService;
 
-        public GpsTestPage()
+        public LocationTestPage()
         {
             InitializeComponent();
-            Title = "Test pozycji GPS".ToUpper();
-            locationService = DependencyService.Get<ILocationTestService>();
-            locationService.LocationChanged += LocationService_LocationChanged;
+            Title = "Test pozycji GPS";
+            locationService = new LocationTestService();
+            locationService.LocationChanged += LocationChanged;
         }
 
         private void StartPositioning(object sender, EventArgs e)
         {
             stopwatch = new Stopwatch();
+            stopwatch.Start();
             RefreshUI(true);
 
-            stopwatch.Start();
             locationService.GetLocation();
         }
 
-        private void LocationService_LocationChanged(double latitude, double longitude)
+        private void LocationChanged(double latitude, double longitude)
         {
             stopwatch.Stop();
             Device.BeginInvokeOnMainThread(() =>
             {
+                positionLabel.Text = string.Format("Długość: {0}\nSzerokość: {1}", Math.Round(longitude, 4), Math.Round(latitude, 4));
+                timeLabel.Text = stopwatch.GetDurationInSeconds();
                 RefreshUI(false);
-                PositionLabel.Text = string.Format("Długość: {0}\nSzerokość: {1}", Math.Round(longitude, 4), Math.Round(latitude, 4));
-                TimeLabel.Text = string.Format("Czas wykonania: {0} s", Math.Round(stopwatch.Elapsed.TotalSeconds, 4));
             });
         }
 
         private void RefreshUI(bool isDownloading)
         {
-            StartButton.IsVisible = !isDownloading;
-            ActivityIndicator.IsVisible = isDownloading;
-            ActivityIndicator.IsRunning = isDownloading;
+            startButton.IsVisible = !isDownloading;
+            activityIndicator.IsVisible = isDownloading;
+            activityIndicator.IsRunning = isDownloading;
         }
     }
 }

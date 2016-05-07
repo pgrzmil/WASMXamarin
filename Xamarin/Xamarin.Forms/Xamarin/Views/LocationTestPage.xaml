@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Xamarin.Views.GpsTestPage"
+             x:Class="Xamarin.Views.LocationTestPage"
              Padding="10">
 
   <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="8" Orientation="Vertical">
     <Label Text="Test pozwala na sprawdzenie szybkości obsługi urządzeń wewnętrznych telefonu poprzez pobranie z GPS pozycji." FontSize="13" VerticalOptions="Center" HorizontalOptions="Center" />
-    <Button x:Name="StartButton" Text="START" FontSize="20" IsVisible="True" Clicked="StartPositioning" VerticalOptions="Center" HorizontalOptions="Center" />
-    <ActivityIndicator x:Name="ActivityIndicator" IsVisible="False" VerticalOptions="Center" HorizontalOptions="Center" />
-    <Label x:Name="TimeLabel" />
-    <Label x:Name="PositionLabel" FontSize="18" />
+    <Button x:Name="startButton" Text="START" Clicked="StartPositioning" HorizontalOptions="FillAndExpand" />
+    <ActivityIndicator x:Name="activityIndicator" IsVisible="False" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Label x:Name="timeLabel" />
+    <Label x:Name="positionLabel" FontSize="18" />
   </StackLayout>
 </ContentPage>

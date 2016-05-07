@@ -43,12 +43,12 @@ namespace Xamarin.Native.Droid.Activities
         private void StartCalculation(object sender, EventArgs e)
         {
             stopwatch = new Stopwatch();
+            stopwatch.Start();
             progressDialog = ProgressDialog.Show(this, "Przetwarzanie...", "");
 
             var digits = Convert.ToInt32(digitsEntry.Text);
             new Thread(new Runnable(() =>
             {
-                stopwatch.Start();
                 PerformanceTestService.Instance.CalculatePi(digits);
             })).Start();
         }

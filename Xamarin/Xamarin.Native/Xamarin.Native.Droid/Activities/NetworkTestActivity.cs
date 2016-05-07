@@ -20,6 +20,7 @@ namespace Xamarin.Native.Droid.Activities
     public class NetworkTestActivity : Activity
     {
         Stopwatch stopwatch;
+        NetworkDownloadService networkService;
         Button startButton;
         EditText addressField;
         TextView timeLabel;
@@ -40,7 +41,8 @@ namespace Xamarin.Native.Droid.Activities
             addressField.Text = "http://cdn.superbwallpapers.com/wallpapers/meme/doge-pattern-27481-2880x1800.jpg";
 
             startButton.Click += StartDownloading;
-            NetworkDownloadService.Instance.ImageDownloadCompleted += ImageDownloadCompleted;
+            networkService = new NetworkDownloadService();
+            networkService.ImageDownloadCompleted += ImageDownloadCompleted;
         }
 
         private void StartDownloading(object sender, EventArgs e)
@@ -51,7 +53,7 @@ namespace Xamarin.Native.Droid.Activities
 
             new Thread(new Runnable(() =>
             {
-                NetworkDownloadService.Instance.DownloadImage(addressField.Text);
+                networkService.DownloadImage(addressField.Text);
             })).Start();
         }
 

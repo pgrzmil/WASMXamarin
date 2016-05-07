@@ -6,10 +6,10 @@
 
   <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="8" Orientation="Vertical">
     <Label Text="Test pozwala na sprawdzenie wydajności obsługi połączeń sieciowych poprzez pobranie z internetu obrazka o duzym rozmiarze." FontSize="13" VerticalOptions="Center" HorizontalOptions="Center" />
-    <Entry x:Name="AddressField" Placeholder="Adres" />
-    <Button x:Name="StartButton" Text="START" FontSize="20" IsVisible="True" Clicked="StartDownloading" VerticalOptions="Center" HorizontalOptions="Center" />
-    <ActivityIndicator x:Name="ActivityIndicator" IsVisible="False" VerticalOptions="Center" HorizontalOptions="Center" />
-    <Label x:Name="TimeLabel" />
-    <Image x:Name="DownloadedImage" />
+    <Entry x:Name="addressField" Placeholder="Adres" />
+    <Button x:Name="startButton" Text="START" Clicked="StartDownloading" HorizontalOptions="FillAndExpand" />
+    <ActivityIndicator x:Name="activityIndicator" IsVisible="False" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Label x:Name="timeLabel" />
+    <Image x:Name="downloadedImage" />
   </StackLayout>
 </ContentPage>
