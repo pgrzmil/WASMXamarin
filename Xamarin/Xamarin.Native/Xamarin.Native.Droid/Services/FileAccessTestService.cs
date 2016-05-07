@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Android.Content;
+using Android.Util;
+using Java.IO;
+using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,19 +11,61 @@ namespace Xamarin.Services
 {
     public class FileAccessTestService : Java.Lang.Object
     {
-        public void WriteToFile(string filename, string text)
+        Context context;
+
+        public FileAccessTestService(Context context)
         {
-            var documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            var filePath = Path.Combine(documentsPath, filename);
-            File.Delete(filePath);
-            File.WriteAllText(filePath, text);
+            this.context = context;
         }
 
-        public string ReadFromFile(string filename)
+        public void WriteToFile(string fileName, string text)
         {
-            var documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            var filePath = Path.Combine(documentsPath, filename);
-            return File.ReadAllText(filePath);
+            try
+            {
+                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.OpenFileOutput(fileName, FileCreationMode.Private));
+                outputStreamWriter.Write(text);
+                outputStreamWriter.Close();
+            }
+            catch (IOException e)
+            {
+                Log.Debug("Exception", "File write failed: " + e.ToString());
+            }
+        }
+
+        public string ReadFromFile(string fileName)
+        {
+            String ret = "";
+
+            try
+            {
+                System.IO.Stream inputStream = context.OpenFileInput(fileName);
+
+                if (inputStream != null)
+                {
+                    InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+                    BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                    String receiveString = "";
+                    StringBuilder stringBuilder = new StringBuilder();
+
+                    while ((receiveString = bufferedReader.ReadLine()) != null)
+                    {
+                        stringBuilder.Append(receiveString);
+                    }
+
+                    inputStream.Close();
+                    ret = stringBuilder.ToString();
+                }
+            }
+            catch (FileNotFoundException e)
+            {
+                Log.Debug("Exception", "File not found: " + e.ToString());
+            }
+            catch (IOException e)
+            {
+                Log.Debug("Exception", "Can not read file: " + e.ToString());
+            }
+
+            return ret;
         }
     }
 }

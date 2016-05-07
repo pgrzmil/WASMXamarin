@@ -56,7 +56,7 @@ namespace Xamarin.Native.Droid.Activities
             RunOnUiThread(() =>
             {
                 DownloadedImage.SetImageBitmap(image);
-                TimeLabel.Text = String.Format("Czas wykonania: {0} s", Math.Round(stopwatch.Elapsed.TotalSeconds, 4));
+                TimeLabel.Text = stopwatch.GetDurationInSeconds();
                 progressDialog.Dismiss();
             });
         }

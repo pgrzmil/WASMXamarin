@@ -49,7 +49,7 @@ public class LocationTestActivity extends AppCompatActivity implements LocationT
         runOnUiThread(new Runnable() {
             public void run() {
                 positionLabel.setText(String.format("Długość: %d\nSzerokość: %d", Math.round(longitude * 100) / 100, Math.round(latitude * 100) / 100));
-                timeLabel.setText(stopwatch.getDurationBreakdown());
+                timeLabel.setText(stopwatch.getDurationInSeconds());
                 progressDialog.dismiss();
             }
         });

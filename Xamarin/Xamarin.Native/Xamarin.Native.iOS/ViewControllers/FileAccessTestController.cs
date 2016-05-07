@@ -43,7 +43,7 @@ namespace Xamarin.Native.iOS.ViewControllers
 
             stopwatch.Stop();
             RefreshUI(false);
-            TimeLabel.Text = string.Format("Czas wykonania: {0} ms", Math.Round(stopwatch.Elapsed.TotalMilliseconds, 4));
+            TimeLabel.Text = stopwatch.GetDurationInMilliseconds();
         }
 
         partial void StartWritingFile(UIButton sender)
@@ -64,7 +64,7 @@ namespace Xamarin.Native.iOS.ViewControllers
             stopwatch.Stop();
 
             RefreshUI(false);
-            TimeLabel.Text = string.Format("Czas wykonania: {0} ms", Math.Round(stopwatch.Elapsed.TotalMilliseconds, 4));
+            TimeLabel.Text = stopwatch.GetDurationInMilliseconds();
         }
 
         private void RefreshUI(bool isDownloading)

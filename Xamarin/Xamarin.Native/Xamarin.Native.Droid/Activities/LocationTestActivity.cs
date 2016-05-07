@@ -53,7 +53,7 @@ namespace Xamarin.Native.Droid.Activities
             RunOnUiThread(() =>
             {
                 PositionLabel.Text = string.Format("D³ugoœæ: {0}\nSzerokoœæ: {1}", Math.Round(longitude, 4), Math.Round(latitude, 4));
-                TimeLabel.Text = string.Format("Czas wykonania: {0} s", Math.Round(stopwatch.Elapsed.TotalSeconds, 4));
+                TimeLabel.Text = stopwatch.GetDurationInSeconds();
                 progressDialog.Dismiss();
             });
         }

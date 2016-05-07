@@ -44,7 +44,7 @@ namespace Xamarin.Native.iOS.ViewControllers
             {
                 DownloadedImage.Image = UIImage.LoadFromData(data);
                 RefreshUI(false);
-                TimeLabel.Text = String.Format("Czas wykonania: {0} s", Math.Round(stopwatch.Elapsed.TotalSeconds, 4));
+                TimeLabel.Text = stopwatch.GetDurationInSeconds();
             });
         }
 

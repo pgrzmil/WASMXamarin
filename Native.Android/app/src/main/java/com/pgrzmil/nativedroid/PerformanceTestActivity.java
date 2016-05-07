@@ -51,7 +51,7 @@ public class PerformanceTestActivity extends AppCompatActivity implements Perfor
         runOnUiThread(new Runnable() {
             public void run() {
                 resultView.setText(result);
-                timeLabel.setText(stopwatch.getDurationBreakdown());
+                timeLabel.setText(stopwatch.getDurationInSeconds());
                 progressDialog.dismiss();
             }
         });

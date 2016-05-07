@@ -1,34 +1,35 @@
 package com.pgrzmil.nativedroid;
 
-import java.util.concurrent.TimeUnit;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 
 public class Stopwatch {
     private long startTime;
     private long stopTime;
 
-    public void start(){
+    public void start() {
         startTime = System.nanoTime();
     }
 
-    public void stop(){
+    public void stop() {
         stopTime = System.nanoTime();
     }
 
-    public String getDurationBreakdown()
-    {
+    public String getDurationInMilliseconds() {
         long nanos = stopTime - startTime;
+        double millis = nanos / 1000000.0;
 
-        long seconds = TimeUnit.NANOSECONDS.toSeconds(nanos);
-        nanos -= TimeUnit.SECONDS.toNanos(seconds);
-        long milis = TimeUnit.NANOSECONDS.toMillis(nanos);
+        DecimalFormat formatter = new DecimalFormat("#.###");
+        formatter.setRoundingMode(RoundingMode.CEILING);
+        return String.format("Czas wykonania: %s ms", formatter.format(millis));
+    }
 
-        StringBuilder sb = new StringBuilder(64);
-        sb.append("Czas wykonania: ");
-        sb.append(seconds);
-        sb.append(",");
-        sb.append(milis);
-        sb.append(" s");
+    public String getDurationInSeconds() {
+        long nanos = stopTime - startTime;
+        double seconds = nanos / 1000000000.0;
 
-        return sb.toString();
+        DecimalFormat formatter = new DecimalFormat("#.###");
+        formatter.setRoundingMode(RoundingMode.CEILING);
+        return String.format("Czas wykonania: %s s", formatter.format(seconds));
     }
 }

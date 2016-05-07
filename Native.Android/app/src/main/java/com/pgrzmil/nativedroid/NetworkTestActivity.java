@@ -55,7 +55,7 @@ public class NetworkTestActivity extends AppCompatActivity implements NetworkTes
         runOnUiThread(new Runnable() {
             public void run() {
                 downloadedImage.setImageBitmap(image);
-                timeLabel.setText(stopwatch.getDurationBreakdown());
+                timeLabel.setText(stopwatch.getDurationInSeconds());
                 progressDialog.dismiss();
             }
         });

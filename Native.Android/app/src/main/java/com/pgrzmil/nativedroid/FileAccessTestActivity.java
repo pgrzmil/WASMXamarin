@@ -5,14 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.pgrzmil.services.FileAccessService;
-import com.pgrzmil.services.PerformanceTestService;
+import com.pgrzmil.services.*;
 
-public class FileAccessTestActivity extends AppCompatActivity {
+public class FileAccessTestActivity extends AppCompatActivity implements PerformanceTestListener {
+    String fileName = "testFile.txt";
+    int digits = 10000;
+
     Stopwatch stopwatch;
     Button readButton;
     Button writeButton;
@@ -20,15 +20,13 @@ public class FileAccessTestActivity extends AppCompatActivity {
     TextView resultView;
     ProgressDialog progressDialog;
     FileAccessService fileAccessService;
-    String fileName = "testFile.txt";
-    int digits = 10000;
     String contentToWrite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fileaccess);
-        setTitle(R.string.menuLocation);
+        setTitle(R.string.menuFileAccess);
 
         timeLabel = (TextView) findViewById(R.id.timeLabel);
         resultView = (TextView) findViewById(R.id.resultView);
@@ -36,35 +34,47 @@ public class FileAccessTestActivity extends AppCompatActivity {
         writeButton = (Button) findViewById(R.id.writeButton);
 
         stopwatch = new Stopwatch();
+        fileAccessService = new FileAccessService(this);
+        PerformanceTestService.getInstance().addListener(this);
 
-        fileAccessService = new FileAccessService();
+        progressDialog = ProgressDialog.show(this, "Przetwarzanie...", "");
+        new Thread(new Runnable() {
+            public void run() {
+                PerformanceTestService.getInstance().calculatePi(digits);
+            }
+        }).start();
     }
 
     public void startReading(View view) {
+        stopwatch = new Stopwatch();
         stopwatch.start();
-        progressDialog = ProgressDialog.show(this, "Przetwarzanie...", "");
+        resultView.setText("");
 
-        String filecontents = fileAccessService.readFromFile(fileName);
-        resultView.setText(filecontents);
-        
+        String fileContents = fileAccessService.readFromFile(fileName);
+        resultView.setText(fileContents);
+
         stopwatch.stop();
-        timeLabel.setText(stopwatch.getDurationBreakdown());
-        progressDialog.dismiss();
+        timeLabel.setText(stopwatch.getDurationInMilliseconds());
     }
 
     public void startWriting(View view) {
+        stopwatch = new Stopwatch();
         stopwatch.start();
-        progressDialog = ProgressDialog.show(this, "Przetwarzanie...", "");
         resultView.setText("");
-
-        if (contentToWrite == null) {
-            contentToWrite = PerformanceTestService.getInstance().calculatePi(digits);
-        }
 
         fileAccessService.writeToFile(fileName, contentToWrite);
 
         stopwatch.stop();
-        timeLabel.setText(stopwatch.getDurationBreakdown());
-        progressDialog.dismiss();
+        timeLabel.setText(stopwatch.getDurationInMilliseconds());
+    }
+
+    @Override
+    public void piCalculationCompleted(String result) {
+        contentToWrite = result;
+        runOnUiThread(new Runnable() {
+            public void run() {
+                progressDialog.dismiss();
+            }
+        });
     }
 }

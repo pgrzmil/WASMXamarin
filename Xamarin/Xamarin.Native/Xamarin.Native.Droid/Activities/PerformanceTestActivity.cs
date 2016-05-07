@@ -59,7 +59,7 @@ namespace Xamarin.Native.Droid.Activities
             RunOnUiThread(() =>
             {
                 ResultView.Text = result;
-                TimeLabel.Text = String.Format("Czas wykonania: {0} s", Math.Round(stopwatch.Elapsed.TotalSeconds, 4));
+                TimeLabel.Text = stopwatch.GetDurationInSeconds();
                 progressDialog.Dismiss();
             });
         }

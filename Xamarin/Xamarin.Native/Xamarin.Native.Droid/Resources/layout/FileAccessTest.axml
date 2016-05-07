@@ -16,7 +16,7 @@
         android:columnCount="2">
         <Button
             android:text="@string/readButton"
-            android:id="@+id/ReadButton"
+            android:id="@+id/readButton"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:layout_width="wrap_content"
@@ -25,7 +25,7 @@
             android:layout_columnWeight="1" />
         <Button
             android:text="@string/writeButton"
-            android:id="@+id/WriteButton"
+            android:id="@+id/writeButton"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:layout_width="wrap_content"
@@ -38,7 +38,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/TimeLabel" />
+        android:id="@+id/timeLabel" />
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -46,6 +46,6 @@
             android:text=""
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/ResultView" />
+            android:id="@+id/resultView" />
     </ScrollView>
 </LinearLayout>

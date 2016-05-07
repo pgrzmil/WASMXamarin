@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Java.Lang;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,23 +12,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Services;
+using Math = System.Math;
 
 namespace Xamarin.Native.Droid.Activities
 {
     [Activity(Label = "FileAccessTestActivity")]
     public class FileAccessTestActivity : Activity
     {
-        Stopwatch stopwatch;
-        FileAccessTestService fileAccessService;
         string fileName = "testFile.txt";
         int digits = 10000;
-        string contentToWrite;
 
+        Stopwatch stopwatch;
         Button writeButton;
         Button readButton;
-        TextView TimeLabel;
-        TextView ResultView;
+        TextView timeLabel;
+        TextView resultView;
         ProgressDialog progressDialog;
+        FileAccessTestService fileAccessService;
+        string contentToWrite;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -35,68 +37,49 @@ namespace Xamarin.Native.Droid.Activities
             SetContentView(Resource.Layout.FileAccessTest);
             Title = GetString(Resource.String.menuFileAccess);
 
-            fileAccessService = new FileAccessTestService();
+            timeLabel = FindViewById<TextView>(Resource.Id.timeLabel);
+            resultView = FindViewById<TextView>(Resource.Id.resultView);
+            readButton = FindViewById<Button>(Resource.Id.readButton);
+            writeButton = FindViewById<Button>(Resource.Id.writeButton);
 
-            TimeLabel = FindViewById<TextView>(Resource.Id.TimeLabel);
-            ResultView = FindViewById<TextView>(Resource.Id.ResultView);
-            readButton = FindViewById<Button>(Resource.Id.ReadButton);
-            writeButton = FindViewById<Button>(Resource.Id.WriteButton);
             readButton.Click += StartReading;
             writeButton.Click += StartWriting;
+            PerformanceTestService.Instance.PiCalculationCompleted += PiCalculationCompleted;
+
+            fileAccessService = new FileAccessTestService(this);
+
+            progressDialog = ProgressDialog.Show(this, "Przetwarzanie...", "");
+            new Thread(new Runnable(() => { PerformanceTestService.Instance.CalculatePi(digits); })).Start();
         }
 
-        private async void StartWriting(object sender, EventArgs e)
+        private void StartReading(object sender, EventArgs e)
         {
             stopwatch = new Stopwatch();
-            progressDialog = ProgressDialog.Show(this, "Przetwarzanie...", "");
-
-            ResultView.Text = String.Empty;
-
-            if (contentToWrite == null)
-            {
-                contentToWrite = await Task.Run(() => PerformanceTestService.Instance.CalculatePi(digits));
-            }
-
             stopwatch.Start();
 
-            await Task.Run(() => fileAccessService.WriteToFile(fileName, contentToWrite));
+            var fileContents = fileAccessService.ReadFromFile(fileName);
+            resultView.Text = fileContents;
 
             stopwatch.Stop();
-
-            progressDialog.Dismiss();
-            TimeLabel.Text = string.Format("Czas wykonania: {0} ms", Math.Round(stopwatch.Elapsed.TotalMilliseconds, 4));
+            timeLabel.Text = stopwatch.GetDurationInMilliseconds();
         }
 
-        private async void StartReading(object sender, EventArgs e)
+        private void StartWriting(object sender, EventArgs e)
         {
             stopwatch = new Stopwatch();
-            progressDialog = ProgressDialog.Show(this, "Przetwarzanie...", "");
-
             stopwatch.Start();
+            resultView.Text = "";
 
-            var fileContents = await Task.Run(() => fileAccessService.ReadFromFile(fileName));
-            ResultView.Text = fileContents;
+            fileAccessService.WriteToFile(fileName, contentToWrite);
 
             stopwatch.Stop();
-
-            progressDialog.Dismiss();
-            TimeLabel.Text = string.Format("Czas wykonania: {0} ms", Math.Round(stopwatch.Elapsed.TotalMilliseconds, 4));
+            timeLabel.Text = stopwatch.GetDurationInMilliseconds();
         }
 
-        private void RefreshUI(bool isProcessing)
+        private void PiCalculationCompleted(string result)
         {
-            if (isProcessing)
-            {
-                readButton.Visibility = ViewStates.Invisible;
-                writeButton.Visibility = ViewStates.Invisible;
-                progressDialog = ProgressDialog.Show(this, "Przetwarzanie...", "");
-            }
-            else
-            {
-                readButton.Visibility = ViewStates.Visible;
-                writeButton.Visibility = ViewStates.Visible;
-                progressDialog.Dismiss();
-            }
+            contentToWrite = result;
+            RunOnUiThread(() => { progressDialog.Dismiss(); });
         }
     }
 }
