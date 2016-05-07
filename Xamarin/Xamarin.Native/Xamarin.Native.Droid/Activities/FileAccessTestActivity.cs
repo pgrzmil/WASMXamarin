@@ -79,7 +79,7 @@ namespace Xamarin.Native.Droid.Activities
         private void PiCalculationCompleted(string result)
         {
             contentToWrite = result;
-            RunOnUiThread(() => { progressDialog.Dismiss(); });
+            RunOnUiThread(new Runnable(() => { progressDialog.Dismiss(); }));
         }
     }
 }

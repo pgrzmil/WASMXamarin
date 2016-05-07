@@ -15,10 +15,10 @@ import java.util.List;
  * Created by pawel on 06.05.2016.
  */
 public class LocationTestService implements LocationListener {
-    private List<LocationTestListener> listeners = new ArrayList<>();
     LocationManager locationManager;
     String locationProvider;
     Context context;
+    private List<LocationTestListener> listeners = new ArrayList<>();
 
     public LocationTestService(Context context) {
         this.context = context;
@@ -43,30 +43,27 @@ public class LocationTestService implements LocationListener {
         locationManager.requestLocationUpdates(locationProvider, 5, 10, this);
     }
 
-    @Override
-    public void onLocationChanged(Location location) {
-        if (location != null)        {
-            onLocationChanged(location.getLatitude(), location.getLongitude());
-        }
-    }
-
     private void onLocationChanged(double latitude, double longitude) {
         for (LocationTestListener listener : listeners)
             listener.locationChanged(latitude, longitude);
     }
 
     @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
+    public void onLocationChanged(Location location) {
+        if (location != null) {
+            onLocationChanged(location.getLatitude(), location.getLongitude());
+        }
+    }
 
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
     }
 
     @Override
     public void onProviderEnabled(String provider) {
-
     }
 
     @Override
     public void onProviderDisabled(String provider) {
-
     }
 }

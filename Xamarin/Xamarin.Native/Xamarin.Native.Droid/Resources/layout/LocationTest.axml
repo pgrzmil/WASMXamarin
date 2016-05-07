@@ -16,7 +16,7 @@
         android:text="@string/startButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/StartButton"
+        android:id="@+id/startButton"
         android:paddingTop="10dp"
         android:paddingBottom="10dp" />
     <TextView
@@ -24,11 +24,11 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/TimeLabel" />
+        android:id="@+id/timeLabel" />
     <TextView
         android:text=""
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/PositionLabel" />
+        android:id="@+id/positionLabel" />
 </LinearLayout>

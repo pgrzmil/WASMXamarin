@@ -6,5 +6,5 @@ import android.graphics.Bitmap;
  * Created by pawel on 06.05.2016.
  */
 public interface NetworkTestListener {
-    void ImageDownloadCompleted(Bitmap image);
+    void imageDownloadCompleted(Bitmap image);
 }

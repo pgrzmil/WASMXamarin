@@ -41,6 +41,7 @@ public class NetworkTestActivity extends AppCompatActivity implements NetworkTes
     public void startDownloading(View view) {
         stopwatch.start();
         progressDialog = ProgressDialog.show(this, "Pobieranie...", "");
+
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -50,7 +51,7 @@ public class NetworkTestActivity extends AppCompatActivity implements NetworkTes
     }
 
     @Override
-    public void ImageDownloadCompleted(final Bitmap image){
+    public void imageDownloadCompleted(final Bitmap image){
         stopwatch.stop();
         runOnUiThread(new Runnable() {
             public void run() {

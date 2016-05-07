@@ -10,14 +10,14 @@ namespace Xamarin.Services
 
     public class PerformanceTestService
     {
+        private static readonly PerformanceTestService instance = new PerformanceTestService();
+
         public event CalculationFinishedEventHandler PiCalculationCompleted;
 
-        private static readonly PerformanceTestService instance = new PerformanceTestService();
+        public static PerformanceTestService Instance { get { return instance; } }
 
         private PerformanceTestService()
         { }
-
-        public static PerformanceTestService Instance { get { return instance; } }
 
         public string CalculatePi(int digits)
         {

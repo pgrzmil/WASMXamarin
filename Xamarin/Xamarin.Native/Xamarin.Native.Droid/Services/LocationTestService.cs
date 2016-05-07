@@ -20,10 +20,12 @@ namespace Xamarin.iOS
 
         LocationManager locationManager;
         string locationProvider;
+        Context context;
 
-        public LocationTestService()
+        public LocationTestService(Context context)
         {
-            locationManager = (LocationManager)Android.App.Application.Context.GetSystemService(Context.LocationService);
+            this.context = context;
+            locationManager = (LocationManager)context.GetSystemService(Context.LocationService);
             Criteria criteriaForLocationService = new Criteria { Accuracy = Accuracy.Fine };
             IList<string> acceptableLocationProviders = locationManager.GetProviders(criteriaForLocationService, true);
 

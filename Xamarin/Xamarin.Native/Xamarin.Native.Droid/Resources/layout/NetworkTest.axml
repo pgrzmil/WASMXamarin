@@ -14,7 +14,7 @@
         android:inputType="textUri"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/AddressField"
+        android:id="@+id/addressField"
         android:paddingBottom="10dp"
         android:paddingTop="10dp"
         android:hint="@string/addressHint" />
@@ -22,7 +22,7 @@
         android:text="@string/startButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/StartButton"
+        android:id="@+id/startButton"
         android:paddingTop="10dp"
         android:paddingBottom="10dp" />
     <TextView
@@ -30,9 +30,9 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/TimeLabel" />
+        android:id="@+id/timeLabel" />
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/DownloadedImage" />
+        android:id="@+id/downloadedImage" />
 </LinearLayout>

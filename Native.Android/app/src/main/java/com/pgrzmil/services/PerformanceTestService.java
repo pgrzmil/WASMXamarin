@@ -7,11 +7,11 @@ import java.util.List;
  * Created by pawel on 06.05.2016.
  */
 public class PerformanceTestService {
-    private static PerformanceTestService ourInstance = new PerformanceTestService();
+    private static PerformanceTestService instance = new PerformanceTestService();
     private List<PerformanceTestListener> listeners = new ArrayList<>();
 
     public static PerformanceTestService getInstance() {
-        return ourInstance;
+        return instance;
     }
 
     private PerformanceTestService() {}

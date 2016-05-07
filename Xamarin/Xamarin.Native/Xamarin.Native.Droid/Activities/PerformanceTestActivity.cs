@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Java.Lang;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -20,8 +21,8 @@ namespace Xamarin.Native.Droid.Activities
         Stopwatch stopwatch;
         Button startButton;
         EditText digitsEntry;
-        TextView ResultView;
-        TextView TimeLabel;
+        TextView resultView;
+        TextView timeLabel;
         ProgressDialog progressDialog;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -30,14 +31,13 @@ namespace Xamarin.Native.Droid.Activities
             SetContentView(Resource.Layout.PerformanceTest);
             Title = GetString(Resource.String.menuPerformance);
 
-            PerformanceTestService.Instance.PiCalculationCompleted += Instance_CalculationCompleted;
-
             digitsEntry = FindViewById<EditText>(Resource.Id.digitsEntry);
-            ResultView = FindViewById<TextView>(Resource.Id.resultView);
-            TimeLabel = FindViewById<TextView>(Resource.Id.timeLabel);
+            resultView = FindViewById<TextView>(Resource.Id.resultView);
+            timeLabel = FindViewById<TextView>(Resource.Id.timeLabel);
             startButton = FindViewById<Button>(Resource.Id.startButton);
 
             startButton.Click += StartCalculation;
+            PerformanceTestService.Instance.PiCalculationCompleted += PiCalculationCompleted;
         }
 
         private void StartCalculation(object sender, EventArgs e)
@@ -46,22 +46,22 @@ namespace Xamarin.Native.Droid.Activities
             progressDialog = ProgressDialog.Show(this, "Przetwarzanie...", "");
 
             var digits = Convert.ToInt32(digitsEntry.Text);
-            Task.Run(() =>
+            new Thread(new Runnable(() =>
             {
                 stopwatch.Start();
                 PerformanceTestService.Instance.CalculatePi(digits);
-            });
+            })).Start();
         }
 
-        private void Instance_CalculationCompleted(string result)
+        private void PiCalculationCompleted(string result)
         {
             stopwatch.Stop();
-            RunOnUiThread(() =>
+            RunOnUiThread(new Runnable(() =>
             {
-                ResultView.Text = result;
-                TimeLabel.Text = stopwatch.GetDurationInSeconds();
+                resultView.Text = result;
+                timeLabel.Text = stopwatch.GetDurationInSeconds();
                 progressDialog.Dismiss();
-            });
+            }));
         }
     }
 }

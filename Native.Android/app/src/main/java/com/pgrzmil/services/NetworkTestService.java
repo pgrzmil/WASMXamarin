@@ -2,8 +2,8 @@ package com.pgrzmil.services;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
@@ -13,11 +13,11 @@ import java.util.List;
  * Created by pawel on 06.05.2016.
  */
 public class NetworkTestService {
-    private static NetworkTestService ourInstance = new NetworkTestService();
+    private static NetworkTestService instance = new NetworkTestService();
     private List<NetworkTestListener> listeners = new ArrayList<>();
 
     public static NetworkTestService getInstance() {
-        return ourInstance;
+        return instance;
     }
 
     private NetworkTestService() {
@@ -34,12 +34,12 @@ public class NetworkTestService {
             Bitmap image = BitmapFactory.decodeStream(stream);
             onImageDownloadCompleted(image);
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e("Exception", "Image failed to download: " + e.toString());
         }
     }
 
     private void onImageDownloadCompleted(Bitmap result) {
         for (NetworkTestListener listener : listeners)
-            listener.ImageDownloadCompleted(result);
+            listener.imageDownloadCompleted(result);
     }
 }

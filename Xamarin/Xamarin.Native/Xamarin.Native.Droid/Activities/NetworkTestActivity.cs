@@ -5,6 +5,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Java.Lang;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -20,9 +21,9 @@ namespace Xamarin.Native.Droid.Activities
     {
         Stopwatch stopwatch;
         Button startButton;
-        EditText AddressField;
-        TextView TimeLabel;
-        ImageView DownloadedImage;
+        EditText addressField;
+        TextView timeLabel;
+        ImageView downloadedImage;
         ProgressDialog progressDialog;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -30,35 +31,39 @@ namespace Xamarin.Native.Droid.Activities
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.NetworkTest);
             Title = GetString(Resource.String.menuNetwork);
-            NetworkDownloadService.Instance.ImageDownloadCompleted += Instance_DownloadCompleted;
 
-            AddressField = FindViewById<EditText>(Resource.Id.AddressField);
-            DownloadedImage = FindViewById<ImageView>(Resource.Id.DownloadedImage);
-            TimeLabel = FindViewById<TextView>(Resource.Id.TimeLabel);
-            startButton = FindViewById<Button>(Resource.Id.StartButton);
+            addressField = FindViewById<EditText>(Resource.Id.addressField);
+            downloadedImage = FindViewById<ImageView>(Resource.Id.downloadedImage);
+            timeLabel = FindViewById<TextView>(Resource.Id.timeLabel);
+            startButton = FindViewById<Button>(Resource.Id.startButton);
+
+            addressField.Text = "http://cdn.superbwallpapers.com/wallpapers/meme/doge-pattern-27481-2880x1800.jpg";
+
             startButton.Click += StartDownloading;
-
-            AddressField.Text = "http://cdn.superbwallpapers.com/wallpapers/meme/doge-pattern-27481-2880x1800.jpg";
+            NetworkDownloadService.Instance.ImageDownloadCompleted += ImageDownloadCompleted;
         }
 
         private void StartDownloading(object sender, EventArgs e)
         {
             stopwatch = new Stopwatch();
+            stopwatch.Start();
             progressDialog = ProgressDialog.Show(this, "Pobieranie...", "");
 
-            stopwatch.Start();
-            Task.Run(() => NetworkDownloadService.Instance.DownloadImage(AddressField.Text));
+            new Thread(new Runnable(() =>
+            {
+                NetworkDownloadService.Instance.DownloadImage(addressField.Text);
+            })).Start();
         }
 
-        private void Instance_DownloadCompleted(Bitmap image)
+        private void ImageDownloadCompleted(Bitmap image)
         {
             stopwatch.Stop();
-            RunOnUiThread(() =>
+            RunOnUiThread(new Runnable(() =>
             {
-                DownloadedImage.SetImageBitmap(image);
-                TimeLabel.Text = stopwatch.GetDurationInSeconds();
+                downloadedImage.SetImageBitmap(image);
+                timeLabel.Text = stopwatch.GetDurationInSeconds();
                 progressDialog.Dismiss();
-            });
+            }));
         }
     }
 }

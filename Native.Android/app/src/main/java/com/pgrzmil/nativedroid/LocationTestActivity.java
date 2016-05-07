@@ -8,6 +8,9 @@ import android.widget.*;
 
 import com.pgrzmil.services.*;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 public class LocationTestActivity extends AppCompatActivity implements LocationTestListener {
     Stopwatch stopwatch;
     LocationTestService locationService;
@@ -35,12 +38,7 @@ public class LocationTestActivity extends AppCompatActivity implements LocationT
     public void startPositioning(View view) {
         stopwatch.start();
         progressDialog = ProgressDialog.show(this, "Wyznaczanie pozycji...", "");
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                locationService.getLocation();
-            }
-        }).start();
+        locationService.getLocation();
     }
 
     @Override
@@ -48,7 +46,9 @@ public class LocationTestActivity extends AppCompatActivity implements LocationT
         stopwatch.stop();
         runOnUiThread(new Runnable() {
             public void run() {
-                positionLabel.setText(String.format("Długość: %d\nSzerokość: %d", Math.round(longitude * 100) / 100, Math.round(latitude * 100) / 100));
+                DecimalFormat formatter = new DecimalFormat("#.####");
+                formatter.setRoundingMode(RoundingMode.CEILING);
+                positionLabel.setText(String.format("Długość: %s\nSzerokość: %s", formatter.format(longitude), formatter.format(latitude)));
                 timeLabel.setText(stopwatch.getDurationInSeconds());
                 progressDialog.dismiss();
             }

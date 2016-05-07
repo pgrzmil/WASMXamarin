@@ -35,10 +35,10 @@ public class PerformanceTestActivity extends AppCompatActivity implements Perfor
 
     public void startCalculation(View view) {
         stopwatch.start();
-        final int digits = Integer.parseInt(digitsEntry.getText().toString());
         progressDialog = ProgressDialog.show(this, "Przetwarzanie...", "");
+
+        final int digits = Integer.parseInt(digitsEntry.getText().toString());
         new Thread(new Runnable() {
-            @Override
             public void run() {
                 PerformanceTestService.getInstance().calculatePi(digits);
             }

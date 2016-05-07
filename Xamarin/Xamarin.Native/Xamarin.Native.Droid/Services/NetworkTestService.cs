@@ -1,4 +1,6 @@
 ﻿using Android.Graphics;
+using Android.Util;
+using Java.Net;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,29 +14,28 @@ namespace Xamarin.Services
 
     internal class NetworkDownloadService : Java.Lang.Object
     {
+        private static readonly NetworkDownloadService instance = new NetworkDownloadService();
+
         public event ImageDownloadEventHandler ImageDownloadCompleted;
 
-        private static readonly NetworkDownloadService instance = new NetworkDownloadService();
+        public static NetworkDownloadService Instance { get { return instance; } }
 
         private NetworkDownloadService()
         { }
 
-        public static NetworkDownloadService Instance { get { return instance; } }
-
-        public void DownloadImage(string url)
+        public void DownloadImage(string urlString)
         {
-            Bitmap imageBitmap = null;
-
-            using (var webClient = new WebClient())
+            try
             {
-                var imageBytes = webClient.DownloadData(url);
-                if (imageBytes != null && imageBytes.Length > 0)
-                {
-                    imageBitmap = BitmapFactory.DecodeByteArray(imageBytes, 0, imageBytes.Length);
-                }
+                URL url = new URL(urlString);
+                Stream stream = url.OpenConnection().InputStream;
+                Bitmap image = BitmapFactory.DecodeStream(stream);
+                ImageDownloadCompleted?.Invoke(image);
             }
-
-            ImageDownloadCompleted?.Invoke(imageBitmap);
+            catch (Exception e)
+            {
+                Log.Debug("Exception", "Image failed to download: " + e.ToString());
+            }
         }
     }
 }
