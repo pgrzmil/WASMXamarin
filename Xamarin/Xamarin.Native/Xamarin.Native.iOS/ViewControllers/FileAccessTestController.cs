@@ -14,7 +14,7 @@ namespace Xamarin.Native.iOS.ViewControllers
         Stopwatch stopwatch;
         FileAccessTestService fileAccessService;
         string fileName = "testFile.txt";
-        int digits = 1000;
+        int digits = 10000;
         string contentToWrite;
 
         public FileAccessTestController(IntPtr handle) : base(handle)

@@ -40,8 +40,9 @@
     [self refreshUI:true];
     [self.stopwatch start];
     
+    NSString *url = self.addressField.text;
     dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [self.networkService downloadImage:self.addressField.text];
+        [self.networkService downloadImage:url];
     });
 }
 

@@ -34,10 +34,6 @@ namespace Xamarin.Native.iOS.ViewControllers
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel timeLabel { get; set; }
 
-		[Action ("StartCalculation")]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		partial void StartCalculation ();
-
 		[Action ("StartCalculation:")]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		partial void StartCalculation (UIButton sender);

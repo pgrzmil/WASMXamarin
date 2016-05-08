@@ -30,10 +30,6 @@ namespace Xamarin.Native.iOS.ViewControllers
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel timeLabel { get; set; }
 
-		[Action ("StartPositioning")]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		partial void StartPositioning ();
-
 		[Action ("StartPositioning:")]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		partial void StartPositioning (UIButton sender);

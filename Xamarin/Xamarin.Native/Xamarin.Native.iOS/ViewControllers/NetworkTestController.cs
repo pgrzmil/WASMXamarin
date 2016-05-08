@@ -33,9 +33,10 @@ namespace Xamarin.Native.iOS.ViewControllers
 			stopwatch = new Stopwatch();
 			stopwatch.Start();
 
+			string url = addressField.Text;
 			DispatchQueue.DefaultGlobalQueue.DispatchAsync(() =>
 			{
-				networkService.DownloadImage(addressField.Text);
+				networkService.DownloadImage(url);
 			});
 		}
 
