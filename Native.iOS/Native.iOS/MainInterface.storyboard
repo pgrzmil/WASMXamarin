@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F28b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -104,7 +105,7 @@
                                 <rect key="frame" x="20" y="74" width="560" height="32"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10000" borderStyle="roundedRect" placeholder="Miejsca po przecinku" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="283">
@@ -119,17 +120,17 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="StartButton_TouchUpInside:" destination="19" eventType="touchUpInside" id="338"/>
+                                    <action selector="startCalculation:" destination="19" eventType="touchUpInside" id="1gH-Mz-NMH"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="285">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="285">
                                 <rect key="frame" x="290" y="160" width="20" height="20"/>
                             </activityIndicatorView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="287">
                                 <rect key="frame" x="20" y="198" width="0.0" height="0.0"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="286">
@@ -156,15 +157,15 @@
                             <constraint firstItem="286" firstAttribute="leading" secondItem="20" secondAttribute="leading" constant="10" id="325"/>
                             <constraint firstAttribute="trailing" secondItem="286" secondAttribute="trailing" constant="10" id="326"/>
                             <constraint firstItem="17" firstAttribute="top" secondItem="286" secondAttribute="bottom" id="327"/>
-                            <constraint firstAttribute="trailing" secondItem="283" secondAttribute="trailing" constant="20" id="N7J-ji-DWR"/>
+                            <constraint firstAttribute="trailing" secondItem="283" secondAttribute="trailing" constant="20" id="bni-47-rcC"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="ActivityIndicator" destination="285" id="name-outlet-285"/>
-                        <outlet property="DigitsEntry" destination="283" id="name-outlet-283"/>
-                        <outlet property="ResultView" destination="286" id="name-outlet-286"/>
-                        <outlet property="StartButton" destination="317" id="name-outlet-317"/>
-                        <outlet property="TimeLabel" destination="287" id="name-outlet-287"/>
+                        <outlet property="activityIndicator" destination="285" id="ldM-JK-K3Z"/>
+                        <outlet property="digitsEntry" destination="283" id="Juv-dm-nuP"/>
+                        <outlet property="resultView" destination="286" id="NFP-7B-bfI"/>
+                        <outlet property="startButton" destination="317" id="vRk-sH-D5l"/>
+                        <outlet property="timeLabel" destination="287" id="A1m-mM-zsV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="21" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -188,34 +189,37 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <string key="text">Test pozwala na sprawdzenie szybkości obsługi operacji pilkowych. Sprawdzona zostanie szybkość odczytu i zapisu pliku do pamięci wewnętrznej urzadzenia. Zapisywane i odczytywany będzie wynik obliczenia π do 10000 miejsc po przecinku. Czas obliczenia nie jest wliczany do czasu wykonania testu.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="295">
-                                <rect key="frame" x="20" y="145" width="76" height="35"/>
+                                <rect key="frame" x="20" y="145" width="280" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Odczytaj">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="ReadButton_TouchUpInside:" destination="26" eventType="touchUpInside" id="341"/>
+                                    <action selector="startReading:" destination="26" eventType="touchUpInside" id="0XE-6h-ssZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="296">
-                                <rect key="frame" x="523" y="145" width="57" height="35"/>
+                                <rect key="frame" x="300" y="145" width="280" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Zapisz">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="WriteButton_TouchUpInside:" destination="26" eventType="touchUpInside" id="342"/>
+                                    <action selector="startWriting:" destination="26" eventType="touchUpInside" id="rA0-Zf-Jrg"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="297">
+                                <rect key="frame" x="290" y="152" width="20" height="20"/>
+                            </activityIndicatorView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="298">
                                 <rect key="frame" x="20" y="188" width="0.0" height="0.0"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="299">
@@ -224,9 +228,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="297">
-                                <rect key="frame" x="290" y="152" width="20" height="20"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -235,6 +236,8 @@
                             <constraint firstItem="294" firstAttribute="leading" secondItem="27" secondAttribute="leadingMargin" id="8uS-Ci-jWA"/>
                             <constraint firstItem="295" firstAttribute="leading" secondItem="27" secondAttribute="leadingMargin" id="A9v-Qu-6RZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="294" secondAttribute="trailing" id="L6S-fa-Sct"/>
+                            <constraint firstItem="295" firstAttribute="width" secondItem="296" secondAttribute="width" id="MhR-au-u3p"/>
+                            <constraint firstItem="296" firstAttribute="leading" secondItem="295" secondAttribute="trailing" id="NrZ-r0-ULx"/>
                             <constraint firstItem="295" firstAttribute="top" secondItem="294" secondAttribute="bottom" constant="10" id="OP9-Go-fuM"/>
                             <constraint firstItem="298" firstAttribute="top" secondItem="295" secondAttribute="bottom" constant="8" id="Q0a-d9-sj6"/>
                             <constraint firstItem="299" firstAttribute="top" secondItem="298" secondAttribute="bottom" constant="8" id="R3D-Qb-SIL"/>
@@ -248,11 +251,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="ActivityIndicator" destination="297" id="name-outlet-297"/>
-                        <outlet property="ReadButton" destination="295" id="name-outlet-295"/>
-                        <outlet property="ResultView" destination="299" id="name-outlet-299"/>
-                        <outlet property="TimeLabel" destination="298" id="name-outlet-298"/>
-                        <outlet property="WriteButton" destination="296" id="name-outlet-296"/>
+                        <outlet property="activityIndicator" destination="297" id="1Ru-Pc-mng"/>
+                        <outlet property="readButton" destination="295" id="GTW-ny-8M0"/>
+                        <outlet property="resultView" destination="299" id="t9w-ma-atY"/>
+                        <outlet property="timeLabel" destination="298" id="Zc8-tw-pnG"/>
+                        <outlet property="writeButton" destination="296" id="BWb-PL-Bi9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="28" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -275,19 +278,24 @@
                                 <rect key="frame" x="20" y="72" width="560" height="32"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="288">
+                                <rect key="frame" x="20" y="112" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="292">
-                                <rect key="frame" x="20" y="197" width="0.0" height="0.0"/>
+                                <rect key="frame" x="20" y="197" width="0.0" height="15"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="u16-IQ-Q1l"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="293">
-                                <rect key="frame" x="20" y="205" width="560" height="387"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HBz-lL-GmE">
                                 <rect key="frame" x="271" y="152" width="58" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -295,17 +303,15 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="StartButton_TouchUpInside:" destination="33" eventType="touchUpInside" id="339"/>
+                                    <action selector="startDownloading:" destination="33" eventType="touchUpInside" id="rdy-od-2LI"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DpC-8D-Ed9">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DpC-8D-Ed9">
                                 <rect key="frame" x="290" y="159" width="20" height="20"/>
                             </activityIndicatorView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="288">
-                                <rect key="frame" x="20" y="112" width="560" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="293">
+                                <rect key="frame" x="20" y="220" width="560" height="372"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -330,11 +336,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="ActivityIndicator" destination="DpC-8D-Ed9" id="name-outlet-DpC-8D-Ed9"/>
-                        <outlet property="AddressField" destination="288" id="name-outlet-288"/>
-                        <outlet property="DownloadedImage" destination="293" id="name-outlet-293"/>
-                        <outlet property="StartButton" destination="HBz-lL-GmE" id="name-outlet-HBz-lL-GmE"/>
-                        <outlet property="TimeLabel" destination="292" id="name-outlet-292"/>
+                        <outlet property="activityIndicator" destination="DpC-8D-Ed9" id="HRV-DR-V3z"/>
+                        <outlet property="addressField" destination="288" id="Ype-Cj-LC3"/>
+                        <outlet property="downloadedImage" destination="293" id="Upg-OM-5a0"/>
+                        <outlet property="startButton" destination="HBz-lL-GmE" id="Q1c-6k-dbE"/>
+                        <outlet property="timeLabel" destination="292" id="QqK-c1-eYd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="35" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -353,18 +359,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="302">
-                                <rect key="frame" x="20" y="157" width="560" height="0.0"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Test pozwala na sprawdzenie szybkości obsługi urządzeń wewnętrznych telefonu poprzez pobranie z GPS pozycji." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="300">
                                 <rect key="frame" x="20" y="72" width="560" height="32"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="302">
+                                <rect key="frame" x="20" y="157" width="560" height="0.0"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BS8-C9-zcX">
@@ -374,17 +380,17 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="StartButton_TouchUpInside:" destination="40" eventType="touchUpInside" id="340"/>
+                                    <action selector="startPositioning:" destination="40" eventType="touchUpInside" id="Edc-k7-tgZ"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="34K-EV-wcf">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="34K-EV-wcf">
                                 <rect key="frame" x="290" y="120" width="20" height="20"/>
                             </activityIndicatorView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="303">
                                 <rect key="frame" x="20" y="165" width="552" height="0.0"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -408,10 +414,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="ActivityIndicator" destination="34K-EV-wcf" id="name-outlet-34K-EV-wcf"/>
-                        <outlet property="PositionLabel" destination="303" id="name-outlet-303"/>
-                        <outlet property="StartButton" destination="BS8-C9-zcX" id="name-outlet-BS8-C9-zcX"/>
-                        <outlet property="TimeLabel" destination="302" id="name-outlet-302"/>
+                        <outlet property="activityIndicator" destination="34K-EV-wcf" id="RG7-8P-8dv"/>
+                        <outlet property="positionLabel" destination="303" id="l0T-x9-ZSb"/>
+                        <outlet property="startButton" destination="BS8-C9-zcX" id="mKc-aa-8BQ"/>
+                        <outlet property="timeLabel" destination="302" id="PB2-LO-SAU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="42" userLabel="First Responder" sceneMemberID="firstResponder"/>

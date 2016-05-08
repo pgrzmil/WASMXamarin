@@ -1,0 +1,378 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		15475A1F1CDF355600AF3ED4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15475A1D1CDF355600AF3ED4 /* AppDelegate.m */; };
+		15475A221CDF356500AF3ED4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15475A211CDF356500AF3ED4 /* Assets.xcassets */; };
+		15475A241CDF356F00AF3ED4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15475A231CDF356F00AF3ED4 /* main.m */; };
+		15475A321CDF35D500AF3ED4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15475A301CDF35D500AF3ED4 /* LaunchScreen.storyboard */; };
+		15475A341CDF379C00AF3ED4 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15475A331CDF379C00AF3ED4 /* MainInterface.storyboard */; };
+		15475A421CDF39AB00AF3ED4 /* FileAccessTestService.m in Sources */ = {isa = PBXBuildFile; fileRef = 15475A411CDF39AB00AF3ED4 /* FileAccessTestService.m */; };
+		15475A461CDF39C600AF3ED4 /* LocationTestService.m in Sources */ = {isa = PBXBuildFile; fileRef = 15475A451CDF39C600AF3ED4 /* LocationTestService.m */; };
+		15475A491CDF39D700AF3ED4 /* PerformanceTestService.m in Sources */ = {isa = PBXBuildFile; fileRef = 15475A481CDF39D700AF3ED4 /* PerformanceTestService.m */; };
+		15475A4C1CDF39EA00AF3ED4 /* NetworkTestService.m in Sources */ = {isa = PBXBuildFile; fileRef = 15475A4B1CDF39EA00AF3ED4 /* NetworkTestService.m */; };
+		15475A561CDF3A1C00AF3ED4 /* FileAccessTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15475A4F1CDF3A1C00AF3ED4 /* FileAccessTestController.m */; };
+		15475A571CDF3A1C00AF3ED4 /* LocationTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15475A511CDF3A1C00AF3ED4 /* LocationTestController.m */; };
+		15475A581CDF3A1C00AF3ED4 /* NetworkTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15475A531CDF3A1C00AF3ED4 /* NetworkTestController.m */; };
+		15475A591CDF3A1C00AF3ED4 /* PerformanceTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15475A551CDF3A1C00AF3ED4 /* PerformanceTestController.m */; };
+		15FF9C081CDF3FDA00691832 /* Stopwatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FF9C071CDF3FDA00691832 /* Stopwatch.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		15475A1C1CDF355600AF3ED4 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Native.iOS/AppDelegate.h; sourceTree = SOURCE_ROOT; };
+		15475A1D1CDF355600AF3ED4 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Native.iOS/AppDelegate.m; sourceTree = SOURCE_ROOT; };
+		15475A1E1CDF355600AF3ED4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Native.iOS/Info.plist; sourceTree = SOURCE_ROOT; };
+		15475A211CDF356500AF3ED4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Native.iOS/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		15475A231CDF356F00AF3ED4 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Native.iOS/main.m; sourceTree = SOURCE_ROOT; };
+		15475A311CDF35D500AF3ED4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Native.iOS/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
+		15475A331CDF379C00AF3ED4 /* MainInterface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainInterface.storyboard; path = Native.iOS/MainInterface.storyboard; sourceTree = SOURCE_ROOT; };
+		15475A401CDF39AB00AF3ED4 /* FileAccessTestService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileAccessTestService.h; path = Native.iOS/Services/FileAccessTestService.h; sourceTree = SOURCE_ROOT; };
+		15475A411CDF39AB00AF3ED4 /* FileAccessTestService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileAccessTestService.m; path = Native.iOS/Services/FileAccessTestService.m; sourceTree = SOURCE_ROOT; };
+		15475A441CDF39C600AF3ED4 /* LocationTestService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationTestService.h; path = Native.iOS/Services/LocationTestService.h; sourceTree = SOURCE_ROOT; };
+		15475A451CDF39C600AF3ED4 /* LocationTestService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationTestService.m; path = Native.iOS/Services/LocationTestService.m; sourceTree = SOURCE_ROOT; };
+		15475A471CDF39D700AF3ED4 /* PerformanceTestService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PerformanceTestService.h; path = Native.iOS/Services/PerformanceTestService.h; sourceTree = SOURCE_ROOT; };
+		15475A481CDF39D700AF3ED4 /* PerformanceTestService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PerformanceTestService.m; path = Native.iOS/Services/PerformanceTestService.m; sourceTree = SOURCE_ROOT; };
+		15475A4A1CDF39EA00AF3ED4 /* NetworkTestService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkTestService.h; path = Native.iOS/Services/NetworkTestService.h; sourceTree = SOURCE_ROOT; };
+		15475A4B1CDF39EA00AF3ED4 /* NetworkTestService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkTestService.m; path = Native.iOS/Services/NetworkTestService.m; sourceTree = SOURCE_ROOT; };
+		15475A4E1CDF3A1C00AF3ED4 /* FileAccessTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileAccessTestController.h; path = Native.iOS/ViewControllers/FileAccessTestController.h; sourceTree = SOURCE_ROOT; };
+		15475A4F1CDF3A1C00AF3ED4 /* FileAccessTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileAccessTestController.m; path = Native.iOS/ViewControllers/FileAccessTestController.m; sourceTree = SOURCE_ROOT; };
+		15475A501CDF3A1C00AF3ED4 /* LocationTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationTestController.h; path = Native.iOS/ViewControllers/LocationTestController.h; sourceTree = SOURCE_ROOT; };
+		15475A511CDF3A1C00AF3ED4 /* LocationTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationTestController.m; path = Native.iOS/ViewControllers/LocationTestController.m; sourceTree = SOURCE_ROOT; };
+		15475A521CDF3A1C00AF3ED4 /* NetworkTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkTestController.h; path = Native.iOS/ViewControllers/NetworkTestController.h; sourceTree = SOURCE_ROOT; };
+		15475A531CDF3A1C00AF3ED4 /* NetworkTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkTestController.m; path = Native.iOS/ViewControllers/NetworkTestController.m; sourceTree = SOURCE_ROOT; };
+		15475A541CDF3A1C00AF3ED4 /* PerformanceTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PerformanceTestController.h; path = Native.iOS/ViewControllers/PerformanceTestController.h; sourceTree = SOURCE_ROOT; };
+		15475A551CDF3A1C00AF3ED4 /* PerformanceTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PerformanceTestController.m; path = Native.iOS/ViewControllers/PerformanceTestController.m; sourceTree = SOURCE_ROOT; };
+		157DE19D1C4BAF9500C55D52 /* Native.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Native.iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		15FF9C061CDF3FDA00691832 /* Stopwatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stopwatch.h; path = Native.iOS/Helpers/Stopwatch.h; sourceTree = SOURCE_ROOT; };
+		15FF9C071CDF3FDA00691832 /* Stopwatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Stopwatch.m; path = Native.iOS/Helpers/Stopwatch.m; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		157DE19A1C4BAF9500C55D52 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		15475A431CDF39B100AF3ED4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				15475A401CDF39AB00AF3ED4 /* FileAccessTestService.h */,
+				15475A411CDF39AB00AF3ED4 /* FileAccessTestService.m */,
+				15475A441CDF39C600AF3ED4 /* LocationTestService.h */,
+				15475A451CDF39C600AF3ED4 /* LocationTestService.m */,
+				15475A471CDF39D700AF3ED4 /* PerformanceTestService.h */,
+				15475A481CDF39D700AF3ED4 /* PerformanceTestService.m */,
+				15475A4A1CDF39EA00AF3ED4 /* NetworkTestService.h */,
+				15475A4B1CDF39EA00AF3ED4 /* NetworkTestService.m */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		15475A4D1CDF39ED00AF3ED4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				15475A4E1CDF3A1C00AF3ED4 /* FileAccessTestController.h */,
+				15475A4F1CDF3A1C00AF3ED4 /* FileAccessTestController.m */,
+				15475A501CDF3A1C00AF3ED4 /* LocationTestController.h */,
+				15475A511CDF3A1C00AF3ED4 /* LocationTestController.m */,
+				15475A521CDF3A1C00AF3ED4 /* NetworkTestController.h */,
+				15475A531CDF3A1C00AF3ED4 /* NetworkTestController.m */,
+				15475A541CDF3A1C00AF3ED4 /* PerformanceTestController.h */,
+				15475A551CDF3A1C00AF3ED4 /* PerformanceTestController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		157DE1941C4BAF9500C55D52 = {
+			isa = PBXGroup;
+			children = (
+				157DE19F1C4BAF9500C55D52 /* Native.iOS */,
+				157DE19E1C4BAF9500C55D52 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		157DE19E1C4BAF9500C55D52 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				157DE19D1C4BAF9500C55D52 /* Native.iOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		157DE19F1C4BAF9500C55D52 /* Native.iOS */ = {
+			isa = PBXGroup;
+			children = (
+				15475A1C1CDF355600AF3ED4 /* AppDelegate.h */,
+				15475A1D1CDF355600AF3ED4 /* AppDelegate.m */,
+				15475A1E1CDF355600AF3ED4 /* Info.plist */,
+				15475A331CDF379C00AF3ED4 /* MainInterface.storyboard */,
+				15FF9C051CDF3FBB00691832 /* Helpers */,
+				15475A431CDF39B100AF3ED4 /* Services */,
+				15475A4D1CDF39ED00AF3ED4 /* ViewControllers */,
+				157DE1A01C4BAF9500C55D52 /* Supporting Files */,
+			);
+			name = Native.iOS;
+			path = WASMiOS;
+			sourceTree = "<group>";
+		};
+		157DE1A01C4BAF9500C55D52 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				15475A301CDF35D500AF3ED4 /* LaunchScreen.storyboard */,
+				15475A211CDF356500AF3ED4 /* Assets.xcassets */,
+				15475A231CDF356F00AF3ED4 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		15FF9C051CDF3FBB00691832 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				15FF9C061CDF3FDA00691832 /* Stopwatch.h */,
+				15FF9C071CDF3FDA00691832 /* Stopwatch.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		157DE19C1C4BAF9500C55D52 /* Native.iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 157DE1B41C4BAF9500C55D52 /* Build configuration list for PBXNativeTarget "Native.iOS" */;
+			buildPhases = (
+				157DE1991C4BAF9500C55D52 /* Sources */,
+				157DE19A1C4BAF9500C55D52 /* Frameworks */,
+				157DE19B1C4BAF9500C55D52 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Native.iOS;
+			productName = WASMiOS;
+			productReference = 157DE19D1C4BAF9500C55D52 /* Native.iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		157DE1951C4BAF9500C55D52 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Pawel Grzmil";
+				TargetAttributes = {
+					157DE19C1C4BAF9500C55D52 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = U5RN6F4KT5;
+					};
+				};
+			};
+			buildConfigurationList = 157DE1981C4BAF9500C55D52 /* Build configuration list for PBXProject "Native.iOS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 157DE1941C4BAF9500C55D52;
+			productRefGroup = 157DE19E1C4BAF9500C55D52 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				157DE19C1C4BAF9500C55D52 /* Native.iOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		157DE19B1C4BAF9500C55D52 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15475A321CDF35D500AF3ED4 /* LaunchScreen.storyboard in Resources */,
+				15475A341CDF379C00AF3ED4 /* MainInterface.storyboard in Resources */,
+				15475A221CDF356500AF3ED4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		157DE1991C4BAF9500C55D52 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15475A571CDF3A1C00AF3ED4 /* LocationTestController.m in Sources */,
+				15475A421CDF39AB00AF3ED4 /* FileAccessTestService.m in Sources */,
+				15475A561CDF3A1C00AF3ED4 /* FileAccessTestController.m in Sources */,
+				15475A461CDF39C600AF3ED4 /* LocationTestService.m in Sources */,
+				15FF9C081CDF3FDA00691832 /* Stopwatch.m in Sources */,
+				15475A1F1CDF355600AF3ED4 /* AppDelegate.m in Sources */,
+				15475A4C1CDF39EA00AF3ED4 /* NetworkTestService.m in Sources */,
+				15475A491CDF39D700AF3ED4 /* PerformanceTestService.m in Sources */,
+				15475A581CDF3A1C00AF3ED4 /* NetworkTestController.m in Sources */,
+				15475A591CDF3A1C00AF3ED4 /* PerformanceTestController.m in Sources */,
+				15475A241CDF356F00AF3ED4 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		15475A301CDF35D500AF3ED4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				15475A311CDF35D500AF3ED4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		157DE1B21C4BAF9500C55D52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		157DE1B31C4BAF9500C55D52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		157DE1B51C4BAF9500C55D52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/Native.iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pgrzmil.Native-iOS";
+				PRODUCT_NAME = Native.iOS;
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		157DE1B61C4BAF9500C55D52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/Native.iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pgrzmil.Native-iOS";
+				PRODUCT_NAME = Native.iOS;
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		157DE1981C4BAF9500C55D52 /* Build configuration list for PBXProject "Native.iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				157DE1B21C4BAF9500C55D52 /* Debug */,
+				157DE1B31C4BAF9500C55D52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		157DE1B41C4BAF9500C55D52 /* Build configuration list for PBXNativeTarget "Native.iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				157DE1B51C4BAF9500C55D52 /* Debug */,
+				157DE1B61C4BAF9500C55D52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 157DE1951C4BAF9500C55D52 /* Project object */;
+}

@@ -38,7 +38,7 @@ namespace Xamarin.Native.iOS.ViewControllers
             {
                 DispatchQueue.MainQueue.DispatchAsync(() =>
                 {
-                    UIAlertView alert = new UIAlertView() { Title = "B³¹d", Message = "Lokalizacja niedostêpna" };
+                    UIAlertView alert = new UIAlertView() { Title = "BÅ‚Ä…d", Message = "Lokalizacja niedostÄ™pna" };
                     alert.AddButton("OK");
                     alert.Show();
                 });
@@ -51,7 +51,7 @@ namespace Xamarin.Native.iOS.ViewControllers
             DispatchQueue.MainQueue.DispatchAsync(() =>
             {
                 RefreshUI(false);
-                PositionLabel.Text = string.Format("D³ugoœæ: {0}\nSzerokoœæ: {1}", Math.Round(longitude, 4), Math.Round(latitude, 4));
+                PositionLabel.Text = string.Format("DÅ‚ugoÅ›Ä‡: {0}\nSzerokoÅ›Ä‡: {1}", Math.Round(longitude, 4), Math.Round(latitude, 4));
                 TimeLabel.Text = stopwatch.GetDurationInSeconds();
             });
         }
