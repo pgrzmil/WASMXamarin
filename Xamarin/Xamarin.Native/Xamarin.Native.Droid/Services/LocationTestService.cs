@@ -26,8 +26,8 @@ namespace Xamarin.iOS
         {
             this.context = context;
             locationManager = (LocationManager)context.GetSystemService(Context.LocationService);
-            Criteria criteriaForLocationService = new Criteria { Accuracy = Accuracy.Fine };
-            IList<string> acceptableLocationProviders = locationManager.GetProviders(criteriaForLocationService, true);
+            var criteriaForLocationService = new Criteria { Accuracy = Accuracy.Fine };
+            var acceptableLocationProviders = locationManager.GetProviders(criteriaForLocationService, true);
 
             if (acceptableLocationProviders.Any())
             {
@@ -38,6 +38,11 @@ namespace Xamarin.iOS
         public void GetLocation()
         {
             locationManager.RequestLocationUpdates(locationProvider, 5, 10, this);
+        }
+
+        public void Stop()
+        {
+            locationManager.RemoveUpdates(this);
         }
 
         public void OnLocationChanged(Location location)

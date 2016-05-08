@@ -1,4 +1,4 @@
-﻿################################################################################
+################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
@@ -27,3 +27,4 @@
 /Xamarin/Xamarin.Native/Xamarin.Native.Droid/obj/Release
 /Xamarin/Xamarin.Native/Xamarin.Native.iOS/obj/iPhone/Release
 /Xamarin/Xamarin.Native/Xamarin.Native.iOS/bin/iPhone/Release
+*.userprefs

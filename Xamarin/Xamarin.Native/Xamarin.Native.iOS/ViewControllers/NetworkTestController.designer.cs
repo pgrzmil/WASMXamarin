@@ -34,6 +34,10 @@ namespace Xamarin.Native.iOS.ViewControllers
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel timeLabel { get; set; }
 
+		[Action ("StartDownloading")]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		partial void StartDownloading ();
+
 		[Action ("StartDownloading:")]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		partial void StartDownloading (UIButton sender);

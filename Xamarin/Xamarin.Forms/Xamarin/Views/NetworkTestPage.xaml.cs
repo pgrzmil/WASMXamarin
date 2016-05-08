@@ -20,17 +20,19 @@ namespace Xamarin.Views
         {
             InitializeComponent();
             Title = "Test obsługi sieci";
-
             addressField.Text = "http://cdn.superbwallpapers.com/wallpapers/meme/doge-pattern-27481-2880x1800.jpg";
+
             networkService = new NetworkDownloadService();
             networkService.ImageDownloadCompleted += Instance_DownloadCompleted;
         }
 
         private void StartDownloading(object sender, EventArgs e)
         {
+            downloadedImage.Source = null;
+            RefreshUI(true);
+
             stopwatch = new Stopwatch();
             stopwatch.Start();
-            RefreshUI(true);
 
             networkService.DownloadImage(addressField.Text);
         }

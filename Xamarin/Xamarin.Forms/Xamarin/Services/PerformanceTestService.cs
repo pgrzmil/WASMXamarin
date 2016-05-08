@@ -21,7 +21,7 @@ namespace Xamarin.Forms.Services
 
         public string CalculatePi(int digits)
         {
-            StringBuilder result = new StringBuilder();
+            var result = new StringBuilder();
             digits++;
 
             uint[] x = new uint[digits * 3 + 2];
@@ -47,6 +47,7 @@ namespace Xamarin.Forms.Services
                 }
                 if (i < digits - 1)
                     result.Append((x[x.Length - 1] / 10).ToString());
+
                 r[x.Length - 1] = x[x.Length - 1] % 10; ;
                 for (int j = 0; j < x.Length; j++)
                     x[j] = r[j] * 10;

@@ -36,14 +36,16 @@ public class LocationTestActivity extends AppCompatActivity implements LocationT
     }
 
     public void startPositioning(View view) {
-        stopwatch.start();
         progressDialog = ProgressDialog.show(this, "Wyznaczanie pozycji...", "");
+        stopwatch.start();
         locationService.getLocation();
     }
 
     @Override
     public void locationChanged(final double latitude, final double longitude) {
         stopwatch.stop();
+        locationService.stop();
+
         runOnUiThread(new Runnable() {
             public void run() {
                 DecimalFormat formatter = new DecimalFormat("#.####");

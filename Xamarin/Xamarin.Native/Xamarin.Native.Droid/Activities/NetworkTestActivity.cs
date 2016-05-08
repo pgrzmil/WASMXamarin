@@ -47,14 +47,11 @@ namespace Xamarin.Native.Droid.Activities
 
         private void StartDownloading(object sender, EventArgs e)
         {
+            progressDialog = ProgressDialog.Show(this, "Pobieranie...", "");
             stopwatch = new Stopwatch();
             stopwatch.Start();
-            progressDialog = ProgressDialog.Show(this, "Pobieranie...", "");
 
-            new Thread(new Runnable(() =>
-            {
-                networkService.DownloadImage(addressField.Text);
-            })).Start();
+            new Thread(new Runnable(() => { networkService.DownloadImage(addressField.Text); })).Start();
         }
 
         private void ImageDownloadCompleted(Bitmap image)

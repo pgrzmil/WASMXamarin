@@ -1,3 +1,4 @@
+using CoreFoundation;
 using Foundation;
 using System;
 using System.Diagnostics;
@@ -21,46 +22,50 @@ namespace Xamarin.Native.iOS.ViewControllers
         }
 
         public override void ViewDidLoad()
-		{
+        {
             base.ViewDidLoad();
             fileAccessService = new FileAccessTestService();
-            contentToWrite = Task.Run(() => PerformanceTestService.Instance.CalculatePi(digits)).Result;
+
+            RefreshUI(true);
+            DispatchQueue.DefaultGlobalQueue.DispatchAsync(() =>
+            {
+                contentToWrite = PerformanceTestService.Instance.CalculatePi(digits);
+                DispatchQueue.MainQueue.DispatchAsync(() => RefreshUI(false));
+            });
         }
-		       
-		partial void StartReading (UIButton sender)
-		{
-			resultView.Text = "";
-			stopwatch = new Stopwatch();
-			stopwatch.Start();
 
-			var fileContents = fileAccessService.ReadFromFile(fileName);
+        partial void StartReading(UIButton sender)
+        {
+            resultView.Text = "";
+            stopwatch = new Stopwatch();
+            stopwatch.Start();
 
-			stopwatch.Stop();
+            var fileContents = fileAccessService.ReadFromFile(fileName);
 
-			resultView.Text = fileContents;
-			timeLabel.Text = stopwatch.GetDurationInMilliseconds();
-		}
+            stopwatch.Stop();
 
-		partial void StartWriting (UIButton sender)
-		{
-			resultView.Text = "";
-			stopwatch = new Stopwatch();
-			stopwatch.Start();
+            resultView.Text = fileContents;
+            timeLabel.Text = stopwatch.GetDurationInMilliseconds();
+        }
 
+        partial void StartWriting(UIButton sender)
+        {
+            resultView.Text = "";
+            stopwatch = new Stopwatch();
+            stopwatch.Start();
 
-			fileAccessService.WriteToFile(fileName, contentToWrite);
+            fileAccessService.WriteToFile(fileName, contentToWrite);
 
-			stopwatch.Stop();
+            stopwatch.Stop();
 
-			timeLabel.Text = stopwatch.GetDurationInMilliseconds();
-		}
+            timeLabel.Text = stopwatch.GetDurationInMilliseconds();
+        }
 
-		private void RefreshUI(bool isCalculating)
-		{
-			readButton.Hidden = isCalculating;
-			writeButton.Hidden = isCalculating;
-			activityIndicator.Hidden = !isCalculating;
-		}
-
+        private void RefreshUI(bool isCalculating)
+        {
+            readButton.Hidden = isCalculating;
+            writeButton.Hidden = isCalculating;
+            activityIndicator.Hidden = !isCalculating;
+        }
     }
 }

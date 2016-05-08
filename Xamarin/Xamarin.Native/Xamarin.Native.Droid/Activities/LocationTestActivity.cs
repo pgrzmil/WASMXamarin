@@ -19,6 +19,7 @@ namespace Xamarin.Native.Droid.Activities
     public class LocationTestActivity : Activity
     {
         Stopwatch stopwatch;
+
         LocationTestService locationService;
         Button startButton;
         TextView timeLabel;
@@ -42,9 +43,9 @@ namespace Xamarin.Native.Droid.Activities
 
         private void StartPositioning(object sender, EventArgs e)
         {
+            progressDialog = ProgressDialog.Show(this, "Wyznaczanie pozycji...", "");
             stopwatch = new Stopwatch();
             stopwatch.Start();
-            progressDialog = ProgressDialog.Show(this, "Wyznaczanie pozycji...", "");
 
             locationService.GetLocation();
         }
@@ -52,6 +53,7 @@ namespace Xamarin.Native.Droid.Activities
         private void LocationService_LocationChanged(double latitude, double longitude)
         {
             stopwatch.Stop();
+            locationService.Stop();
             RunOnUiThread(new Runnable(() =>
             {
                 positionLabel.Text = string.Format("D³ugoœæ: {0}\nSzerokoœæ: {1}", Math.Round(longitude, 4), Math.Round(latitude, 4));

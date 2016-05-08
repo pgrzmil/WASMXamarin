@@ -26,9 +26,10 @@ namespace Xamarin.Views
 
         private void StartPositioning(object sender, EventArgs e)
         {
+            RefreshUI(true);
+
             stopwatch = new Stopwatch();
             stopwatch.Start();
-            RefreshUI(true);
 
             locationService.GetLocation();
         }

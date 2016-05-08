@@ -36,21 +36,24 @@ namespace Xamarin.Views
 
         private void StartReading(object sender, EventArgs e)
         {
+            resultView.Text = "";
+
             stopwatch = new Stopwatch();
             stopwatch.Start();
 
             var fileContents = fileAccessService.ReadFromFile(fileName);
-            resultView.Text = fileContents;
 
             stopwatch.Stop();
+
+            resultView.Text = fileContents;
             timeLabel.Text = stopwatch.GetDurationInMilliseconds();
         }
 
         private void StartWriting(object sender, EventArgs e)
         {
+            resultView.Text = "";
             stopwatch = new Stopwatch();
             stopwatch.Start();
-            resultView.Text = "";
 
             fileAccessService.WriteToFile(fileName, contentToWrite);
 

@@ -25,15 +25,14 @@ namespace Xamarin.Views
 
         private void StartCalculation(object sender, EventArgs e)
         {
-            stopwatch = new Stopwatch();
-            stopwatch.Start();
+            resultView.Text = "";
             RefreshUI(true);
 
+            stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             var digits = Convert.ToInt32(digitsEntry.Text);
-            Task.Run(() =>
-            {
-                PerformanceTestService.Instance.CalculatePi(digits);
-            });
+            Task.Run(() => { PerformanceTestService.Instance.CalculatePi(digits); });
         }
 
         private void Instance_CalculationCompleted(string result)

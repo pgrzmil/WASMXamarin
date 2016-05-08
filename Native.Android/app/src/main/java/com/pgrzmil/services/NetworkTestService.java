@@ -24,6 +24,7 @@ public class NetworkTestService {
             URL url = new URL(urlString);
             InputStream stream = url.openConnection().getInputStream();
             Bitmap image = BitmapFactory.decodeStream(stream);
+
             onImageDownloadCompleted(image);
         } catch (Exception e) {
             Log.e("Exception", "Image failed to download: " + e.toString());

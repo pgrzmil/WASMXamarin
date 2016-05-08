@@ -13,23 +13,25 @@ namespace Xamarin.Services
     {
         public void WriteToFile(string filename, string text)
         {
+            var textToWrite = new NSString(text);
             string filePath = NSSearchPath.GetDirectories(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomain.User, true)[0];
-            string fileAtPath = filePath + filename;
-            NSFileManager.DefaultManager.CreateFile(fileAtPath, new NSData(), NSFileAttributes.FromDictionary(new NSDictionary()));
-            var a = new NSString(text);
+            filePath = string.Format("{0}/{1}", filePath, filename);
 
-            var data = a.Encode(NSStringEncoding.UTF8);
-            data.Save(fileAtPath, false);
+            if (!NSFileManager.DefaultManager.FileExists(filePath))
+            {
+                NSFileManager.DefaultManager.CreateFile(filePath, new NSData(), NSFileAttributes.FromDictionary(new NSDictionary()));
+            }
+
+            var data = textToWrite.Encode(NSStringEncoding.UTF8);
+            data.Save(filePath, false);
         }
 
         public string ReadFromFile(string filename)
         {
             string filePath = NSSearchPath.GetDirectories(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomain.User, true)[0];
-            string fileAtPath = filePath + filename;
+            filePath = string.Format("{0}/{1}", filePath, filename);
 
-            var data = NSData.FromFile(fileAtPath);
-            var a = new NSString(data, NSStringEncoding.UTF8);
-            return a;
+            return new NSString(NSData.FromFile(filePath), NSStringEncoding.UTF8);
         }
     }
 }

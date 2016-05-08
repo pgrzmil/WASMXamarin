@@ -20,15 +20,15 @@ namespace Xamarin.Native.Droid.Activities
     {
         string fileName = "testFile.txt";
         int digits = 10000;
-
+        string contentToWrite;
         Stopwatch stopwatch;
+
         Button writeButton;
         Button readButton;
         TextView timeLabel;
         TextView resultView;
         ProgressDialog progressDialog;
         FileAccessTestService fileAccessService;
-        string contentToWrite;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -53,21 +53,23 @@ namespace Xamarin.Native.Droid.Activities
 
         private void StartReading(object sender, EventArgs e)
         {
+            resultView.Text = "";
             stopwatch = new Stopwatch();
             stopwatch.Start();
 
             var fileContents = fileAccessService.ReadFromFile(fileName);
-            resultView.Text = fileContents;
 
             stopwatch.Stop();
+
+            resultView.Text = fileContents;
             timeLabel.Text = stopwatch.GetDurationInMilliseconds();
         }
 
         private void StartWriting(object sender, EventArgs e)
         {
+            resultView.Text = "";
             stopwatch = new Stopwatch();
             stopwatch.Start();
-            resultView.Text = "";
 
             fileAccessService.WriteToFile(fileName, contentToWrite);
 

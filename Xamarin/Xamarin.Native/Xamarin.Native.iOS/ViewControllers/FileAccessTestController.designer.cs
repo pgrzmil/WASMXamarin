@@ -34,9 +34,17 @@ namespace Xamarin.Native.iOS.ViewControllers
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton writeButton { get; set; }
 
+		[Action ("StartReading")]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		partial void StartReading ();
+
 		[Action ("StartReading:")]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		partial void StartReading (UIButton sender);
+
+		[Action ("StartWriting")]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		partial void StartWriting ();
 
 		[Action ("StartWriting:")]
 		[GeneratedCode ("iOS Designer", "1.0")]

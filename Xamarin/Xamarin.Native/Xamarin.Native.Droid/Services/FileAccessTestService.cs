@@ -22,7 +22,7 @@ namespace Xamarin.Services
         {
             try
             {
-                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.OpenFileOutput(fileName, FileCreationMode.Private));
+                var outputStreamWriter = new OutputStreamWriter(context.OpenFileOutput(fileName, FileCreationMode.Private));
                 outputStreamWriter.Write(text);
                 outputStreamWriter.Close();
             }
@@ -34,18 +34,18 @@ namespace Xamarin.Services
 
         public string ReadFromFile(string fileName)
         {
-            String ret = "";
+            var ret = "";
 
             try
             {
-                System.IO.Stream inputStream = context.OpenFileInput(fileName);
+                var inputStream = context.OpenFileInput(fileName);
 
                 if (inputStream != null)
                 {
-                    InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-                    BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                    String receiveString = "";
-                    StringBuilder stringBuilder = new StringBuilder();
+                    var inputStreamReader = new InputStreamReader(inputStream);
+                    var bufferedReader = new BufferedReader(inputStreamReader);
+                    var receiveString = "";
+                    var stringBuilder = new StringBuilder();
 
                     while ((receiveString = bufferedReader.ReadLine()) != null)
                     {

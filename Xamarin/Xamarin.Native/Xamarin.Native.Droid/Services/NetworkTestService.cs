@@ -20,9 +20,9 @@ namespace Xamarin.Services
         {
             try
             {
-                URL url = new URL(urlString);
-                Stream stream = url.OpenConnection().InputStream;
-                Bitmap image = BitmapFactory.DecodeStream(stream);
+                var url = new URL(urlString);
+                var stream = url.OpenConnection().InputStream;
+                var image = BitmapFactory.DecodeStream(stream);
                 ImageDownloadCompleted?.Invoke(image);
             }
             catch (Exception e)

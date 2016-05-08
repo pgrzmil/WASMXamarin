@@ -15,22 +15,14 @@ namespace Xamarin.Forms.Services
 
         public async void WriteToFile(string filename, string text)
         {
-            IFile file = await _rootFolder.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+            var file = await _rootFolder.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
             await file.WriteAllTextAsync(text);
         }
 
         public string ReadFromFile(string filename)
         {
-            try
-            {
-                IFile file = _rootFolder.GetFileAsync(filename).Result;
-                return file.ReadAllTextAsync().Result;
-            }
-            catch (Exception)
-            {
-                Debug.WriteLine("Read file exception");
-            }
-            return null;
+            var file = _rootFolder.GetFileAsync(filename).Result;
+            return file.ReadAllTextAsync().Result;
         }
     }
 }

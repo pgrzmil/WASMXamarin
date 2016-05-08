@@ -43,6 +43,13 @@ public class LocationTestService implements LocationListener {
         locationManager.requestLocationUpdates(locationProvider, 5, 10, this);
     }
 
+    public void stop(){
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        locationManager.removeUpdates(this);
+    }
+
     private void onLocationChanged(double latitude, double longitude) {
         for (LocationTestListener listener : listeners)
             listener.locationChanged(latitude, longitude);

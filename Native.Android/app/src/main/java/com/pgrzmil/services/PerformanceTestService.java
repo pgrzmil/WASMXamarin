@@ -51,6 +51,7 @@ public class PerformanceTestService {
         }
 
         String pi = result.insert(1, ".").toString();
+
         onPiCalculationCompleted(pi);
         return pi;
     }
