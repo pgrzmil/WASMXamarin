@@ -38,6 +38,7 @@ public class LocationTestActivity extends AppCompatActivity implements LocationT
     public void startPositioning(View view) {
         progressDialog = ProgressDialog.show(this, "Wyznaczanie pozycji...", "");
         stopwatch.start();
+
         locationService.getLocation();
     }
 
@@ -51,7 +52,7 @@ public class LocationTestActivity extends AppCompatActivity implements LocationT
                 DecimalFormat formatter = new DecimalFormat("#.####");
                 formatter.setRoundingMode(RoundingMode.CEILING);
                 positionLabel.setText(String.format("Długość: %s\nSzerokość: %s", formatter.format(longitude), formatter.format(latitude)));
-                timeLabel.setText(stopwatch.getDurationInSeconds());
+                timeLabel.setText(String.format("%s\n%s", stopwatch.getDurationInSeconds(), stopwatch.getDurationInMilliseconds()));
                 progressDialog.dismiss();
             }
         });

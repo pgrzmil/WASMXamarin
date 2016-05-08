@@ -41,8 +41,8 @@ public class NetworkTestActivity extends AppCompatActivity implements NetworkTes
     }
 
     public void startDownloading(View view) {
-        stopwatch.start();
         progressDialog = ProgressDialog.show(this, "Pobieranie...", "");
+        stopwatch.start();
 
         new Thread(new Runnable() {
             @Override

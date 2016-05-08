@@ -1,6 +1,4 @@
 ﻿using CoreLocation;
-using Plugin.Geolocator;
-using Plugin.Geolocator.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,37 +11,35 @@ namespace Xamarin.iOS
 {
     public delegate void LocationChangedEventHandler(double latitude, double longitude);
 
-    public class LocationUnavailableException : Exception { }
-
     public class LocationTestService
     {
         public event LocationChangedEventHandler LocationChanged;
 
-        IGeolocator locator;
+        CLLocationManager locationManager;
 
         public LocationTestService()
         {
-            locator = CrossGeolocator.Current;
-            locator.DesiredAccuracy = 10;
-            locator.PositionError += Locator_PositionError;
+            locationManager = new CLLocationManager();
+            locationManager.LocationsUpdated += LocationsUpdated;
+            locationManager.DistanceFilter = 10;
+            locationManager.DesiredAccuracy = CLLocation.AccuracyBest;
         }
 
-        public async void GetLocation()
+        public void GetLocation()
         {
-            try
-            {
-                var position = await locator.GetPositionAsync();
-                LocationChanged?.Invoke(position.Latitude, position.Longitude);
-            }
-            catch (Exception)
-            {
-                throw new LocationUnavailableException();
-            }
+            locationManager.RequestWhenInUseAuthorization();
+            locationManager.StartUpdatingLocation();
         }
 
-        private void Locator_PositionError(object sender, PositionErrorEventArgs e)
+        public void Stop()
         {
-            throw new LocationUnavailableException();
+            locationManager.StopUpdatingLocation();
+        }
+
+        private void LocationsUpdated(object sender, CLLocationsUpdatedEventArgs e)
+        {
+            var position = e.Locations.First().Coordinate;
+            LocationChanged?.Invoke(position.Latitude, position.Longitude);
         }
     }
 }

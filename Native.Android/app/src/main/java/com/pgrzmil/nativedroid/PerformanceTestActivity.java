@@ -34,8 +34,8 @@ public class PerformanceTestActivity extends AppCompatActivity implements Perfor
     }
 
     public void startCalculation(View view) {
-        stopwatch.start();
         progressDialog = ProgressDialog.show(this, "Przetwarzanie...", "");
+        stopwatch.start();
 
         final int digits = Integer.parseInt(digitsEntry.getText().toString());
         new Thread(new Runnable() {

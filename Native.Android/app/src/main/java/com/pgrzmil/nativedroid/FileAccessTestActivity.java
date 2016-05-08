@@ -46,8 +46,8 @@ public class FileAccessTestActivity extends AppCompatActivity implements Perform
     }
 
     public void startReading(View view) {
-        stopwatch.start();
         resultView.setText("");
+        stopwatch.start();
 
         String fileContents = fileAccessService.readFromFile(fileName);
         resultView.setText(fileContents);
@@ -57,8 +57,8 @@ public class FileAccessTestActivity extends AppCompatActivity implements Perform
     }
 
     public void startWriting(View view) {
-        stopwatch.start();
         resultView.setText("");
+        stopwatch.start();
 
         fileAccessService.writeToFile(fileName, contentToWrite);
 
