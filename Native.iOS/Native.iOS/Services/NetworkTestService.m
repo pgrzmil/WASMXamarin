@@ -10,10 +10,14 @@
 
 @implementation NetworkTestService
 
--(UIImage*)downloadImage:(NSString*)urlString{
+- (void)downloadImage:(NSString*)urlString{
     NSURL *url = [NSURL URLWithString:urlString];
     NSData *data = [NSData dataWithContentsOfURL:url];
-    return [UIImage imageWithData:data];
+    UIImage *resultImage = [UIImage imageWithData:data];
+    
+    if ([self.delegate conformsToProtocol:@protocol(NetworkTestServiceDelegate)]) {
+        [self.delegate imageDownloadCompleted:resultImage];
+    }
 }
 
 @end

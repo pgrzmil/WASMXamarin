@@ -41,5 +41,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Lokalizacja jest wymagana do przeprowadzenia testu</string>
 </dict>
 </plist>

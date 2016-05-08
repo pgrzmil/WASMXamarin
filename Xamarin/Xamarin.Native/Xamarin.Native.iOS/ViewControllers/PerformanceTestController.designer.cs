@@ -16,49 +16,49 @@ namespace Xamarin.Native.iOS.ViewControllers
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIActivityIndicatorView ActivityIndicator { get; set; }
+		UIActivityIndicatorView activityIndicator { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UITextField DigitsEntry { get; set; }
+		UITextField digitsEntry { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UITextView ResultView { get; set; }
+		UITextView resultView { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton StartButton { get; set; }
+		UIButton startButton { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel TimeLabel { get; set; }
+		UILabel timeLabel { get; set; }
 
-		[Action ("StartButton_TouchUpInside:")]
+		[Action ("StartCalculation:")]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		partial void StartCalculation (UIButton sender);
 
 		void ReleaseDesignerOutlets ()
 		{
-			if (ActivityIndicator != null) {
-				ActivityIndicator.Dispose ();
-				ActivityIndicator = null;
+			if (activityIndicator != null) {
+				activityIndicator.Dispose ();
+				activityIndicator = null;
 			}
-			if (DigitsEntry != null) {
-				DigitsEntry.Dispose ();
-				DigitsEntry = null;
+			if (digitsEntry != null) {
+				digitsEntry.Dispose ();
+				digitsEntry = null;
 			}
-			if (ResultView != null) {
-				ResultView.Dispose ();
-				ResultView = null;
+			if (resultView != null) {
+				resultView.Dispose ();
+				resultView = null;
 			}
-			if (StartButton != null) {
-				StartButton.Dispose ();
-				StartButton = null;
+			if (startButton != null) {
+				startButton.Dispose ();
+				startButton = null;
 			}
-			if (TimeLabel != null) {
-				TimeLabel.Dispose ();
-				TimeLabel = null;
+			if (timeLabel != null) {
+				timeLabel.Dispose ();
+				timeLabel = null;
 			}
 		}
 	}

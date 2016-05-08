@@ -119,10 +119,10 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="StartButton_TouchUpInside:" destination="19" eventType="touchUpInside" id="338"/>
+                                    <action selector="StartCalculation:" destination="19" id="355"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="285">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="285">
                                 <rect key="frame" x="290" y="160" width="20" height="20"/>
                             </activityIndicatorView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="287">
@@ -132,7 +132,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="286">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="286">
                                 <rect key="frame" x="10" y="206" width="580" height="394"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -160,11 +160,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="ActivityIndicator" destination="285" id="name-outlet-285"/>
-                        <outlet property="DigitsEntry" destination="283" id="name-outlet-283"/>
-                        <outlet property="ResultView" destination="286" id="name-outlet-286"/>
-                        <outlet property="StartButton" destination="317" id="name-outlet-317"/>
-                        <outlet property="TimeLabel" destination="287" id="name-outlet-287"/>
+                        <outlet property="activityIndicator" destination="285" id="name-outlet-285"/>
+                        <outlet property="digitsEntry" destination="283" id="name-outlet-283"/>
+                        <outlet property="resultView" destination="286" id="name-outlet-286"/>
+                        <outlet property="startButton" destination="317" id="name-outlet-317"/>
+                        <outlet property="timeLabel" destination="287" id="name-outlet-287"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="21" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -192,25 +192,28 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="295">
-                                <rect key="frame" x="20" y="145" width="76" height="35"/>
+                                <rect key="frame" x="20" y="145" width="280" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Odczytaj">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="ReadButton_TouchUpInside:" destination="26" eventType="touchUpInside" id="341"/>
+                                    <action selector="StartReading:" destination="26" id="352"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="296">
-                                <rect key="frame" x="523" y="145" width="57" height="35"/>
+                                <rect key="frame" x="300" y="145" width="280" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Zapisz">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="WriteButton_TouchUpInside:" destination="26" eventType="touchUpInside" id="342"/>
+                                    <action selector="StartWriting:" destination="26" id="353"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="297">
+                                <rect key="frame" x="290" y="152" width="20" height="20"/>
+                            </activityIndicatorView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="298">
                                 <rect key="frame" x="20" y="188" width="0.0" height="0.0"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -218,15 +221,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="299">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="299">
                                 <rect key="frame" x="10" y="196" width="580" height="396"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="297">
-                                <rect key="frame" x="290" y="152" width="20" height="20"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -242,17 +242,19 @@
                             <constraint firstItem="294" firstAttribute="top" secondItem="23" secondAttribute="bottom" constant="8" id="YsA-Yf-hSQ"/>
                             <constraint firstItem="298" firstAttribute="leading" secondItem="27" secondAttribute="leadingMargin" id="a28-7E-k2r"/>
                             <constraint firstItem="297" firstAttribute="centerX" secondItem="27" secondAttribute="centerX" id="eY3-iN-sQf"/>
+                            <constraint firstItem="296" firstAttribute="leading" secondItem="295" secondAttribute="trailing" id="hgC-ZU-mHD"/>
                             <constraint firstItem="296" firstAttribute="top" secondItem="294" secondAttribute="bottom" constant="10" id="kDI-8K-T36"/>
                             <constraint firstItem="297" firstAttribute="centerY" secondItem="295" secondAttribute="centerY" id="qoI-WI-CX7"/>
                             <constraint firstItem="296" firstAttribute="trailing" secondItem="27" secondAttribute="trailingMargin" id="sRK-ya-BHU"/>
+                            <constraint firstItem="295" firstAttribute="width" secondItem="296" secondAttribute="width" id="z6e-rt-iME"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="ActivityIndicator" destination="297" id="name-outlet-297"/>
-                        <outlet property="ReadButton" destination="295" id="name-outlet-295"/>
-                        <outlet property="ResultView" destination="299" id="name-outlet-299"/>
-                        <outlet property="TimeLabel" destination="298" id="name-outlet-298"/>
-                        <outlet property="WriteButton" destination="296" id="name-outlet-296"/>
+                        <outlet property="activityIndicator" destination="297" id="name-outlet-297"/>
+                        <outlet property="readButton" destination="295" id="name-outlet-295"/>
+                        <outlet property="resultView" destination="299" id="name-outlet-299"/>
+                        <outlet property="timeLabel" destination="298" id="name-outlet-298"/>
+                        <outlet property="writeButton" destination="296" id="name-outlet-296"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="28" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -278,16 +280,11 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="292">
-                                <rect key="frame" x="20" y="197" width="0.0" height="0.0"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="293">
-                                <rect key="frame" x="20" y="205" width="560" height="387"/>
-                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Adres" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="288">
+                                <rect key="frame" x="20" y="112" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HBz-lL-GmE">
                                 <rect key="frame" x="271" y="152" width="58" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -295,17 +292,22 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="StartButton_TouchUpInside:" destination="33" eventType="touchUpInside" id="339"/>
+                                    <action selector="StartDownloading:" destination="33" id="357"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DpC-8D-Ed9">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DpC-8D-Ed9">
                                 <rect key="frame" x="290" y="159" width="20" height="20"/>
                             </activityIndicatorView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="288">
-                                <rect key="frame" x="20" y="112" width="560" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="292">
+                                <rect key="frame" x="20" y="197" width="0.0" height="0.0"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="293">
+                                <rect key="frame" x="20" y="205" width="560" height="387"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -330,11 +332,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="ActivityIndicator" destination="DpC-8D-Ed9" id="name-outlet-DpC-8D-Ed9"/>
-                        <outlet property="AddressField" destination="288" id="name-outlet-288"/>
-                        <outlet property="DownloadedImage" destination="293" id="name-outlet-293"/>
-                        <outlet property="StartButton" destination="HBz-lL-GmE" id="name-outlet-HBz-lL-GmE"/>
-                        <outlet property="TimeLabel" destination="292" id="name-outlet-292"/>
+                        <outlet property="activityIndicator" destination="DpC-8D-Ed9" id="name-outlet-DpC-8D-Ed9"/>
+                        <outlet property="addressField" destination="288" id="name-outlet-288"/>
+                        <outlet property="downloadedImage" destination="293" id="name-outlet-293"/>
+                        <outlet property="startButton" destination="HBz-lL-GmE" id="name-outlet-HBz-lL-GmE"/>
+                        <outlet property="timeLabel" destination="292" id="name-outlet-292"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="35" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -353,13 +355,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="302">
-                                <rect key="frame" x="20" y="157" width="560" height="0.0"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Test pozwala na sprawdzenie szybkości obsługi urządzeń wewnętrznych telefonu poprzez pobranie z GPS pozycji." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="300">
                                 <rect key="frame" x="20" y="72" width="560" height="32"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -374,13 +369,20 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="StartButton_TouchUpInside:" destination="40" eventType="touchUpInside" id="340"/>
+                                    <action selector="StartPositioning:" destination="40" id="358"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="34K-EV-wcf">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="34K-EV-wcf">
                                 <rect key="frame" x="290" y="120" width="20" height="20"/>
                             </activityIndicatorView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="303">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="302">
+                                <rect key="frame" x="20" y="157" width="560" height="0.0"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="303">
                                 <rect key="frame" x="20" y="165" width="552" height="0.0"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -408,10 +410,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="ActivityIndicator" destination="34K-EV-wcf" id="name-outlet-34K-EV-wcf"/>
-                        <outlet property="PositionLabel" destination="303" id="name-outlet-303"/>
-                        <outlet property="StartButton" destination="BS8-C9-zcX" id="name-outlet-BS8-C9-zcX"/>
-                        <outlet property="TimeLabel" destination="302" id="name-outlet-302"/>
+                        <outlet property="activityIndicator" destination="34K-EV-wcf" id="name-outlet-34K-EV-wcf"/>
+                        <outlet property="positionLabel" destination="303" id="name-outlet-303"/>
+                        <outlet property="startButton" destination="BS8-C9-zcX" id="name-outlet-BS8-C9-zcX"/>
+                        <outlet property="timeLabel" destination="302" id="name-outlet-302"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="42" userLabel="First Responder" sceneMemberID="firstResponder"/>

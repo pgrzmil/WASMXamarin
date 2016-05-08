@@ -9,8 +9,16 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@protocol NetworkTestServiceDelegate <NSObject>
+
+- (void)imageDownloadCompleted:(UIImage *)image;
+
+@end
+
 @interface NetworkTestService : NSObject
 
--(UIImage*)downloadImage:(NSString*)urlString;
+@property(assign, nonatomic) id<NetworkTestServiceDelegate> delegate;
+
+- (void)downloadImage:(NSString *)urlString;
 
 @end

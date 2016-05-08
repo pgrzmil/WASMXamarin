@@ -16,41 +16,41 @@ namespace Xamarin.Native.iOS.ViewControllers
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIActivityIndicatorView ActivityIndicator { get; set; }
+		UIActivityIndicatorView activityIndicator { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel PositionLabel { get; set; }
+		UILabel positionLabel { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton StartButton { get; set; }
+		UIButton startButton { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel TimeLabel { get; set; }
+		UILabel timeLabel { get; set; }
 
-		[Action ("StartButton_TouchUpInside:")]
+		[Action ("StartPositioning:")]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		partial void StartPositioning (UIButton sender);
 
 		void ReleaseDesignerOutlets ()
 		{
-			if (ActivityIndicator != null) {
-				ActivityIndicator.Dispose ();
-				ActivityIndicator = null;
+			if (activityIndicator != null) {
+				activityIndicator.Dispose ();
+				activityIndicator = null;
 			}
-			if (PositionLabel != null) {
-				PositionLabel.Dispose ();
-				PositionLabel = null;
+			if (positionLabel != null) {
+				positionLabel.Dispose ();
+				positionLabel = null;
 			}
-			if (StartButton != null) {
-				StartButton.Dispose ();
-				StartButton = null;
+			if (startButton != null) {
+				startButton.Dispose ();
+				startButton = null;
 			}
-			if (TimeLabel != null) {
-				TimeLabel.Dispose ();
-				TimeLabel = null;
+			if (timeLabel != null) {
+				timeLabel.Dispose ();
+				timeLabel = null;
 			}
 		}
 	}

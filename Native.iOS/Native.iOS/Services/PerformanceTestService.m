@@ -20,10 +20,9 @@
     return sharedInstance;
 }
 
-
--(NSString*)calculatePi:(int) digits
+- (NSString*)calculatePi:(int)digits
 {
-    NSMutableString* result = [[NSMutableString alloc] initWithString:@""];
+    NSMutableString *result = [[NSMutableString alloc] initWithString:@""];
     digits++;
     
     uint length = digits * 3 + 2;
@@ -57,6 +56,10 @@
     }
     
     [result insertString:@"." atIndex:1];
+    if ([self.delegate conformsToProtocol:@protocol(PerformanceTestServiceDelegate)]) {
+        [self.delegate piCalculationCompleted:result];
+    }
+    
     return result;
 }
 

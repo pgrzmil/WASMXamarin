@@ -10,4 +10,7 @@
 
 @interface FileAccessTestService : NSObject
 
+- (void)writeToFile:(NSString *)fileName text:(NSString *)text;
+- (NSString*)readFromFile:(NSString *)fileName;
+
 @end

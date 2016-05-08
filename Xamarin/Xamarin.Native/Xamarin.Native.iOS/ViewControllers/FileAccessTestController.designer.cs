@@ -16,53 +16,53 @@ namespace Xamarin.Native.iOS.ViewControllers
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIActivityIndicatorView ActivityIndicator { get; set; }
+		UIActivityIndicatorView activityIndicator { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton ReadButton { get; set; }
+		UIButton readButton { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UITextView ResultView { get; set; }
+		UITextView resultView { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel TimeLabel { get; set; }
+		UILabel timeLabel { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton WriteButton { get; set; }
+		UIButton writeButton { get; set; }
 
-		[Action ("ReadButton_TouchUpInside:")]
+		[Action ("StartReading:")]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		partial void StartReadingFile(UIButton sender);
+		partial void StartReading (UIButton sender);
 
-		[Action ("WriteButton_TouchUpInside:")]
+		[Action ("StartWriting:")]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		partial void StartWritingFile (UIButton sender);
+		partial void StartWriting (UIButton sender);
 
 		void ReleaseDesignerOutlets ()
 		{
-			if (ActivityIndicator != null) {
-				ActivityIndicator.Dispose ();
-				ActivityIndicator = null;
+			if (activityIndicator != null) {
+				activityIndicator.Dispose ();
+				activityIndicator = null;
 			}
-			if (ReadButton != null) {
-				ReadButton.Dispose ();
-				ReadButton = null;
+			if (readButton != null) {
+				readButton.Dispose ();
+				readButton = null;
 			}
-			if (ResultView != null) {
-				ResultView.Dispose ();
-				ResultView = null;
+			if (resultView != null) {
+				resultView.Dispose ();
+				resultView = null;
 			}
-			if (TimeLabel != null) {
-				TimeLabel.Dispose ();
-				TimeLabel = null;
+			if (timeLabel != null) {
+				timeLabel.Dispose ();
+				timeLabel = null;
 			}
-			if (WriteButton != null) {
-				WriteButton.Dispose ();
-				WriteButton = null;
+			if (writeButton != null) {
+				writeButton.Dispose ();
+				writeButton = null;
 			}
 		}
 	}

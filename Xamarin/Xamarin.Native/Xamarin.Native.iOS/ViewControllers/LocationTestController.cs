@@ -21,46 +21,45 @@ namespace Xamarin.Native.iOS.ViewControllers
         {
             base.ViewDidLoad();
             locationService = new LocationTestService();
-            locationService.LocationChanged += LocationService_LocationChanged;
+			locationService.LocationChanged += LocationChanged;
         }
 
-        partial void StartPositioning(UIButton sender)
-        {
-            stopwatch = new Stopwatch();
-            RefreshUI(true);
+		partial void StartPositioning (UIButton sender)
+		{
+			RefreshUI(true);
+			stopwatch = new Stopwatch();
+			stopwatch.Start();
 
-            stopwatch.Start();
-            try
-            {
-                locationService.GetLocation();
-            }
-            catch (LocationUnavailableException)
-            {
-                DispatchQueue.MainQueue.DispatchAsync(() =>
-                {
-                    UIAlertView alert = new UIAlertView() { Title = "Błąd", Message = "Lokalizacja niedostępna" };
-                    alert.AddButton("OK");
-                    alert.Show();
-                });
-            }
-        }
+			try
+			{
+				locationService.GetLocation();
+			}
+			catch (LocationUnavailableException)
+			{
+				DispatchQueue.MainQueue.DispatchAsync(() =>
+				{
+					UIAlertView alert = new UIAlertView() { Title = "Błąd", Message = "Lokalizacja niedostępna" };
+					alert.AddButton("OK");
+					alert.Show();
+				});
+			}
+		}
 
-        private void LocationService_LocationChanged(double latitude, double longitude)
-        {
-            stopwatch.Stop();
-            DispatchQueue.MainQueue.DispatchAsync(() =>
-            {
-                RefreshUI(false);
-                PositionLabel.Text = string.Format("Długość: {0}\nSzerokość: {1}", Math.Round(longitude, 4), Math.Round(latitude, 4));
-                TimeLabel.Text = stopwatch.GetDurationInSeconds();
-            });
-        }
+		private void LocationChanged(double latitude, double longitude)
+		{
+			stopwatch.Stop();
+			DispatchQueue.MainQueue.DispatchAsync(() =>
+			{
+				positionLabel.Text = string.Format("Długość: {0}\nSzerokość: {1}", Math.Round(longitude, 4), Math.Round(latitude, 4));
+				timeLabel.Text = stopwatch.GetDurationInSeconds();
+				RefreshUI(false);
+			});
+		}
 
-        private void RefreshUI(bool isPositioning)
-        {
-            StartButton.Hidden = isPositioning;
-            ActivityIndicator.Hidden = !isPositioning;
-            ActivityIndicator.StartAnimating();
-        }
+		private void RefreshUI(bool isPositioning)
+		{
+			startButton.Hidden = isPositioning;
+			activityIndicator.Hidden = !isPositioning;
+		}
     }
 }

@@ -20,40 +20,41 @@ namespace Xamarin.Native.iOS.ViewControllers
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            AddressField.Text = "http://cdn.superbwallpapers.com/wallpapers/meme/doge-pattern-27481-2880x1800.jpg";
-            networkService = new NetworkTestService();
+            addressField.Text = "http://cdn.superbwallpapers.com/wallpapers/meme/doge-pattern-27481-2880x1800.jpg";
+            
+			networkService = new NetworkTestService();
             networkService.ImageDownloadCompleted += ImageDownloadCompleted;
         }
 
-        partial void StartDownloading(UIButton sender)
-        {
-            stopwatch = new Stopwatch();
-            stopwatch.Start();
-            RefreshUI(true);
+        partial void StartDownloading (UIButton sender)
+		{
+			downloadedImage.Image = null;
+			RefreshUI(true);
+			stopwatch = new Stopwatch();
+			stopwatch.Start();
 
-            DispatchQueue.DefaultGlobalQueue.DispatchAsync(() =>
-            {
-                networkService.DownloadImage(AddressField.Text);
-            });
-        }
+			DispatchQueue.DefaultGlobalQueue.DispatchAsync(() =>
+			{
+				networkService.DownloadImage(addressField.Text);
+			});
+		}
 
-        private void ImageDownloadCompleted(UIImage image)
-        {
-            stopwatch.Stop();
-            DispatchQueue.MainQueue.DispatchAsync(() =>
-            {
-                DownloadedImage.Image = image;
-                TimeLabel.Text = stopwatch.GetDurationInSeconds();
-                RefreshUI(false);
-            });
-        }
+		private void ImageDownloadCompleted(UIImage image)
+		{
+			stopwatch.Stop();
+			DispatchQueue.MainQueue.DispatchAsync(() =>
+			{
+				downloadedImage.Image = image;
+				timeLabel.Text = stopwatch.GetDurationInSeconds();
+				RefreshUI(false);
+			});
+		}
 
-        private void RefreshUI(bool isDownloading)
-        {
-            StartButton.Hidden = isDownloading;
-            AddressField.Enabled = isDownloading;
-            ActivityIndicator.Hidden = !isDownloading;
-            ActivityIndicator.StartAnimating();
-        }
+		private void RefreshUI(bool isDownloading)
+		{
+			startButton.Hidden = isDownloading;
+			addressField.Enabled = isDownloading;
+			activityIndicator.Hidden = !isDownloading;
+		}
     }
 }

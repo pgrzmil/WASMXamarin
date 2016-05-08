@@ -23,37 +23,39 @@ namespace Xamarin.Native.iOS.ViewControllers
             PerformanceTestService.Instance.PiCalculationCompleted += PiCalculationCompleted;
         }
 
-        partial void StartCalculation(UIButton sender)
-        {
-            stopwatch = new Stopwatch();
-            stopwatch.Start();
-            RefreshUI(true);
+  		partial void StartCalculation (UIButton sender)
+		{
+			resultView.Text = @"";
+			RefreshUI(true);
+			stopwatch = new Stopwatch();
+			stopwatch.Start();
 
-            var digits = Convert.ToInt32(DigitsEntry.Text);
-            DispatchQueue.DefaultGlobalQueue.DispatchAsync(() =>
-            {
-                PerformanceTestService.Instance.CalculatePi(digits);
-            });
-        }
+			var digits = Convert.ToInt32(digitsEntry.Text);
+			DispatchQueue.DefaultGlobalQueue.DispatchAsync(() =>
+			{
+				PerformanceTestService.Instance.CalculatePi(digits);
+			});
+		}
 
-        private void PiCalculationCompleted(string result)
-        {
-            stopwatch.Stop();
+		private void PiCalculationCompleted(string result)
+		{
+			stopwatch.Stop();
 
-            DispatchQueue.MainQueue.DispatchAsync(() =>
-            {
-                ResultView.Text = result;
-                TimeLabel.Text = stopwatch.GetDurationInSeconds();
-                RefreshUI(false);
-            });
-        }
+			DispatchQueue.MainQueue.DispatchAsync(() =>
+			{
+				resultView.Text = result;
+				timeLabel.Text = stopwatch.GetDurationInSeconds();
+				RefreshUI(false);
+			});
+		}
 
-        private void RefreshUI(bool isCalculating)
-        {
-            StartButton.Hidden = isCalculating;
-            DigitsEntry.Enabled = isCalculating;
-            ActivityIndicator.Hidden = !isCalculating;
-            ActivityIndicator.StartAnimating();
-        }
+		private void RefreshUI(bool isCalculating)
+		{
+			startButton.Hidden = isCalculating;
+			digitsEntry.Enabled = isCalculating;
+			activityIndicator.Hidden = !isCalculating;
+		}
+
+
     }
 }

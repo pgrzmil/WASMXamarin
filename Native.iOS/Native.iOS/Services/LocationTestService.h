@@ -8,6 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol LocationTestServiceDelegate <NSObject>
+
+- (void)locationChanged:(double)latitude longitude:(double)longitude;
+
+@end
+
 @interface LocationTestService : NSObject
+
+@property(assign, nonatomic) id<LocationTestServiceDelegate> delegate;
+
+- (void)getLocation;
+- (void)stop;
 
 @end

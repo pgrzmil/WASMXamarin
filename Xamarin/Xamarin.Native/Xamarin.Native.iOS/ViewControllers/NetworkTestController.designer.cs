@@ -16,49 +16,49 @@ namespace Xamarin.Native.iOS.ViewControllers
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIActivityIndicatorView ActivityIndicator { get; set; }
+		UIActivityIndicatorView activityIndicator { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UITextField AddressField { get; set; }
+		UITextField addressField { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIImageView DownloadedImage { get; set; }
+		UIImageView downloadedImage { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton StartButton { get; set; }
+		UIButton startButton { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel TimeLabel { get; set; }
+		UILabel timeLabel { get; set; }
 
-		[Action ("StartButton_TouchUpInside:")]
+		[Action ("StartDownloading:")]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		partial void StartDownloading (UIButton sender);
 
 		void ReleaseDesignerOutlets ()
 		{
-			if (ActivityIndicator != null) {
-				ActivityIndicator.Dispose ();
-				ActivityIndicator = null;
+			if (activityIndicator != null) {
+				activityIndicator.Dispose ();
+				activityIndicator = null;
 			}
-			if (AddressField != null) {
-				AddressField.Dispose ();
-				AddressField = null;
+			if (addressField != null) {
+				addressField.Dispose ();
+				addressField = null;
 			}
-			if (DownloadedImage != null) {
-				DownloadedImage.Dispose ();
-				DownloadedImage = null;
+			if (downloadedImage != null) {
+				downloadedImage.Dispose ();
+				downloadedImage = null;
 			}
-			if (StartButton != null) {
-				StartButton.Dispose ();
-				StartButton = null;
+			if (startButton != null) {
+				startButton.Dispose ();
+				startButton = null;
 			}
-			if (TimeLabel != null) {
-				TimeLabel.Dispose ();
-				TimeLabel = null;
+			if (timeLabel != null) {
+				timeLabel.Dispose ();
+				timeLabel = null;
 			}
 		}
 	}

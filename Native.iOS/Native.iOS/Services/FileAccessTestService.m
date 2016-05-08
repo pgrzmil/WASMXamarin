@@ -10,4 +10,24 @@
 
 @implementation FileAccessTestService
 
+- (void)writeToFile:(NSString *)fileName text:(NSString *)text{
+    NSString *filePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    fileName = [NSString stringWithFormat:@"/%@", fileName];
+    NSString *fileAtPath = [filePath stringByAppendingString:fileName];
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:fileAtPath]) {
+        [[NSFileManager defaultManager] createFileAtPath:fileAtPath contents:nil attributes:nil];
+    }
+    
+    [[text dataUsingEncoding:NSUTF8StringEncoding] writeToFile:fileAtPath atomically:NO];
+}
+
+- (NSString*)readFromFile:(NSString *)fileName{
+    NSString *filePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    fileName = [NSString stringWithFormat:@"/%@", fileName];
+    NSString *fileAtPath = [filePath stringByAppendingString:fileName];
+    
+    return [[NSString alloc] initWithData:[NSData dataWithContentsOfFile:fileAtPath] encoding:NSUTF8StringEncoding];
+}
+
 @end

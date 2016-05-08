@@ -8,9 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol PerformanceTestServiceDelegate <NSObject>
+
+- (void)piCalculationCompleted:(NSString *)result;
+
+@end
+
 @interface PerformanceTestService : NSObject
 
+@property(assign, nonatomic) id<PerformanceTestServiceDelegate> delegate;
+
 + (instancetype)instance;
-- (NSString*)calculatePi:(int) digits;
+- (NSString*)calculatePi:(int)digits;
 
 @end

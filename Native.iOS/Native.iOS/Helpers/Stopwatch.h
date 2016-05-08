@@ -10,9 +10,9 @@
 
 @interface Stopwatch : NSObject
 
--(void)start;
--(void)stop;
--(NSString*)getDurationInMilliseconds;
--(NSString*)getDurationInSeconds;
+- (void)start;
+- (void)stop;
+- (NSString *)getDurationInMilliseconds;
+- (NSString *)getDurationInSeconds;
 
 @end
