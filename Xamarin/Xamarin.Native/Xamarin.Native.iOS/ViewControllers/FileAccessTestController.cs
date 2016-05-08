@@ -13,51 +13,41 @@ namespace Xamarin.Native.iOS.ViewControllers
         Stopwatch stopwatch;
         FileAccessTestService fileAccessService;
         string fileName = "testFile.txt";
-        int digits = 10000;
+        int digits = 1000;
         string contentToWrite;
 
         public FileAccessTestController(IntPtr handle) : base(handle)
         {
         }
 
-        public override void DidReceiveMemoryWarning()
-        {
-            base.DidReceiveMemoryWarning();
-        }
-
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
             fileAccessService = new FileAccessTestService();
+            contentToWrite = Task.Run(() => PerformanceTestService.Instance.CalculatePi(digits)).Result;
         }
 
         partial void StartReadingFile(UIButton sender)
         {
             stopwatch = new Stopwatch();
-            RefreshUI(true);
-
             stopwatch.Start();
+            RefreshUI(true);
 
             var fileContents = fileAccessService.ReadFromFile(fileName);
             ResultView.Text = fileContents;
 
-            stopwatch.Stop();
             RefreshUI(false);
+            stopwatch.Stop();
             TimeLabel.Text = stopwatch.GetDurationInMilliseconds();
         }
 
         partial void StartWritingFile(UIButton sender)
         {
             stopwatch = new Stopwatch();
-            RefreshUI(true);
-            ResultView.Text = String.Empty;
-
-            if (contentToWrite == null)
-            {
-                contentToWrite = Task.Run(() => PerformanceTestService.Instance.CalculatePi(digits)).Result;
-            }
-
             stopwatch.Start();
+
+            RefreshUI(true);
+            ResultView.Text = "";
 
             fileAccessService.WriteToFile(fileName, contentToWrite);
 

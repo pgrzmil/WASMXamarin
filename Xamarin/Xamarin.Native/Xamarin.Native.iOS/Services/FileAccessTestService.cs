@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AVFoundation;
+using Foundation;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,17 +13,23 @@ namespace Xamarin.Services
     {
         public void WriteToFile(string filename, string text)
         {
-            var documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            var filePath = Path.Combine(documentsPath, filename);
-            File.Delete(filePath);
-            File.WriteAllText(filePath, text);
+            string filePath = NSSearchPath.GetDirectories(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomain.User, true)[0];
+            string fileAtPath = filePath + filename;
+            NSFileManager.DefaultManager.CreateFile(fileAtPath, new NSData(), NSFileAttributes.FromDictionary(new NSDictionary()));
+            var a = new NSString(text);
+
+            var data = a.Encode(NSStringEncoding.UTF8);
+            data.Save(fileAtPath, false);
         }
 
         public string ReadFromFile(string filename)
         {
-            var documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            var filePath = Path.Combine(documentsPath, filename);
-            return File.ReadAllText(filePath);
+            string filePath = NSSearchPath.GetDirectories(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomain.User, true)[0];
+            string fileAtPath = filePath + filename;
+
+            var data = NSData.FromFile(fileAtPath);
+            var a = new NSString(data, NSStringEncoding.UTF8);
+            return a;
         }
     }
 }

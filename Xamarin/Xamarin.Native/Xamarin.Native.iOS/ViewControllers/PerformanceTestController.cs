@@ -17,40 +17,34 @@ namespace Xamarin.Native.iOS.ViewControllers
         {
         }
 
-        public override void DidReceiveMemoryWarning()
-        {
-            base.DidReceiveMemoryWarning();
-        }
-
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            PerformanceTestService.Instance.PiCalculationCompleted += Instance_CalculationCompleted;
+            PerformanceTestService.Instance.PiCalculationCompleted += PiCalculationCompleted;
         }
 
         partial void StartCalculation(UIButton sender)
         {
             stopwatch = new Stopwatch();
+            stopwatch.Start();
             RefreshUI(true);
 
             var digits = Convert.ToInt32(DigitsEntry.Text);
-            Task.Run(() =>
+            DispatchQueue.DefaultGlobalQueue.DispatchAsync(() =>
             {
-                stopwatch.Start();
                 PerformanceTestService.Instance.CalculatePi(digits);
             });
         }
 
-        private void Instance_CalculationCompleted(string result)
+        private void PiCalculationCompleted(string result)
         {
             stopwatch.Stop();
 
             DispatchQueue.MainQueue.DispatchAsync(() =>
             {
                 ResultView.Text = result;
-                RefreshUI(false);
-
                 TimeLabel.Text = stopwatch.GetDurationInSeconds();
+                RefreshUI(false);
             });
         }
 
