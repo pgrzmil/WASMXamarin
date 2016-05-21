@@ -15,6 +15,11 @@ namespace Xamarin.Forms.Services
 
         public async void WriteToFile(string filename, string text)
         {
+            if (await _rootFolder.CheckExistsAsync(filename) == ExistenceCheckResult.FileExists)
+            {
+                var fileToRemove = await _rootFolder.GetFileAsync(filename);
+                await fileToRemove.DeleteAsync();
+            }
             var file = await _rootFolder.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
             await file.WriteAllTextAsync(text);
         }

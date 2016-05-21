@@ -16,12 +16,14 @@ namespace Xamarin.Services
             var textToWrite = new NSString(text);
             string filePath = NSSearchPath.GetDirectories(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomain.User, true)[0];
             filePath = string.Format("{0}/{1}", filePath, filename);
+            NSError error = new NSError();
 
-            if (!NSFileManager.DefaultManager.FileExists(filePath))
+            if (NSFileManager.DefaultManager.FileExists(filePath))
             {
-                NSFileManager.DefaultManager.CreateFile(filePath, new NSData(), NSFileAttributes.FromDictionary(new NSDictionary()));
+                NSFileManager.DefaultManager.Remove(filePath, out error);
             }
 
+            NSFileManager.DefaultManager.CreateFile(filePath, new NSData(), NSFileAttributes.FromDictionary(new NSDictionary()));
             var data = textToWrite.Encode(NSStringEncoding.UTF8);
             data.Save(filePath, false);
         }

@@ -22,6 +22,12 @@ namespace Xamarin.Services
         {
             try
             {
+                File file = new File(context.FilesDir.AbsolutePath, fileName);
+                if (file.Exists())
+                {
+                    file.Delete();
+                }
+
                 var outputStreamWriter = new OutputStreamWriter(context.OpenFileOutput(fileName, FileCreationMode.Private));
                 outputStreamWriter.Write(text);
                 outputStreamWriter.Close();

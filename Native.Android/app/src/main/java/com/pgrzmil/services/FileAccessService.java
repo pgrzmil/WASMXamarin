@@ -16,6 +16,11 @@ public class FileAccessService {
 
     public void writeToFile(String fileName, String text) {
         try {
+            File file = new File(context.getFilesDir().getAbsolutePath(), fileName);
+            if (file.exists()) {
+                file.delete();
+            }
+
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput(fileName, Context.MODE_PRIVATE));
             outputStreamWriter.write(text);
             outputStreamWriter.close();
