@@ -27,7 +27,7 @@
 @implementation FileAccessTestController
 int digits = 10000;
 NSString *fileName = @"testFile.txt";
-NSString *contentToWrite;
+static NSString *contentToWrite;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,11 +36,13 @@ NSString *contentToWrite;
     self.stopwatch = [Stopwatch new];
     self.fileAccessService = [FileAccessTestService new];
     
-    [self refreshUI:true];
-    dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        contentToWrite = [[PerformanceTestService instance] calculatePi:digits];
-        dispatch_async( dispatch_get_main_queue(), ^{ [self refreshUI:false]; });
-    });
+    if (contentToWrite == nil) {
+        [self refreshUI:true];
+        dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            contentToWrite = [[PerformanceTestService instance] calculatePi:digits];
+            dispatch_async( dispatch_get_main_queue(), ^{ [self refreshUI:false]; });
+        });
+    }
 }
 
 - (IBAction)startReading:(id)sender {
