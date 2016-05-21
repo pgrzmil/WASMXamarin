@@ -20,7 +20,7 @@ namespace Xamarin.Native.Droid.Activities
     {
         string fileName = "testFile.txt";
         int digits = 10000;
-        string contentToWrite;
+        static string contentToWrite;
         Stopwatch stopwatch;
 
         Button writeButton;
@@ -47,8 +47,11 @@ namespace Xamarin.Native.Droid.Activities
 
             fileAccessService = new FileAccessTestService(this);
 
-            progressDialog = ProgressDialog.Show(this, "Przetwarzanie...", "");
-            new Thread(new Runnable(() => { PerformanceTestService.Instance.CalculatePi(digits); })).Start();
+            if (contentToWrite == null)
+            {
+                progressDialog = ProgressDialog.Show(this, "Przetwarzanie...", "");
+                new Thread(new Runnable(() => { PerformanceTestService.Instance.CalculatePi(digits); })).Start();
+            }
         }
 
         private void StartReading(object sender, EventArgs e)

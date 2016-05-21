@@ -20,7 +20,7 @@ public class FileAccessTestActivity extends AppCompatActivity implements Perform
     TextView resultView;
     ProgressDialog progressDialog;
     FileAccessService fileAccessService;
-    String contentToWrite;
+    static String contentToWrite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +37,14 @@ public class FileAccessTestActivity extends AppCompatActivity implements Perform
         fileAccessService = new FileAccessService(this);
         PerformanceTestService.getInstance().addListener(this);
 
-        progressDialog = ProgressDialog.show(this, "Przetwarzanie...", "");
-        new Thread(new Runnable() {
-            public void run() {
-                PerformanceTestService.getInstance().calculatePi(digits);
-            }
-        }).start();
+        if (contentToWrite == null) {
+            progressDialog = ProgressDialog.show(this, "Przetwarzanie...", "");
+            new Thread(new Runnable() {
+                public void run() {
+                    PerformanceTestService.getInstance().calculatePi(digits);
+                }
+            }).start();
+        }
     }
 
     public void startReading(View view) {

@@ -15,7 +15,7 @@ namespace Xamarin.Native.iOS.ViewControllers
         FileAccessTestService fileAccessService;
         string fileName = "testFile.txt";
         int digits = 10000;
-        string contentToWrite;
+        static string contentToWrite;
 
         public FileAccessTestController(IntPtr handle) : base(handle)
         {
@@ -27,11 +27,15 @@ namespace Xamarin.Native.iOS.ViewControllers
             fileAccessService = new FileAccessTestService();
 
             RefreshUI(true);
-            DispatchQueue.DefaultGlobalQueue.DispatchAsync(() =>
+
+            if (contentToWrite == null)
             {
-                contentToWrite = PerformanceTestService.Instance.CalculatePi(digits);
-                DispatchQueue.MainQueue.DispatchAsync(() => RefreshUI(false));
-            });
+                DispatchQueue.DefaultGlobalQueue.DispatchAsync(() =>
+                    {
+                        contentToWrite = PerformanceTestService.Instance.CalculatePi(digits);
+                        DispatchQueue.MainQueue.DispatchAsync(() => RefreshUI(false));
+                    });
+            }
         }
 
         partial void StartReading(UIButton sender)

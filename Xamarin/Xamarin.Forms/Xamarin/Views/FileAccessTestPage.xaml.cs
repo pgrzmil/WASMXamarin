@@ -17,7 +17,7 @@ namespace Xamarin.Views
         int digits = 10000;
         Stopwatch stopwatch;
         FileAccessTestService fileAccessService;
-        string contentToWrite;
+        static string contentToWrite;
 
         public FileAccessPage()
         {
@@ -30,7 +30,10 @@ namespace Xamarin.Views
         {
             base.OnAppearing();
             RefreshUI(true);
-            contentToWrite = await Task.Run(() => PerformanceTestService.Instance.CalculatePi(digits));
+            if (contentToWrite == null)
+            {
+                contentToWrite = await Task.Run(() => PerformanceTestService.Instance.CalculatePi(digits));
+            }
             RefreshUI(false);
         }
 
