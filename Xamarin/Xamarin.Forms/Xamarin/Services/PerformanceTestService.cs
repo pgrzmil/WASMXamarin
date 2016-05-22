@@ -48,12 +48,13 @@ namespace Xamarin.Forms.Services
                 if (i < digits - 1)
                     result.Append((x[x.Length - 1] / 10).ToString());
 
-                r[x.Length - 1] = x[x.Length - 1] % 10; ;
+                r[x.Length - 1] = x[x.Length - 1] % 10;
                 for (int j = 0; j < x.Length; j++)
                     x[j] = r[j] * 10;
             }
 
-            var pi = result.Insert(1, ".").ToString();
+            var pi = result.Insert(1, ".").
+                ToString();
             PiCalculationCompleted?.Invoke(pi);
             return pi;
         }
