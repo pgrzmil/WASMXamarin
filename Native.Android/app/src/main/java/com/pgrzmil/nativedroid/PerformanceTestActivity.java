@@ -7,10 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
+import android.app.Activity;
 import com.pgrzmil.services.*;
 
-public class PerformanceTestActivity extends AppCompatActivity implements PerformanceTestListener {
+public class PerformanceTestActivity extends Activity implements PerformanceTestListener {
     Stopwatch stopwatch;
     Button startButton;
     EditText digitsEntry;

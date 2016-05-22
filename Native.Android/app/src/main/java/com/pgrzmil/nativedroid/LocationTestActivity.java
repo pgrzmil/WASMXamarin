@@ -5,13 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
+import android.app.Activity;
 
 import com.pgrzmil.services.*;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
-public class LocationTestActivity extends AppCompatActivity implements LocationTestListener {
+public class LocationTestActivity extends Activity implements LocationTestListener {
     Stopwatch stopwatch;
     LocationTestService locationService;
     Button startButton;

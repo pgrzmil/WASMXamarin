@@ -1,12 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context="com.pgrzmil.nativedroid.MenuActivity">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    tools:context="com.pgrzmil.nativedroid.MenuActivity"
+    android:padding="10dp">
 
-    <include layout="@layout/content_main" />
-
-</android.support.design.widget.CoordinatorLayout>
+    <Button
+        android:id="@+id/performanceButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/menuPerformance"
+        android:onClick="openPerformanceTestActivity"/>
+    <Button
+        android:id="@+id/networkButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/menuNetwork"
+        android:onClick="openNetworkTestActivity"/>
+    <Button
+        android:id="@+id/fileAccessButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/menuFileAccess"
+        android:onClick="openFileAccessTestActivity"/>
+    <Button
+        android:id="@+id/locationButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/menuLocation"
+        android:onClick="openLocationTestActivity"/>
+</LinearLayout>

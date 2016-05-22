@@ -1,5 +1,6 @@
 package com.pgrzmil.nativedroid;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,7 +10,7 @@ import android.widget.TextView;
 
 import com.pgrzmil.services.*;
 
-public class FileAccessTestActivity extends AppCompatActivity implements PerformanceTestListener {
+public class FileAccessTestActivity extends Activity implements PerformanceTestListener {
     String fileName = "testFile.txt";
     int digits = 10000;
 

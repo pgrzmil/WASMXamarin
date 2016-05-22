@@ -13,15 +13,15 @@ namespace Xamarin.Forms.Services
     {
         private readonly IFolder _rootFolder = FileSystem.Current.LocalStorage;
 
-        public async void WriteToFile(string filename, string text)
+        public void WriteToFile(string filename, string text)
         {
-            if (await _rootFolder.CheckExistsAsync(filename) == ExistenceCheckResult.FileExists)
+            if (_rootFolder.CheckExistsAsync(filename).Result == ExistenceCheckResult.FileExists)
             {
-                var fileToRemove = await _rootFolder.GetFileAsync(filename);
-                await fileToRemove.DeleteAsync();
+                var fileToRemove = _rootFolder.GetFileAsync(filename).Result;
+                fileToRemove.DeleteAsync().Wait();
             }
-            var file = await _rootFolder.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
-            await file.WriteAllTextAsync(text);
+            var file = _rootFolder.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting).Result;
+            file.WriteAllTextAsync(text).Wait();
         }
 
         public string ReadFromFile(string filename)

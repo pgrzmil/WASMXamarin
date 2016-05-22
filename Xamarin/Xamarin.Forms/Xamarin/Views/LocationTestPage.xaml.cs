@@ -40,7 +40,7 @@ namespace Xamarin.Views
             Device.BeginInvokeOnMainThread(() =>
             {
                 positionLabel.Text = string.Format("Długość: {0}\nSzerokość: {1}", Math.Round(longitude, 4), Math.Round(latitude, 4));
-                timeLabel.Text = stopwatch.GetDurationInSeconds();
+                timeLabel.Text = string.Format("{0}\n{1}", stopwatch.GetDurationInSeconds(), stopwatch.GetDurationInMilliseconds());
                 RefreshUI(false);
             });
         }

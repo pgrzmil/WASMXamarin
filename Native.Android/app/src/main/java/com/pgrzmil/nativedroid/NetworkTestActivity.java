@@ -9,11 +9,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.app.Activity;
 
 import com.pgrzmil.services.NetworkTestListener;
 import com.pgrzmil.services.NetworkTestService;
 
-public class NetworkTestActivity extends AppCompatActivity implements NetworkTestListener {
+public class NetworkTestActivity extends Activity implements NetworkTestListener {
     Stopwatch stopwatch;
     NetworkTestService networkService;
     Button startButton;
